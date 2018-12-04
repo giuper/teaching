@@ -49,7 +49,7 @@ main(int argc, char *argv[])
     int ekl;
     unsigned char *ek[1];
     int lenek=EVP_PKEY_size(publicKey[0]);
-    ek[0]=malloc(EVP_PKEY_size(publicKey[0]));
+    ek[0]=malloc(lenek);
     int leniv=EVP_CIPHER_iv_length(blockCipher);
     unsigned char *iv=malloc(leniv);
 

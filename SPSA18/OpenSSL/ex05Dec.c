@@ -40,6 +40,12 @@ main(int argc, char *argv[])
         return 2;
     }
 
+    FILE *ctFile=fopen(argv[2],"r");
+    int ciphertext_len;
+    fscanf(ctFile,"%d",&ciphertext_len);
+    char *ciphertext=malloc(ciphertext_len);
+    readBin(ciphertext,ciphertext_len,ctFile);
+
     EVP_CIPHER_CTX *ctx=EVP_CIPHER_CTX_new();
 
     if(ctx==NULL){
@@ -48,11 +54,6 @@ main(int argc, char *argv[])
         return 3;
     }
 
-    FILE *ctFile=fopen(argv[2],"r");
-    int ciphertext_len;
-    fscanf(ctFile,"%d",&ciphertext_len);
-    char *ciphertext=malloc(ciphertext_len);
-    readBin(ciphertext,ciphertext_len,ctFile);
 
     int eklen=EVP_PKEY_size(privateKey);
     unsigned char *ek=malloc(eklen);

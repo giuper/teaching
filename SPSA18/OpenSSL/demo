@@ -28,6 +28,8 @@ echo "  Encrypted Private key in file:   " ${KEYDIR}${DSAPrivateKey}
 echo "  UnEncrypted Private key in file: " ${KEYDIR}"Un"${DSAPrivateKey}
 echo "     in PKCS#8 encoded in PEM"
 ./ex01DSA ${KEYDIR}${DSAPublicKey} ${KEYDIR}${DSAPrivateKey} ${KEYDIR}"Un"${DSAPrivateKey}
+echo
+echo
 
 
 echo "Printing the RSA key pair using ex02"
@@ -38,9 +40,11 @@ echo "Printing the DSA key pair using ex02"
 ./ex02 ${KEYDIR}${DSAPublicKey} ${KEYDIR}${DSAPrivateKey} 
 echo
 
+
 echo "Encrypting and decrypting message using ex03RSA"
 ./ex03RSA ${KEYDIR}${RSAPublicKey} ${KEYDIR}${RSAPrivateKey} 
 echo
+
 
 echo "Encrypting message using the EVP interface"
 ./ex04Enc ${KEYDIR}${RSAPublicKey} ${CTDIR}${ct}

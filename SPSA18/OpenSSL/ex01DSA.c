@@ -1,8 +1,8 @@
-#include <stdio.h>
 #include <openssl/evp.h>
 #include <openssl/dsa.h>
 #include <openssl/pem.h>
 
+#include <stdio.h>
 #include "algorithms.h"
 
 int

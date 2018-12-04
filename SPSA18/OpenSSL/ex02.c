@@ -26,7 +26,7 @@ main(int argc, char *argv[])
 
     if(publicKey!=NULL){
         printf("Printing the public key\n");
-        EVP_PKEY_print_private(b,publicKey,4,NULL);
+        EVP_PKEY_print_public(b,publicKey,4,NULL);
         printf("\n\n");
     }
     if(privateKey!=NULL){

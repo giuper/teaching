@@ -1,12 +1,8 @@
 #include <openssl/conf.h>
-#include <openssl/evp.h>
 #include <openssl/pem.h>
 #include <openssl/rsa.h>
 
-#include <openssl/bn.h>
 #include <stdio.h>
-#include <string.h>
-
 #include "algorithms.h"
 
 int
