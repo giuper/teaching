@@ -8,9 +8,13 @@ set RSAPrivateKey="RSAPrivate.pem"
 set RSAPublicKey="RSAPublic.pem"
 set DSAPrivateKey="DSAPrivate.pem"
 set DSAPublicKey="DSAPublic.pem"
+set ECDSAPublicKey="ECDSAPublic.pem"
+set ECDSAPrivateKey="ECDSAPrivate.pem"
 set ct="Ciphertext.txt"
 set sig="Signature.txt"
 
+mkdir -p ${KEYDIR}
+mkdir -p ${CTDIR}
 echo "Generating RSA key pair using ex01RSA"
 echo "Results stored in files: "
 echo "  Public key in file:              " ${KEYDIR}${RSAPublicKey}
@@ -31,6 +35,10 @@ echo "     in PKCS#8 encoded in PEM"
 echo
 echo
 
+echo "Generating ECDSA key pair using openSSL"
+openssl ecparam -name prime256v1 -genkey -noout -out ${KEYDIR}${ECDSAPrivateKey}
+openssl ec -in ${KEYDIR}${ECDSAPrivateKey} -pubout -out ${KEYDIR}${ECDSAPublicKey} 
+
 
 echo "Printing the RSA key pair using ex02"
 ./ex02 ${KEYDIR}${RSAPublicKey} ${KEYDIR}${RSAPrivateKey} 
@@ -38,6 +46,10 @@ echo
  
 echo "Printing the DSA key pair using ex02"
 ./ex02 ${KEYDIR}${DSAPublicKey} ${KEYDIR}${DSAPrivateKey} 
+echo
+
+echo "Printing the ECDSA key pair using ex02"
+./ex02 ${KEYDIR}${ECDSAPublicKey} ${KEYDIR}${ECDSAPrivateKey} 
 echo
 
 
@@ -63,5 +75,11 @@ echo "Signing message using DSA Key"
 ./ex06Sig ${KEYDIR}${DSAPrivateKey} ${CTDIR}"DSA"${sig}
 echo "Verifying message using DSA Key"
 ./ex07Ver ${KEYDIR}${DSAPublicKey} ${CTDIR}"DSA"${sig}
+echo
+
+echo "Signing message using ECDSA Key"
+./ex06Sig ${KEYDIR}${ECDSAPrivateKey} ${CTDIR}"ECDSA"${sig}
+echo "Verifying message using DSA Key"
+./ex07Ver ${KEYDIR}${ECDSAPublicKey} ${CTDIR}"ECDSA"${sig}
 echo
 

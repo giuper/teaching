@@ -59,14 +59,14 @@ main(int argc, char *argv[])
     }
  
     int slen;
-    if(1 != EVP_DigestSignFinal(mdctx,NULL,&slen)){
+    if(1 != EVP_DigestSignFinal(mdctx,NULL,(size_t *)&slen)){
         fprintf(stderr,"Could not finalize\n");
         return 1;
     }
 
     sig=malloc(slen);
     
-    if(1!=EVP_DigestSignFinal(mdctx,sig,&slen)){
+    if(1!=EVP_DigestSignFinal(mdctx,sig,(size_t *)&slen)){
         fprintf(stderr,"Could not finalize2\n");
         return 1;
     }
