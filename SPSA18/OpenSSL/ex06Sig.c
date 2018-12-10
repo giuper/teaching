@@ -58,7 +58,7 @@ main(int argc, char *argv[])
         return 1;
     }
  
-    int slen;
+    size_t slen;
     if(1 != EVP_DigestSignFinal(mdctx,NULL,(size_t *)&slen)){
         fprintf(stderr,"Could not finalize\n");
         return 1;
