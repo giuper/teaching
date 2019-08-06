@@ -7,56 +7,72 @@
 
 static physPlainBlock *memory[MaxNumLev];
 static int levSize[MaxNumLev+1];
-static int nOPs=0;
 
 
-void resetTelemetry(){printf("Telemetry reset\n");nOPs=0;}
-char *readTelemetry(){return (char *)&nOPs;}
+void
+copyBlock(physPlainBlock *d, physPlainBlock *s)
+{
 
-char *
-readPhysPlainBlock(Request *req)
+    d->lev=s->lev;
+    d->logInd=s->logInd;
+    d->dummy=s->dummy;
+    memcpy(d->block,s->block,sBlock);
+}
+
+void
+moveToWorkTape(int *pl)
+{
+
+    int lev=*pl;
+    fprintf(stdout,"Move level %d to worktape\n",lev);
+    for(int j=0;j<levSize[lev];j++)
+        copyBlock(memory[MaxLev+1]+j,memory[lev]+j);
+        
+}
+
+void
+moveFromWorkTape(int *pl)
+{
+
+    int lev=*pl;
+    fprintf(stdout,"Move worktape to level %d\n",lev);
+    for(int j=0;j<levSize[lev];j++)
+        copyBlock(memory[lev]+j,memory[MaxLev+1]+j);
+        
+}
+
+physPlainBlock *
+readPhysPlainBlock(rRequest *rr)
 {
 
     physPlainBlock *res=(physPlainBlock *)malloc(sizeof(physPlainBlock));
 
-    int lev=req->lev;
-    int pi=req->physInd;
+    int lev=rr->lev;
+    int pi=rr->physInd;
+   	fprintf(stdout,"reading physical block: %2d at lev %d\n",rr->physInd,rr->lev);
     physPlainBlock *Level=memory[lev];
     physPlainBlock *pPB=Level+pi;
 
-   	fprintf(stdout,"reading physical block: %2d at lev %d\n",req->physInd,req->lev);
+   	fprintf(stdout,"\treturning block with logId %d\n",pPB->logInd);
 
-    nOPs++;
-
-    res->physInd=pi;
-    res->logInd=pPB->logInd;
-    memcpy(res->block,pPB->block,sBlock);
-   	fprintf(stdout,"returning physical block: %2d at lev %d with logId %d\n",req->physInd,req->lev,res->logInd);
-
-    return (char *)res;
+    return (char *)pPB;
 }
 
 void 
-writePhysPlainBlock(Request *req)
+writePhysPlainBlock(wRequest *wr)
 {
 
+    int lev=wr->lev;
+    int pi=wr->physInd;
    	fprintf(stdout,"writing physical block: %d (log: %d) for lev %d %c\n",
-                                req->physInd,req->logInd,req->lev,req->block[0]);
+                                pi,wr->pb->logInd,lev,wr->pb->block[0]);
 
-    nOPs++;
-
-    int lev=req->lev;
-    int pi=req->physInd;
     physPlainBlock *Level=memory[lev];
     physPlainBlock *pPB=Level+pi;
 
     
     if (pi<levSize[lev]){
-        memcpy(pPB->block,req->block,sBlock);
-        pPB->logInd=req->logInd;
-        pPB->physInd=req->physInd;
-        pPB->block[1]='f'; pPB->block[2]='u';
-        pPB->block[3]='c'; pPB->block[4]='k';
+        copyBlock(pPB,wr->pb);
     }
 }
  
@@ -76,7 +92,6 @@ initServer(serverConf *sc)
         memory[lev]=(physPlainBlock *)malloc(levSize[lev]*sizeof(physPlainBlock));
         for(j=0,ptr=memory[lev];j<levSize[lev];j++,ptr++){
             ptr->lev=lev;
-            ptr->physInd=j;
             ptr->logInd=j;
             ptr->dummy=1;  /* dummy */
         }
@@ -89,40 +104,13 @@ initServer(serverConf *sc)
     /* we initialize the work tape */
     levSize[sc->numLev+1]=2*levSize[sc->numLev];
     memory[sc->numLev+1]=(physPlainBlock *)malloc(levSize[sc->numLev+1]*sizeof(physPlainBlock));
-    for(j=0;j<levSize[sc->numLev+1];j++) memory[sc->numLev+1][j].dummy=1;
+    for(j=0;j<levSize[sc->numLev+1];j++){
+        memory[sc->numLev+1][j].dummy=1;
+        memory[sc->numLev+1][j].logInd=levSize[sc->numLev+1];
+        memory[sc->numLev+1][j].block[0]='%';
+        memory[sc->numLev+1][j].block[1]='%';
+    }
 
-}
-
-void
-fakeInit()
-{
-
-    memory[0]=(physPlainBlock **) 0; /* lev 0 is on the client */
-    memory[1]=(physPlainBlock *)malloc(8*sizeof(physPlainBlock));
-    levSize[1]=8;
-
-}
-
-void
-copyBlock(physPlainBlock *d, physPlainBlock *s)
-{
-
-    d->lev=s->lev;
-    d->physInd=s->physInd; //this is irrelevant
-    d->logInd=s->logInd;
-    d->dummy=s->dummy;
-    memcpy(d->block,s->block,sBlock);
-}
-    
-void
-moveToWorkTape(int *pl)
-{
-
-int lev=*pl;
-fprintf(stdout,"Move level %d to worktape\n",lev);
-for(int j=0; j<levSize[lev]; j++)
-    copyBlock(memory[MaxLev+1]+j,memory[lev]+j);
-        
 }
 
 
@@ -138,19 +126,24 @@ main(int argc, char **argv)
         initServer, xdr_serverConf, xdr_void);
 
 	res=registerrpc(ORAMPROG,ORAMVERS,READ_NUM,
-        readPhysPlainBlock, xdr_Request, xdr_physPlainBlock);
+        readPhysPlainBlock, xdr_rRequest, xdr_physPlainBlock);
 		
 	res=registerrpc(ORAMPROG,ORAMVERS,WRITE_NUM,
-        writePhysPlainBlock, xdr_Request, xdr_void);
+        writePhysPlainBlock, xdr_wRequest, xdr_void);
 
+	res=registerrpc(ORAMPROG,ORAMVERS,MOVE_NUM,
+        moveToWorkTape,xdr_int,xdr_void);
+
+	res=registerrpc(ORAMPROG,ORAMVERS,BACK_NUM,
+        moveFromWorkTape,xdr_int,xdr_void);
+/*
 	res=registerrpc(ORAMPROG,ORAMVERS,RESET_TELEMETRY_NUM,
         resetTelemetry,xdr_void,xdr_void);
 		
 	res=registerrpc(ORAMPROG,ORAMVERS,READ_TELEMETRY_NUM,
         readTelemetry,xdr_void,xdr_int);
 		
-	res=registerrpc(ORAMPROG,ORAMVERS,MOVE_NUM,
-        moveToWorkTape,xdr_int,xdr_void);
+*/
 		
 
 	svc_run();

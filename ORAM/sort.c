@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <rpc/rpc.h>
-#include "go.h"
+#include "client.h"
+
 
 extern int nBits, nBlocks, sStash;
 extern int nextStash, nextDummy;
@@ -41,30 +42,57 @@ int
 compExcess(physPlainBlock *a, physPlainBlock *b)
 {
     int res=a->dummy-b->dummy;
-    if (res!=0)
-        return res;
-    else{
-        if (a->dummy==0) return 0;
-        else return perm[a->logInd]-perm[b->logInd];
-    }
+    if ((res==0)&&(a->dummy==0)) res=perm[a->logInd]-perm[b->logInd];
+    if ((res==0)&&(a->dummy==1)) res=a->logInd-b->logInd;
+    if ((res==0)&&(a->dummy==2)) res=0;
+#ifdef DEBUGSORT
+    fprintf(stdout,"XXX\t %d %d\tres=%d\n",a->dummy,b->dummy,res);
+#endif
+    return res;
 }
-
+   
 
 int
-compLogPerm(physPlainBlock *a, physPlainBlock *b)
+compPerm(physPlainBlock *a, physPlainBlock *b)
 {
-    int res=perm[a->logInd]-perm[b->logInd];
-    if (res!=0) return res; else return a->lev-b->lev;
-
+    return perm[a->logInd]-perm[b->logInd];
 }
 
+
+
 void 
-rwapGen(int i1, int i2, int lev, int *cmp(physPlainBlock *,physPlainBlock *))
+rwapGen(int i1, int i2, int lev, int (*aaa)(physPlainBlock *,physPlainBlock *))
 {
-    physPlainBlock *uno=physRead(lev,i1);
-    physPlainBlock *due=physRead(lev,i2);
-    if (perm[uno->logInd]>perm[due->logInd]){physWrite(uno,lev,i2); physWrite(due,lev,i1);}
-    else{physWrite(uno,lev,i1); physWrite(due,lev,i2);}
+    int m1=i1;
+    int m2=i2;
+    
+    if (m1>m2){m1=i2;m2=i1;}
+/* now we are guaranteed that m1<m2*/
+
+    physPlainBlock *uno=physRead(lev,m1);
+    physPlainBlock *due=physRead(lev,m2);
+    int res=aaa(uno,due);
+#ifdef DEBUGSORT
+fprintf(stdout,"XXComparing\n");
+fprintf(stdout,"XX\t %d %d\n",m1,uno->dummy);
+fprintf(stdout,"XX\t %d %d\n",m2,due->dummy);
+fprintf(stdout,"XX\t res=%d\n",res);
+#endif
+    
+    if (res<=0){
+        physWrite(uno,lev,m1);
+        physWrite(due,lev,m2);
+#ifdef DEBUGSORT
+        fprintf(stdout,"XX\tNoSwap\n");
+#endif
+    }
+    else{
+        physWrite(uno,lev,m2);
+        physWrite(due,lev,m1);
+#ifdef DEBUGSORT
+        fprintf(stdout,"XX\tSwap\n");
+#endif
+    }
 }
 
     

@@ -1,12 +1,13 @@
 #define ORAMPROG ((u_long) 1300002)
 #define ORAMVERS ((u_long) 1)
 
-#define INIT_NUM            ((u_long) 7)
+#define INIT_NUM            ((u_long) 9)
 #define READ_TELEMETRY_NUM  ((u_long) 2)
 #define RESET_TELEMETRY_NUM ((u_long) 3)
 #define WRITE_NUM           ((u_long) 4)
 #define READ_NUM            ((u_long) 5)
 #define MOVE_NUM            ((u_long) 6)
+#define BACK_NUM            ((u_long) 7)
 
 
 #define sBlock     1024    /* in bytes */
@@ -21,24 +22,24 @@ typedef struct serverConf {
 
 typedef struct physPlainBlock {
     int lev;
-    int physInd;
 	int logInd;
     int dummy;
 	char block[sBlock];
 } physPlainBlock;
 
-typedef struct Request {
+typedef struct wRequest {
     int lev;
 	int physInd;
-	int logInd;
-	char block[sBlock];
-} Request;
+    physPlainBlock *pb;
+} wRequest;
 
+typedef struct rRequest {
+    int lev;
+	int physInd;
+} rRequest;
 
-int xdr_physPlainBlock(XDR *, physPlainBlock *);
-int xdr_Request  (XDR *, Request *);
 int xdr_serverConf    (XDR *, serverConf *);
+int xdr_physPlainBlock(XDR *, physPlainBlock *);
+int xdr_wRequest  (XDR *, wRequest *);
+int xdr_rRequest  (XDR *, rRequest *);
 
-
-
-physPlainBlock *physRead(int,int);

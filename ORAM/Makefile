@@ -8,8 +8,8 @@ all: server client
 server: server.o xdr_filters.o
 	gcc xdr_filters.o server.o -o server
 
-client: client.o xdr_filters.o sort.o
-	gcc xdr_filters.o client.o sort.o -o client
+client: init.o client.o xdr_filters.o llr.o hlr.o sort.o
+	gcc init.o client.o xdr_filters.o llr.o hlr.o sort.o -o client
 
 clean:
 	rm -f *o server client
