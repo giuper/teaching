@@ -20,15 +20,18 @@ void
 initStash()
 {
 
+#ifdef DEBUGINIT
 fprintf(stdout,"initStash...");
+#endif
     stash=(physPlainBlock *)malloc(sStash*sizeof(physPlainBlock *));
     for(int i=0;i<sStash;i++){
-        stash[i]=(physPlainBlock *)malloc(sizeof(physPlainBlock));
-        stash[i]->lev=0;
-        stash[i]->logInd=2*nBlocks;
-        stash[i]->dummy=1;
+        stash[i]=(physPlainBlock *)0;
+        //stash[i]->lev=0;
+        //stash[i]->logInd=2*nBlocks;
+        //stash[i]->dummy=1;
     }
     nextStash=0;
+    nextDummy=nBlocks-sStash; 
 }
 
 
@@ -60,7 +63,7 @@ initServer()
         pPB.logInd=j;
         pPB.lev=MaxLev;
         if(j<nextDummy){
-            memset(&(pPB.block),'a'+(j%25),sBlock);
+            sprintf(&(pPB.block),"Block %4d xx",j);
             pPB.dummy=0; 
         }
         else{

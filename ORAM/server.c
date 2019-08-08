@@ -8,6 +8,11 @@
 static physPlainBlock *memory[MaxNumLev];
 static int levSize[MaxNumLev+1];
 
+static int nOPs=0;
+
+void resetTelemetry(){printf("Telemetry reset\n");nOPs=0;}
+int *readTelemetry(){return &nOPs;}
+
 
 void
 copyBlock(physPlainBlock *d, physPlainBlock *s)
@@ -16,6 +21,7 @@ copyBlock(physPlainBlock *d, physPlainBlock *s)
     d->lev=s->lev;
     d->logInd=s->logInd;
     d->dummy=s->dummy;
+    d->pos=s->pos;
     memcpy(d->block,s->block,sBlock);
 }
 
@@ -45,10 +51,15 @@ physPlainBlock *
 readPhysPlainBlock(rRequest *rr)
 {
 
+nOPs++;
+
     physPlainBlock *res=(physPlainBlock *)malloc(sizeof(physPlainBlock));
 
     int lev=rr->lev;
     int pi=rr->physInd;
+    if (pi>levSize[lev]){
+        int x=0;
+    }
    	fprintf(stdout,"reading physical block: %2d at lev %d\n",rr->physInd,rr->lev);
     physPlainBlock *Level=memory[lev];
     physPlainBlock *pPB=Level+pi;
@@ -61,6 +72,8 @@ readPhysPlainBlock(rRequest *rr)
 void 
 writePhysPlainBlock(wRequest *wr)
 {
+
+nOPs++;
 
     int lev=wr->lev;
     int pi=wr->physInd;
@@ -136,14 +149,12 @@ main(int argc, char **argv)
 
 	res=registerrpc(ORAMPROG,ORAMVERS,BACK_NUM,
         moveFromWorkTape,xdr_int,xdr_void);
-/*
+
 	res=registerrpc(ORAMPROG,ORAMVERS,RESET_TELEMETRY_NUM,
         resetTelemetry,xdr_void,xdr_void);
 		
 	res=registerrpc(ORAMPROG,ORAMVERS,READ_TELEMETRY_NUM,
         readTelemetry,xdr_void,xdr_int);
-		
-*/
 		
 
 	svc_run();

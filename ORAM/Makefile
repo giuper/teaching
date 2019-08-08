@@ -1,6 +1,5 @@
-CFLAGS = -DTELEMETRY -DBSORT -Wno-incompatible-pointer-types -Wno-implicit-function-declaration
-CFLAGS = -g -DTELEMETRY -Wno-incompatible-pointer-types -Wno-implicit-function-declaration
-CC=gcc
+CFLAGS = -g -DLOWLEVELDEBUG -Wno-incompatible-pointer-types -Wno-implicit-function-declaration
+CFLAGS = -g -Wno-incompatible-pointer-types -Wno-implicit-function-declaration
 
 all: server client
 	

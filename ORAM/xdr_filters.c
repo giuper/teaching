@@ -18,6 +18,7 @@ xdr_physPlainBlock(XDR *xdrs, physPlainBlock *pBlock)
 	if (!xdr_int(xdrs, &(pBlock->lev))) return 0;
 	if (!xdr_int(xdrs, &(pBlock->logInd))) return 0;
 	if (!xdr_int(xdrs, &(pBlock->dummy))) return 0;
+	if (!xdr_int(xdrs, &(pBlock->pos))) return 0;
 	return xdr_vector(xdrs,&(pBlock->block),sBlock,sizeof(char),xdr_char);
 }
 

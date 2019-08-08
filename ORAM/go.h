@@ -24,6 +24,7 @@ typedef struct physPlainBlock {
     int lev;
 	int logInd;
     int dummy;
+    int pos; //only used for reShuffling
 	char block[sBlock];
 } physPlainBlock;
 

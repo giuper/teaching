@@ -10,10 +10,11 @@ extern int nextStash, nextDummy;
 extern int rwapCNT;
 extern physPlainBlock **stash;
 
-extern int *perm; 
 extern int *levPM, *posPM;
 
 extern int numOps, totalNumOps;
+
+int *perm; 
 
 void
 reversePerm() /* the reverse permutation */
@@ -26,12 +27,21 @@ fy() /* fischer-yates random perm generation */
 {
     int j,rj,tmp;
 
+    perm=(int *)malloc(nBlocks*sizeof(int));
+
     for(j=0;j<nBlocks;j++) perm[j]=j;
     for(j=0;j<nBlocks-1;j++){
             rj=random()%(nBlocks-j);
             tmp=perm[j]; perm[j]=perm[j+rj]; perm[j+rj]=tmp;
     }
 }
+
+int
+compPos(physPlainBlock *a, physPlainBlock *b)
+{
+    return a->pos-b->pos;
+}
+   
 
 
 
