@@ -5,17 +5,17 @@
 
 extern physPlainBlock **stash;
 extern int *levPM, *posPM;
-static int numOps=0;
 extern int nBits, nBlocks, sStash, rBlocks;
 extern int nextStash, nextDummy;
+extern int numLogOps;
 
 void
 logWrite(char block[sBlock], int id)
 {
     
 
-    numOps++;
-    if (numOps%sStash==0){
+numLogOps++;
+    if (numLogOps%sStash==0){
         reShuffle();
         initStash();
     }
@@ -50,8 +50,8 @@ logRead(int id)
 
     if(id>=rBlocks) return (physPlainBlock *)0;
 
-    numOps++;
-    if (numOps%sStash==0){
+numLogOps++;
+    if (numLogOps%sStash==0){
         reShuffle();
         initStash();
     }
@@ -95,11 +95,11 @@ logReadOld(int id)
 
     if(id>=rBlocks) return (physPlainBlock *)0;
 
-    numOps++;
-    if (numOps%sStash==0){
-        reShuffle();
-        initStash();
-    }
+    //numOps++;
+    //if (numOps%sStash==0){
+        //reShuffle();
+        //initStash();
+    //}
 
     for(int lev=0;lev<=MaxLev;lev++){
         if (lev==levPM[id]){

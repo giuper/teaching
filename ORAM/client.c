@@ -15,7 +15,8 @@ physPlainBlock **stash;
 int *levPM, *posPM;
 int levSize[MaxNumLev+1];
 
-int numOps, totalNumOps;
+int numPhysOps=0;
+int numLogOps=0;
 
 
 int
@@ -46,8 +47,7 @@ main(int argc, char **argv)
     initServer();
     fprintf(stdout,"completed\n");
 
-/*
-    int stat=callrpc("localhost", ORAMPROG, ORAMVERS, 
+    stat=callrpc("localhost", ORAMPROG, ORAMVERS, 
         RESET_TELEMETRY_NUM,
 		xdr_void, (void *)0,
 		xdr_void, (void *)0);
@@ -56,16 +56,13 @@ main(int argc, char **argv)
 		exit(1);
     }
 
-*/
 
-    for (int k=0;k<10;k++){
+    for (int k=0;k<16;k++){
         res=logRead(k);if(res){fprintf(stdout,"RR: %4d-->%s\n",k,res->block); }
         res=logRead(k);if(res){fprintf(stdout,"RR: %4d-->%s\n",k,res->block); }
     }
     
 
-
-/*
     stat=callrpc("localhost", ORAMPROG, ORAMVERS, 
         READ_TELEMETRY_NUM,
 		xdr_void,(void *)0,
@@ -75,7 +72,6 @@ main(int argc, char **argv)
 		exit(1);
     }
     fprintf(stdout,"Total number of ops=%5d\n",nSOPs);
-*/
 
 
     for (int k=0;k<200;k++){
@@ -119,7 +115,9 @@ main(int argc, char **argv)
     }
 */
 
-    //fprintf(stdout,"Total number of ops=%5d\n",nSOPs);
+    fprintf(stdout,"Total number of logical  ops=%6d\n",numLogOps);
+    fprintf(stdout,"Total number of physical ops=%6d\n",numPhysOps);
+    fprintf(stdout,"Slowdown                    =%6d\n",numPhysOps/numLogOps);
 
 	exit(0);
 

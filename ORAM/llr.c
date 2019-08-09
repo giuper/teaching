@@ -13,12 +13,15 @@ extern physPlainBlock **stash;
 extern int levSize[];
 extern int nBits, nBlocks, sStash;
 extern int *levPM, *posPM;
+extern int nextStash;
 
+extern int numPhysOps;
 
 void
 physWrite(physPlainBlock *pPB, int lev,int pI)
 {
 
+numPhysOps++;
     static wRequest *wr=(wRequest *)0;
 
     if(!wr)
@@ -48,8 +51,11 @@ physPlainBlock *
 physRead(int lev, int physInd)
 {
 
+numPhysOps++;
     physPlainBlock *res;
 	int stat;
+    if (physInd>levSize[lev]) return (physPlainBlock *)0;
+
     if (lev==0) return stash[physInd];
 
     rRequest *rr=(rRequest *)malloc(sizeof(rRequest));
@@ -145,8 +151,126 @@ moveFromWorkTape()
 }
 
 
+int
+conf(void *a,void *b)
+{
+
+physPlainBlock **aa=(physPlainBlock **)a;
+physPlainBlock **bb=(physPlainBlock **)b;
+
+return (*aa)->pos-(*bb)->pos;
+
+}
 
 void reShuffle()
+{
+
+    int j,tmp,rj,id;
+    int r,c,pI,dp;
+    int perm[nBlocks];
+    physPlainBlock *pPB;
+    int dest;
+
+    //fprintf(stdout,"\n\nCacheReshuffling...\n");
+
+    physPlainBlock *cache[sStash][2*sStash];
+    int nextCache[sStash];
+    int nextWork[sStash];
+
+    for(j=0;j<nBlocks;j++) perm[j]=j;
+
+    for(j=0;j<sStash;j++){nextCache[j]=0; nextWork[j]=j*sStash;}
+
+j=0;
+    for(r=0;r<nextStash;r++){
+        rj=random()%(nBlocks-j);
+        tmp=perm[j]; perm[j]=perm[j+rj]; perm[j+rj]=tmp;
+        stash[j]->pos=perm[j];
+        id=stash[j]->logInd;
+        dest=stash[j]->pos/sStash;
+        cache[dest][nextCache[dest]]=stash[j];
+        levPM[id]=1;
+        posPM[id]=perm[j];
+        nextCache[dest]++;
+        j++;
+    }
+
+{int j;
+    for(j=0;j<sStash;j++){
+        fprintf(stdout,"cache[%d] has %d elements\n",j,nextCache[j]);;
+    }
+}
+    
+
+for(pI=0,r=0;r<sStash;r++){
+    for(c=0;c<sStash;c++,pI++){
+        pPB=physRead(1,pI);
+        if (pPB->dummy==2)
+            continue;
+        if (!pPB) break;
+        id=pPB->logInd;
+        rj=random()%(nBlocks-j);
+        tmp=perm[j]; perm[j]=perm[j+rj]; perm[j+rj]=tmp;
+        pPB->pos=perm[j];
+        levPM[id]=1;
+        posPM[id]=perm[j];
+        dest=pPB->pos/sStash;
+        cache[dest][nextCache[dest]]=pPB;
+        nextCache[dest]++;
+        levPM[id]=1;
+        posPM[id]=perm[j];
+        j++;
+    }
+    for(int cc=0;cc<sStash;cc++){
+        if (nextCache[cc]==0){
+            cache[cc][0]=(physPlainBlock *)malloc(sizeof(physPlainBlock));
+            cache[cc][0]->dummy=2;
+            nextCache[cc]=1;
+        }
+        nextCache[cc]--;
+        physWrite(cache[cc][nextCache[cc]],2,cc*sStash+r);
+    }
+}
+
+
+    
+
+#ifdef AAA
+{int j;
+    for(j=0;j<sStash;j++){
+        fprintf(stdout,"\ncache[%d] has %d elements\n",j,nextCache[j]);;
+        for(int i=0;i<nextCache[j];i++)
+            fprintf(stdout,"\tnextCache[j][i]->logInd=%4d\tnextCache[j][i]->pos=%4d\td=%d\n",
+                    cache[j][i]->logInd,
+                    cache[j][i]->pos,
+                    cache[j][i]->dummy);
+    }
+}
+#endif
+
+//sequentialPhysScan(2);
+
+for(pI=0,r=0;r<sStash;r++){
+    nextStash=0;
+    for(c=0;c<sStash;c++,pI++){
+        pPB=physRead(2,pI);
+        if (pPB->dummy==2) continue;
+        stash[nextStash++]=pPB;
+    }
+    for(c=0;c<nextCache[r];c++) stash[nextStash++]=cache[r][c];
+    //fprintf(stdout,"\nr=%d\n",r);
+    //fprintf(stdout,"Before\n");
+    //sequentialPhysScan(0);
+    qsort(stash,sStash,sizeof(physPlainBlock *),conf);
+    //fprintf(stdout,"After\n");
+    //sequentialPhysScan(0);
+    for(dp=pI-sStash,c=0;c<sStash;c++,dp++)  physWrite(stash[c],1,dp);
+}
+    initStash();
+    //sequentialPhysScan(1);
+}
+
+void reShuffleold()
 {
 
     int j,tmp,rj,id;
