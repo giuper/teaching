@@ -3,15 +3,8 @@
 #include "client.h"
 
 
-extern int nBits, nBlocks, sStash;
-extern int nextStash, nextDummy;
 
-
-extern int rwapCNT;
-extern physPlainBlock **stash;
-
-extern int *levPM, *posPM;
-
+extern clientConf *cf;
 extern int numOps, totalNumOps;
 
 int *perm; 
@@ -19,13 +12,15 @@ int *perm;
 void
 reversePerm() /* the reverse permutation */
 {
-    for(int j=0;j<nBlocks;j++) perm[j]=(nBlocks-1)-j;
+    for(int j=0;j<cf->nBlocks;j++) perm[j]=(cf->nBlocks-1)-j;
 }
 
 void
 fy() /* fischer-yates random perm generation */
 {
     int j,rj,tmp;
+
+    int nBlocks=cf->nBlocks;
 
     perm=(int *)malloc(nBlocks*sizeof(int));
 

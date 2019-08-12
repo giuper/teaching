@@ -8,11 +8,6 @@
 static physPlainBlock *memory[MaxNumLev];
 static int levSize[MaxNumLev+1];
 
-static int nOPs=0;
-
-void resetTelemetry(){printf("Telemetry reset\n");nOPs=0;}
-int *readTelemetry(){return &nOPs;}
-
 
 void
 copyBlock(physPlainBlock *d, physPlainBlock *s)
@@ -51,7 +46,6 @@ physPlainBlock *
 readPhysPlainBlock(rRequest *rr)
 {
 
-nOPs++;
 
     physPlainBlock *res=(physPlainBlock *)malloc(sizeof(physPlainBlock));
 
@@ -73,7 +67,6 @@ void
 writePhysPlainBlock(wRequest *wr)
 {
 
-nOPs++;
 
     int lev=wr->lev;
     int pi=wr->physInd;
@@ -149,13 +142,6 @@ main(int argc, char **argv)
 
 	res=registerrpc(ORAMPROG,ORAMVERS,BACK_NUM,
         moveFromWorkTape,xdr_int,xdr_void);
-
-	res=registerrpc(ORAMPROG,ORAMVERS,RESET_TELEMETRY_NUM,
-        resetTelemetry,xdr_void,xdr_void);
-		
-	res=registerrpc(ORAMPROG,ORAMVERS,READ_TELEMETRY_NUM,
-        readTelemetry,xdr_void,xdr_int);
-		
 
 	svc_run();
 	fprintf(stderr,"Errorr svc_run returned\n");

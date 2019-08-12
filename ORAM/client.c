@@ -4,19 +4,7 @@
 #include "client.h"
 
 serverConf sc={1,{5,10,0,0,0,0,0,0,0,0}};
-
-int nBits, nBlocks, sStash, rBlocks;
-int nextStash, nextDummy;
-
-
-int rwapCNT;
-physPlainBlock **stash;
-
-int *levPM, *posPM;
-int levSize[MaxNumLev+1];
-
-int numPhysOps=0;
-int numLogOps=0;
+clientConf *cf;
 
 
 int
@@ -28,23 +16,16 @@ main(int argc, char **argv)
     int i,j,k;
     int stat;
 
-    nBits     =(sc.levnBits[MaxLev]);
-    nBlocks   =(1<<nBits);
-    sStash    =(1<<(sc.levnBits[0])); 
-    rBlocks   =nBlocks-sStash;
-    nextDummy =nBlocks-sStash; /*logical identifier of next unread dummy block*/
-
-    levPM=(int *)malloc(nBlocks*sizeof(int));
-    posPM=(int *)malloc(nBlocks*sizeof(int));
+    initClientfromSC(&sc);
+    initServer(&sc);
+    initStash();
 
     fprintf(stdout,"client: starting...\n");
-    fprintf(stdout,"\tnBlocks   =%5d\n",nBlocks);
-    fprintf(stdout,"\tsStash    =%5d\n",sStash);
-    fprintf(stdout,"\tnextDummy =%5d\n",nextDummy);
-    fprintf(stdout,"\trBlocks   =%5d\n",nBlocks-sStash);
+    fprintf(stdout,"\tnBlocks   =%5d\n",cf->nBlocks);
+    fprintf(stdout,"\tsStash    =%5d\n",cf->sStash);
+    fprintf(stdout,"\tnextDummy =%5d\n",cf->nextDummy);
+    fprintf(stdout,"\trBlocks   =%5d\n",cf->nBlocks-cf->sStash);
     fprintf(stdout,"client: init...");
-    initStash();
-    initServer();
     fprintf(stdout,"completed\n");
 
     stat=callrpc("localhost", ORAMPROG, ORAMVERS, 
@@ -97,7 +78,7 @@ main(int argc, char **argv)
         k=32;res=logRead(k); if(res){fprintf(stdout,"RR: %4d-->%s\n",k,res->block);free(res);}
     }
 
-    for (int k=0;k<nBlocks;k++){
+    for (int k=0;k<cf->nBlocks;k++){
         res=logRead(k);   if(res){fprintf(stdout,"RR: %4d-->%s\n",k,res->block);free(res);}
         res=logRead(k+1); if(res){fprintf(stdout,"RR: %4d-->%s\n",k+1,res->block);free(res);}
         res=logRead(k);   if(res){fprintf(stdout,"RR: %4d-->%s\n",k,res->block);free(res);}
@@ -115,9 +96,9 @@ main(int argc, char **argv)
     }
 */
 
-    fprintf(stdout,"Total number of logical  ops=%6d\n",numLogOps);
-    fprintf(stdout,"Total number of physical ops=%6d\n",numPhysOps);
-    fprintf(stdout,"Slowdown                    =%6d\n",numPhysOps/numLogOps);
+    fprintf(stdout,"Total number of logical  ops=%6d\n",cf->numLogOps);
+    fprintf(stdout,"Total number of physical ops=%6d\n",cf->numPhysOps);
+    fprintf(stdout,"Slowdown                    =%6d\n",cf->numPhysOps/cf->numLogOps);
 
 	exit(0);
 

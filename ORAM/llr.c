@@ -5,23 +5,14 @@
 
 /* low-level remote client procedures */
 
-extern int compExcess(physPlainBlock *,physPlainBlock *);
-extern int compPerm(physPlainBlock *,physPlainBlock *);
-extern int compPos(physPlainBlock *,physPlainBlock *);
 
-extern physPlainBlock **stash;
-extern int levSize[];
-extern int nBits, nBlocks, sStash;
-extern int *levPM, *posPM;
-extern int nextStash;
-
-extern int numPhysOps;
+extern clientConf *cf;
 
 void
 physWrite(physPlainBlock *pPB, int lev,int pI)
 {
 
-numPhysOps++;
+cf->numPhysOps++;
     static wRequest *wr=(wRequest *)0;
 
     if(!wr)
@@ -51,12 +42,12 @@ physPlainBlock *
 physRead(int lev, int physInd)
 {
 
-numPhysOps++;
+cf->numPhysOps++;
     physPlainBlock *res;
 	int stat;
-    if (physInd>levSize[lev]) return (physPlainBlock *)0;
+    if (physInd>cf->levSize[lev]) return (physPlainBlock *)0;
 
-    if (lev==0) return stash[physInd];
+    if (lev==0) return cf->stash[physInd];
 
     rRequest *rr=(rRequest *)malloc(sizeof(rRequest));
     rr->lev=lev;
@@ -86,8 +77,12 @@ void
 sequentialPhysScan(int lev)
 {
     physPlainBlock *pPB;
+int *levPM=cf->levPM;
+int *posPM=cf->posPM;
+physPlainBlock **stash=cf->stash;
+
     fprintf(stdout,"\nStarting a sequential scan of level %d\n",lev);
-    for(int j=0;j<levSize[lev];j++){
+    for(int j=0;j<cf->levSize[lev];j++){
         pPB=physRead(lev,j);
         if(pPB){
         fprintf(stdout,"\tlogical block %4d in physical block %4d (d=%d) pos=%4d \tlevPM=%d\tposPM=%4d: -->%c%c\n",
@@ -99,6 +94,7 @@ sequentialPhysScan(int lev)
     }
 }
 
+#ifdef AAA  
 void
 moveToWorkTape()
 {
@@ -149,21 +145,28 @@ moveFromWorkTape()
 
     
 }
-
+#endif
 
 int
 conf(void *a,void *b)
 {
 
-physPlainBlock **aa=(physPlainBlock **)a;
-physPlainBlock **bb=(physPlainBlock **)b;
+    physPlainBlock **aa=(physPlainBlock **)a;
+    physPlainBlock **bb=(physPlainBlock **)b;
 
-return (*aa)->pos-(*bb)->pos;
+    return (*aa)->pos-(*bb)->pos;
 
 }
 
-void reShuffle()
+void
+reShuffle()
 {
+
+int *levPM=cf->levPM;
+int *posPM=cf->posPM;
+physPlainBlock **stash=cf->stash;
+int sStash=cf->sStash;
+int nBlocks=cf->nBlocks;
 
     int j,tmp,rj,id;
     int r,c,pI,dp;
@@ -173,16 +176,16 @@ void reShuffle()
 
     //fprintf(stdout,"\n\nCacheReshuffling...\n");
 
-    physPlainBlock *cache[sStash][2*sStash];
+    physPlainBlock *cache[sStash][10];
     int nextCache[sStash];
     int nextWork[sStash];
 
-    for(j=0;j<nBlocks;j++) perm[j]=j;
+    for(j=0;j<cf->nBlocks;j++) perm[j]=j;
 
-    for(j=0;j<sStash;j++){nextCache[j]=0; nextWork[j]=j*sStash;}
+    for(j=0;j<cf->sStash;j++){nextCache[j]=0; nextWork[j]=j*cf->sStash;}
 
 j=0;
-    for(r=0;r<nextStash;r++){
+    for(r=0;r<cf->nextStash;r++){
         rj=random()%(nBlocks-j);
         tmp=perm[j]; perm[j]=perm[j+rj]; perm[j+rj]=tmp;
         stash[j]->pos=perm[j];
@@ -216,6 +219,7 @@ for(pI=0,r=0;r<sStash;r++){
         posPM[id]=perm[j];
         dest=pPB->pos/sStash;
         cache[dest][nextCache[dest]]=pPB;
+        //printf("Size of cache: %d\n",nextCache[dest]);
         nextCache[dest]++;
         levPM[id]=1;
         posPM[id]=perm[j];
@@ -251,25 +255,30 @@ for(pI=0,r=0;r<sStash;r++){
 //sequentialPhysScan(2);
 
 for(pI=0,r=0;r<sStash;r++){
-    nextStash=0;
-    for(c=0;c<sStash;c++,pI++){
+    cf->nextStash=0;
+    for(c=0;c<cf->sStash;c++,pI++){
         pPB=physRead(2,pI);
         if (pPB->dummy==2) continue;
-        stash[nextStash++]=pPB;
+        stash[cf->nextStash++]=pPB;
     }
-    for(c=0;c<nextCache[r];c++) stash[nextStash++]=cache[r][c];
+    for(c=0;c<nextCache[r];c++) stash[cf->nextStash++]=cache[r][c];
     //fprintf(stdout,"\nr=%d\n",r);
     //fprintf(stdout,"Before\n");
     //sequentialPhysScan(0);
-    qsort(stash,sStash,sizeof(physPlainBlock *),conf);
+    qsort(stash,cf->sStash,sizeof(physPlainBlock *),conf);
     //fprintf(stdout,"After\n");
     //sequentialPhysScan(0);
-    for(dp=pI-sStash,c=0;c<sStash;c++,dp++)  physWrite(stash[c],1,dp);
+    for(dp=pI-cf->sStash,c=0;c<cf->sStash;c++,dp++)
+        physWrite(stash[c],1,dp);
 }
-    initStash();
+    //initStash();
     //sequentialPhysScan(1);
 }
 
+#ifdef LEGACY
+extern int compExcess(physPlainBlock *,physPlainBlock *);
+extern int compPerm(physPlainBlock *,physPlainBlock *);
+extern int compPos(physPlainBlock *,physPlainBlock *);
 void reShuffleold()
 {
 
@@ -310,3 +319,4 @@ fprintf(stdout,"\tfrom the stash with id %d and status %d\n",pPB->logInd,pPB->du
     }
     bSort(0,0,nBits-1,1,compPos); 
 }
+#endif
