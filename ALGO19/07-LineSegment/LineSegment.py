@@ -1,5 +1,6 @@
 import math
 
+
 class LineSegment:
 
 #ptA-->(xA,yA)
