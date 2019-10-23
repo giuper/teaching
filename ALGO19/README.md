@@ -8,6 +8,7 @@
 1. Abstract Data Types: Definition and implementation: Chapter 1.1
     1. The Bag ADT: Chapter 1.3
     2. Project: The game of life
+  
 2. The SET ADT: Chapter 3.1
 3. Algorithm Analysis: Chapter 4.1
     1. The list implementation of Python: Chapter 4.2
