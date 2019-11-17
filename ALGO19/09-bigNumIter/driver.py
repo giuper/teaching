@@ -1,33 +1,15 @@
-from bigNum2 import bigNum 
-from bigNum2 import doubleBigNum 
-from bigNum2 import doubleBigNumIterator
+from bigNum import bigNum 
 
+x=bigNum("9")
+y=bigNum("1")
+z=x+y
+print(z)
 x=bigNum("99989")
-y=bigNum("2")
+y=bigNum("222222")
 
-xx=iter(x)
-yy=iter(y)
+z=x+y
+print(z)
+f=x*y
+f=f*f
+print(f*f)
 
-print(int(xx.__next__()))
-print(int(xx.__next__()))
-z=doubleBigNum(x,y)
-zzz=doubleBigNumIterator(z)
-
-##for zz in z:
-    ##print (int(zz[0]),int(zz[1]))
-
-#z=x+y
-#print(z)
-#f=x*y
-#print(f)
-#z=bigNum("2")
-#f=f+z
-#print(f)
-#
-#
-#y=bigNum("1000")
-#x=bigNum("20000")
-#f=y*x
-#print(x)
-#print(y)
-#print(f)

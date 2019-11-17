@@ -11,11 +11,29 @@ class node:
 
     def __int__(self):
         return int(self.data)
+
+class _lListIterator:
+    def __init__(self,l):
+        self.curNode=l.head
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.curNode is not None:
+            item=self.curNode.data
+            self.curNode=self.curNode.next
+            return item
+        else:
+            raise StopIteration
         
 class lList:
     def __init__(self):
         self.head=None
         self.tail=None
+
+    def __iter__(self):
+        return _lListIterator(self)
 
     def append(self,val):
         n=node(val)
