@@ -23,4 +23,15 @@
     6. The SET ADT with sorted lists: Chapter 5.4
     7. Project: Sparse Matrix with sorted list
 
+5. *Linked Structures*
+    1. Singly Linked List:  Chapter 6.1-6.2
+    2. The Bag ADT Revisited: Chapter 6.3
+    3. Tail Reference: Chapter 6.4.1
+    4. The Sorted Linked List: Chapter 6.4.2
+    5. The Sparse Matrix ADT Revisitied: Chapter 6.5
+    6. The Polynomial ADT: Chapter 6.6
 
+6. *Stacks*
+    1. The Stack ADT: Chapter 7.1
+    2. Implementing the Stack ADT: Chapter 7.2
+    3. Balanced paranthesis and Postfix Expressions: Chapter 7.3
