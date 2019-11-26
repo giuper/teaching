@@ -10,6 +10,7 @@ class myStack(Stack):
 
 class Maze:
 
+    #does not handle cycles in the maze
     MOVES=[[0,0],[-1,0],[1,0],[0,-1],[0,1]]
     #moves
     #0 --> Dummy move
