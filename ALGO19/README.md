@@ -1,6 +1,8 @@
-# ALGO19 #
+# ALGO19: *Algoritmi e Strutture Dati* #
+## Corso di Laurea Triennale in *Statistica per i Big Data* ##
+### Anno Accademico 2019/20 ###
 
-### Textbook: Data Structures and Algorithms Using Python by Rance D. Necaise ###
+*Textbook: Data Structures and Algorithms Using Python by Rance D. Necaise*
 
 
 ## List of topics ##
