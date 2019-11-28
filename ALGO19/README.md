@@ -1,4 +1,5 @@
-# ALGO19: *Algoritmi e Strutture Dati* per gli studenti del Corso di Laurea Triennale in *Statistica per i Big Data* #
+# ALGO19: *Algoritmi e Strutture Dati* #
+##Corso di Laurea Triennale in *Statistica per i Big Data* ##
 
 *Textbook: Data Structures and Algorithms Using Python by Rance D. Necaise*
 
