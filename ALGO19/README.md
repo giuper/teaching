@@ -12,10 +12,12 @@
     2. Project: The game of life
   
 2. *The SET ADT*: Chapter 3.1
+
 3. *Algorithm Analysis*: Chapter 4.1
     1. The list implementation of Python: Chapter 4.2
     2. Analysing the SET ADT implementation: Chapter 4.4
     3. Sparse Matrix: Chapter 4.5
+
 4. *Searching and sorting*
     1. Searching: Chapter 5.1
     2. Bubble Sort: Chapter 5.2.1
@@ -37,3 +39,20 @@
     1. The Stack ADT: Chapter 7.1
     2. Implementing the Stack ADT: Chapter 7.2
     3. Balanced paranthesis and Postfix Expressions: Chapter 7.3
+    4. Solving a Maze: Chapter 7.4
+
+7. *Recursion*
+    1. Recursive Binary Search: Chapter 10.4.1
+    2. The Eight-Queens Problem: Chapter 10.5
+
+8. *Advanced Sorting*
+    1. Merge Sort: Chapter 12.1
+    2. Quick Sort: Chapter 12.2
+    3. Radix Sort: Chapter 12.4
+
+9. *Binary Trees*
+    1. The Tree Structure: Chapter 13.1
+    2. The Binary Tree: Chapter 13.2
+    3. The Expression Trees: Chapter 13.3
+    4. Heaps: Chapter 13.4
+    5. Heapsort: Chapter 13.5
