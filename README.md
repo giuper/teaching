@@ -1,4 +1,4 @@
 # teaching
-code I wrote for my classes
+classes I have taught and code I wrote for my classes
 
 
