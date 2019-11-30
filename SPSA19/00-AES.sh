@@ -15,6 +15,8 @@ salt=-salt
 
 EncryptionKey="000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F"
 IV="AABBCCDDEEFF00112233445566778899"
+keyFile='aaa.key'
+ivFile='aaa.iv'
 
 
 echo -e "${RED}${BOLD}Encrypting a file using AES${NC}"
@@ -30,6 +32,7 @@ echo
 ##salt is 8 bytes
 echo -e "${RED}${BOLD}Encrypting a file using AES cbc with 256-bit key${NC}"
 echo -e "${RED}${BOLD}\tKey generated from password and salt${NC}"
+echo -e "${RED}${BOLD}\tDeprecated${NC}"
 echo -e "${BLUE}Encryption command: ${GREEN}openssl enc -${algorithm} ${salt} -in ${plaintext} -out ${ciphertext}${NC}"
 echo -e "${BROWN}"
 openssl enc -${algorithm} ${salt} -in ${plaintext} -out ${ciphertext}
@@ -130,6 +133,51 @@ then
 else
   echo -e "${RED}${BOLD}Error in decryption${NC}"
 fi
+
+
+echo
+echo
+echo -e "${RED}${BOLD}Encrypting a file using AES cbc with 256-bit key${NC}"
+echo -e "${RED}${BOLD}\tRandomly generated key stored in a file${NC}"
+
+keyFile='aaa.key'
+ivFile='aaa.iv'
+
+openssl rand -out ${keyFile} -hex 32
+openssl rand -out ${ivFile}  -hex 16
+
+echo -e "${BLUE}Encryption command: ${GREEN}openssl enc -${algorithm} -K `cat ${keyFile}` -iv `cat ${ivFile}` -in ${plaintext} -out ${ciphertext}${NC}"
+echo -e "${BROWN}"
+openssl enc -${algorithm} -K `cat ${keyFile}` -iv `cat ${ivFile}` -in ${plaintext} -out ${ciphertext}
+echo -e "${NC}"
+if [ $? -ne 0 ]
+then
+    echo -e "${BLUE}Error in encryption${NC}"
+    exit
+else
+    :
+fi
+echo -e "${BLUE}Decryption command: ${GREEN}openssl enc -d -${algorithm} -K `cat ${keyFile}` -iv `cat ${ivFile}` -in ${ciphertext} -out ${plaintext}.new${NC}"
+echo -e "${BROWN}"
+openssl enc -d -${algorithm} -K `cat ${keyFile}` -iv `cat ${ivFile}` -in ${ciphertext} -out ${plaintext}.new
+echo -e "${NC}"
+if [ $? -ne 0 ]
+then
+    echo -e "${BLUE}Error in encryption${NC}"
+    exit
+else
+    :
+fi
+
+
+diff ${plaintext} ${plaintext}.new >/dev/null
+if [ $? -eq 0 ]
+then
+  echo -e "${RED}${BOLD}Successfully decrypted file${NC}"
+else
+  echo -e "${RED}${BOLD}Error in decryption${NC}"
+fi
+
 
 
 
