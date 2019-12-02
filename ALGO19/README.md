@@ -7,6 +7,7 @@
 
 [Modulo di prenotazione per la prova del 19 Dicembre. Ore 9] (https://docs.google.com/forms/d/e/1FAIpQLSd9o2ekrgEjY4a6XDgncc_QIYJcK5DBaqXgJfvxwTadbcGBxw/viewform)
 
+
 ## List of topics ##
 
 1. *Abstract Data Types: Definition and implementation*: Chapter 1.1
