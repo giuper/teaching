@@ -85,8 +85,8 @@ echo -e "${GREEN}"
 read -p "Press enter to continue "
 
 echo -e "${RED}${BOLD}Verifying the signature using the RSA public key${NC}"
-echo -e "${BLUE}Command: ${GREEN}openssl rsautl -verify -in ${plaintext}.sig -pubin -inkey ${RSAPublicKeyFile} --out ${plaintext}.vrf"
-openssl rsautl -verify -in ${plaintext}.sig -pubin -inkey ${RSAPublicKeyFile} --out ${plaintext}.vrf
+echo -e "${BLUE}Command: ${GREEN}openssl rsautl -verify -in ${plaintext}.sig -pubin -inkey ${RSAPublicKeyFile} -out ${plaintext}.vrf"
+openssl rsautl -verify -in ${plaintext}.sig -pubin -inkey ${RSAPublicKeyFile} -out ${plaintext}.vrf
 
 diff ${plaintext} ${plaintext}.vrf >/dev/null
 if [ $? -eq 0 ]
