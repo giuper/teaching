@@ -1,5 +1,4 @@
-from gc import nReginePacMan
-#sostituire pacMan con il nome del file specificato dalla traccia
+from pacMan import nReginePacMan
 
 def exam(a,b):
     solution=[]
