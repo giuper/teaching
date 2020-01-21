@@ -1,0 +1,38 @@
+Fase I
+[12, 21, 7, 7]
+Contiene  4 elementi
+	minimo:	 7
+Elenco elementi in ordine crescente
+7
+12
+21
+Lista elementi presenti in ordine di inserimento e con ripetizioni
+[12, 21, 7, 7]
+
+
+Fase II
+Adesso contiene  5 elementi
+	minimo:	 7
+Elenco elementi
+7
+12
+21
+Lista elementi presenti in ordine di inserimento e con ripetizioni
+[12, 21, 7, 7, 7]
+
+
+Fase III
+
+Adesso contiene  7 elementi
+	minimo:	 1
+Elenco elementi
+1
+7
+12
+21
+1000
+Lista elementi presenti in ordine di inserimento e con ripetizioni [12, 21, 7, 7, 7, 1000, 1]
+
+Contiene  3000 elementi
+Non manca nulla
+	minimo:	 -1
