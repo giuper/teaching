@@ -10,7 +10,6 @@ B.add1(7)
 B.add1(7)
 B.add1(7)
 
-print(B.items)
 print("Contiene ",len(B),"elementi")
 print("\tminimo:\t",B.Min())
 
