@@ -19,3 +19,5 @@ al piano 4 dell'edificio F.
 Gli studenti non in elenco hanno prodotto un elaborato ritenuto
 insufficiente. Se lo desiderano, possono discuterlo in coda alle sedute
 di orali.
+
+L'esame &egrave; stato superato da 10 studenti con voto medio 25.3
