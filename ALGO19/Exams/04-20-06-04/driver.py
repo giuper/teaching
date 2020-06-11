@@ -23,3 +23,4 @@ for ct in citta:
 ListaOrdinataCitta=NuovoAlbero.sorting()
 print(ListaOrdinataCitta)
 
+
