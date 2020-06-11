@@ -1,0 +1,6 @@
+Primo test su albero vuoto
+[]
+Inseriamo i dati dall'esempio della traccia
+['pluto', 'minnie', 'pippo']
+Un nuovo esempio
+[320862, 390636, 311584, 378839, 578000, 1378689, 959188, 663401, 2856133, 875698]
