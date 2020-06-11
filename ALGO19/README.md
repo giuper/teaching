@@ -5,7 +5,6 @@
 *Textbook: Data Structures and Algorithms Using Python by Rance D. Necaise*
 
 
-
 ## List of topics ##
 
 1. *Abstract Data Types: Definition and implementation*: Chapter 1.1
