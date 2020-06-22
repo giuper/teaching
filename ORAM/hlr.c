@@ -5,6 +5,7 @@
 
 extern clientConf *cf;
 
+#ifdef AAABBB
 void
 logWrite(char block[sBlock], int id)
 {
@@ -39,6 +40,7 @@ cf->numLogOps++;
     }
 
 }
+#endif
 
 physPlainBlock *
 logRead(int id)
@@ -47,43 +49,48 @@ logRead(int id)
     physPlainBlock *res, *tmp;
     int *levPM=cf->levPM;
     int *posPM=cf->posPM;
+    int L=cf->maxL;
 
-    if(id>=cf->rBlocks) return (physPlainBlock *)0;
+    if(id>=cf->N+cf->D) return (physPlainBlock *)0;
 
 cf->numLogOps++;
+
+/*
     if (cf->numLogOps%cf->sStash==0){
         reShuffle();
         initStash();
     }
+*/
 
-    if(levPM[id]==0){
-        tmp=physRead(1,posPM[cf->nextDummy]);
-        physWrite(tmp,1,posPM[cf->nextDummy]);
-        cf->nextDummy++;
+    for(int l=1;l<L;l++){
+        if (levPM[id]!=l){
+            /* dummy stay dummy */
+            tmp=physRead(l,posPM[cf->ND[l]]);
+            physWrite(tmp,l,posPM[cf->ND[l]]);
+            cf->ND[l]++;
+        } else
+        {
+            tmp=physRead(l,posPM[id]);
+            cf->stash[cf->ND[0]]=tmp;
+            cf->stash[cf->ND[0]]->lev=0;
+            cf->stash[cf->ND[0]]->logInd=id;
+            levPM[id]=0;
+            posPM[id]=cf->ND[0];
+            tmp->state=FILLER;
+            physWrite(tmp,l,posPM[cf->ND[l]]);
+            tmp->state=REAL;
+            cf->ND[0]++;
+            cf->r[l]--;
+            cf->f[l]++;
+        }
     }
-    
-    if(levPM[id]==1){
-        tmp=physRead(1,posPM[id]);
-        tmp->dummy=2;
-        physWrite(tmp,1,posPM[id]);
-        cf->stash[cf->nextStash]=tmp;
-        cf->stash[cf->nextStash]->lev=0;
-        cf->stash[cf->nextStash]->logInd=id;
-        cf->stash[cf->nextStash]->dummy=0;
-        
-        levPM[id]=0;
-        posPM[id]=cf->nextStash;
 
-        cf->nextStash++;
-    }
 
     res=(physPlainBlock *)malloc(sizeof(physPlainBlock));
     res->lev=0;
     res->logInd=id;
-    res->dummy=0;
+    res->state=REAL;
     memcpy(&(res->block),cf->stash[posPM[id]]->block,sBlock);
-
     return res;
-    //return stash[posPM[id]];
 }
 

@@ -5,8 +5,42 @@
 
 /* low-level remote client procedures */
 
-
 extern clientConf *cf;
+
+physPlainBlock *
+physRead(int lev, int physInd)
+{
+
+cf->numPhysOps++;
+    physPlainBlock *res;
+	int stat;
+    if (physInd>cf->s[lev]) return (physPlainBlock *)0;
+
+    if (lev==0) return cf->stash[physInd];
+
+    rRequest *rr=(rRequest *)malloc(sizeof(rRequest));
+    rr->lev=lev;
+    rr->physInd=physInd;
+
+#ifdef LOWLEVELDEBUG
+    fprintf(stdout,"reading physical block: %2d for lev %d\n",
+                rr->physInd,rr->lev);
+#endif
+
+    res=(physPlainBlock *) malloc(sizeof(physPlainBlock));
+    stat=callrpc("localhost", ORAMPROG, ORAMVERS, 
+        READ_NUM,
+		xdr_rRequest, rr,
+		xdr_physPlainBlock,res);
+
+    if (stat<0){
+	    clnt_perrno(stat);
+		exit(1);
+    }
+
+    return res;
+
+}
 
 void
 physWrite(physPlainBlock *pPB, int lev,int pI)
@@ -37,64 +71,33 @@ cf->numPhysOps++;
 
 }
 
-/* physRead only gets a phys index and returns physPlainBlock */
-physPlainBlock *
-physRead(int lev, int physInd)
-{
-
-cf->numPhysOps++;
-    physPlainBlock *res;
-	int stat;
-    if (physInd>cf->levSize[lev]) return (physPlainBlock *)0;
-
-    if (lev==0) return cf->stash[physInd];
-
-    rRequest *rr=(rRequest *)malloc(sizeof(rRequest));
-    rr->lev=lev;
-    rr->physInd=physInd;
-
-#ifdef LOWLEVELDEBUG
-    fprintf(stdout,"reading physical block: %2d for lev %d\n",
-                rr->physInd,rr->lev);
-#endif
-
-    res=(physPlainBlock *) malloc(sizeof(physPlainBlock));
-    stat=callrpc("localhost", ORAMPROG, ORAMVERS, 
-        READ_NUM,
-		xdr_rRequest, rr,
-		xdr_physPlainBlock,res);
-
-    if (stat<0){
-	    clnt_perrno(stat);
-		exit(1);
-    }
-
-    return res;
-
-}
-
 void 
 sequentialPhysScan(int lev)
 {
     physPlainBlock *pPB;
-int *levPM=cf->levPM;
-int *posPM=cf->posPM;
-physPlainBlock **stash=cf->stash;
 
     fprintf(stdout,"\nStarting a sequential scan of level %d\n",lev);
-    for(int j=0;j<cf->levSize[lev];j++){
+    for(int j=0;j<cf->s[lev];j++){
         pPB=physRead(lev,j);
         if(pPB){
-        fprintf(stdout,"\tlogical block %4d in physical block %4d (d=%d) pos=%4d \tlevPM=%d\tposPM=%4d: -->%c%c\n",
-                pPB->logInd,j,pPB->dummy,pPB->pos,levPM[pPB->logInd],posPM[pPB->logInd],pPB->block[0],pPB->block[1]);
+            if(pPB->state==DUMMY) fprintf(stdout,"D");
+            if(pPB->state==REAL)  fprintf(stdout,"R");
+            if(pPB->state==FILLER)fprintf(stdout,"F");
+            fprintf(stdout," logBlock %5d in physBlock %5d",pPB->logInd,j);
+            if(pPB->state!=FILLER)
+                fprintf(stdout,"\t%s\n",pPB->block);
+            else
+                fprintf(stdout,"\n");
         }
         else {
-            fprintf(stdout,"\tlogical block ???? in physical block %4d (d=?) pos=???? \tlevPM=?\tposPM=????: -->??\n",j);
+            fprintf(stdout," logBlock ???? in physBlock %4d\n",j);
         }
     }
 }
 
-#ifdef AAA  
+
+#ifdef AAABBB
+
 void
 moveToWorkTape()
 {
@@ -145,7 +148,6 @@ moveFromWorkTape()
 
     
 }
-#endif
 
 int
 conf(void *a,void *b)
@@ -274,6 +276,7 @@ for(pI=0,r=0;r<sStash;r++){
     //initStash();
     //sequentialPhysScan(1);
 }
+#endif
 
 #ifdef LEGACY
 extern int compExcess(physPlainBlock *,physPlainBlock *);

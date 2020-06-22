@@ -3,12 +3,28 @@
 #include <rpc/rpc.h>
 #include "client.h"
 
-serverConf sc={1,{5,10,0,0,0,0,0,0,0,0}};
+serverConf sc={3,{6,9,12,0,0,0,0,0,0,0}};
 clientConf *cf;
-
 
 int
 main(int argc, char **argv)
+{
+
+    physPlainBlock *res;
+    clientConf *ncf;
+
+    initClientfromSC(&sc);
+    res=logRead(16);
+    printf("%s\n",res->block);
+    writeClientConf(cf,"CLIENT");
+    //ncf=readClientConf("CLIENT1");
+    //writeClientConf(ncf,"CLIENT2");
+
+}
+
+#ifdef AAABBB
+int
+oldmain(int argc, char **argv)
 {
 
     physPlainBlock *res;
@@ -103,3 +119,4 @@ main(int argc, char **argv)
 	exit(0);
 
 }
+#endif

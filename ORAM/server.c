@@ -5,20 +5,12 @@
 #include "go.h"
 
 
-static physPlainBlock *memory[MaxNumLev];
-static int levSize[MaxNumLev+1];
+static physPlainBlock *memory[MaxNumLev+1];
+//static int levSize[MaxNumLev+1];
+static serverSetup sInfo;
 
 
-void
-copyBlock(physPlainBlock *d, physPlainBlock *s)
-{
-
-    d->lev=s->lev;
-    d->logInd=s->logInd;
-    d->dummy=s->dummy;
-    d->pos=s->pos;
-    memcpy(d->block,s->block,sBlock);
-}
+#ifdef AAABBB
 
 void
 moveToWorkTape(int *pl)
@@ -42,46 +34,6 @@ moveFromWorkTape(int *pl)
         
 }
 
-physPlainBlock *
-readPhysPlainBlock(rRequest *rr)
-{
-
-
-    physPlainBlock *res=(physPlainBlock *)malloc(sizeof(physPlainBlock));
-
-    int lev=rr->lev;
-    int pi=rr->physInd;
-    if (pi>levSize[lev]){
-        int x=0;
-    }
-   	fprintf(stdout,"reading physical block: %2d at lev %d\n",rr->physInd,rr->lev);
-    physPlainBlock *Level=memory[lev];
-    physPlainBlock *pPB=Level+pi;
-
-   	fprintf(stdout,"\treturning block with logId %d\n",pPB->logInd);
-
-    return (char *)pPB;
-}
-
-void 
-writePhysPlainBlock(wRequest *wr)
-{
-
-
-    int lev=wr->lev;
-    int pi=wr->physInd;
-   	fprintf(stdout,"writing physical block: %d (log: %d) for lev %d %c\n",
-                                pi,wr->pb->logInd,lev,wr->pb->block[0]);
-
-    physPlainBlock *Level=memory[lev];
-    physPlainBlock *pPB=Level+pi;
-
-    
-    if (pi<levSize[lev]){
-        copyBlock(pPB,wr->pb);
-    }
-}
- 
 void
 initServer(serverConf *sc)
 {
@@ -118,6 +70,76 @@ initServer(serverConf *sc)
     }
 
 }
+#endif 
+
+void
+copyBlock(physPlainBlock *d, physPlainBlock *s)
+{
+
+    d->lev=s->lev;
+    d->logInd=s->logInd;
+    d->state=s->state;
+    d->pos=s->pos;
+    memcpy(d->block,s->block,sBlock);
+}
+
+physPlainBlock *
+readPhysPlainBlock(rRequest *rr)
+{
+
+
+    physPlainBlock *res=(physPlainBlock *)malloc(sizeof(physPlainBlock));
+
+    int lev=rr->lev;
+    int pi=rr->physInd;
+    if (pi>sInfo.s[lev]){
+        int x=0;
+    }
+   	//fprintf(stdout,"reading physical block: %2d at lev %d\n",rr->physInd,rr->lev);
+    physPlainBlock *Level=memory[lev];
+    physPlainBlock *pPB=Level+pi;
+
+   	//fprintf(stdout,"\treturning block with logId %d\n",pPB->logInd);
+
+    return (char *)pPB;
+}
+
+
+void 
+writePhysPlainBlock(wRequest *wr)
+{
+
+
+    int lev=wr->lev;
+    int pos=wr->physInd;
+#ifdef WPPB
+   	fprintf(stdout,"writing physical block: %d (log: %d) for lev %d %c\n",
+                                pos,wr->pb->logInd,lev,wr->pb->block[0]);
+#endif
+
+    physPlainBlock *Level=memory[lev];
+    physPlainBlock *pPB=Level+pos;
+    
+    if (pos<sInfo.s[lev]) copyBlock(pPB,wr->pb);
+}
+ 
+void *
+buildLev(serverSetup *ss)
+{
+
+    fprintf(stdout,"here...\n");
+    sInfo.maxL=ss->maxL;
+    int maxL=sInfo.maxL;
+
+    memory[0]=(physPlainBlock **) 0; /* lev 0 is on the client */
+    for(int lev=1;lev<maxL;lev++){
+        sInfo.s[lev]=ss->s[lev];
+        memory[lev]=(physPlainBlock *)malloc(sInfo.s[lev]*sizeof(physPlainBlock));
+    }
+    memory[maxL]=(physPlainBlock *)malloc(sInfo.s[maxL-1]*sizeof(physPlainBlock));
+    fprintf(stdout,"Finishing...\n");
+}
+
 
 
 int
@@ -127,21 +149,28 @@ main(int argc, char **argv)
 	int res;
 
     
+    fprintf(stdout,"running\n");
 
+/*
     res=registerrpc(ORAMPROG,ORAMVERS,INIT_NUM,
         initServer, xdr_serverConf, xdr_void);
-
-	res=registerrpc(ORAMPROG,ORAMVERS,READ_NUM,
-        readPhysPlainBlock, xdr_rRequest, xdr_physPlainBlock);
-		
-	res=registerrpc(ORAMPROG,ORAMVERS,WRITE_NUM,
-        writePhysPlainBlock, xdr_wRequest, xdr_void);
 
 	res=registerrpc(ORAMPROG,ORAMVERS,MOVE_NUM,
         moveToWorkTape,xdr_int,xdr_void);
 
 	res=registerrpc(ORAMPROG,ORAMVERS,BACK_NUM,
         moveFromWorkTape,xdr_int,xdr_void);
+*/
+
+	res=registerrpc(ORAMPROG,ORAMVERS,BUILDLEV_NUM,
+        buildLev,xdr_serverSetup,xdr_void);
+
+	res=registerrpc(ORAMPROG,ORAMVERS,WRITE_NUM,
+        writePhysPlainBlock, xdr_wRequest, xdr_void);
+
+	res=registerrpc(ORAMPROG,ORAMVERS,READ_NUM,
+        readPhysPlainBlock, xdr_rRequest, xdr_physPlainBlock);
+		
 
 	svc_run();
 	fprintf(stderr,"Errorr svc_run returned\n");
