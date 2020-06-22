@@ -27,4 +27,5 @@ main(int argc, char **argv)
     mkdir("CLIENT",0777);
     writeClientConf(cf,"CLIENT");
 
+
 }
