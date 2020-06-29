@@ -17,7 +17,6 @@ comparingBlocks(void *a,void *b)
 }
 
 
-/* assuming s[1]=s[0]*s[0] */
 void
 mergeStashIntoOne()
 {
