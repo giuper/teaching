@@ -25,7 +25,7 @@ typedef struct clientConf {
 } clientConf;
 
 /* physical level I/O */
-void physWrite(physPlainBlock *,int,int);
+int physWrite(physPlainBlock *,int,int);
 physPlainBlock * physRead(int,int);
 //void sequentialPhysScan(int);
 //void moveToWorkTape();
@@ -41,3 +41,5 @@ void initClientfromSC(serverConf *sc);
 void initStash();
 clientConf *readClientConf(char *);
 void writeClientConf(clientConf *, char *);
+
+physPlainBlock * makeFiller(void);

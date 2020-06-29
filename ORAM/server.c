@@ -34,42 +34,6 @@ moveFromWorkTape(int *pl)
         
 }
 
-void
-initServer(serverConf *sc)
-{
-
-    physPlainBlock *ptr;
-    int j,lev;
-
-    memory[0]=(physPlainBlock **) 0; /* lev 0 is on the client */
-
-/* levels 1...numLev-1 are initialized to contain dummy blocks */
-/* tbr */
-    for(lev=1;lev<sc->numLev;lev++){
-        levSize[lev]=(1<<(sc->levnBits[lev]));
-        memory[lev]=(physPlainBlock *)malloc(levSize[lev]*sizeof(physPlainBlock));
-        for(j=0,ptr=memory[lev];j<levSize[lev];j++,ptr++){
-            ptr->lev=lev;
-            ptr->logInd=j;
-            ptr->dummy=1;  /* dummy */
-        }
-    }
-    /* the last active lev is initialized by the client  
-       so we only allocate memory */
-    levSize[sc->numLev]=(1<<(sc->levnBits[sc->numLev]));
-    memory[sc->numLev]=(physPlainBlock *)malloc(levSize[sc->numLev]*sizeof(physPlainBlock));
-
-    /* we initialize the work tape */
-    levSize[sc->numLev+1]=2*levSize[sc->numLev];
-    memory[sc->numLev+1]=(physPlainBlock *)malloc(levSize[sc->numLev+1]*sizeof(physPlainBlock));
-    for(j=0;j<levSize[sc->numLev+1];j++){
-        memory[sc->numLev+1][j].dummy=1;
-        memory[sc->numLev+1][j].logInd=levSize[sc->numLev+1];
-        memory[sc->numLev+1][j].block[0]='%';
-        memory[sc->numLev+1][j].block[1]='%';
-    }
-
-}
 #endif 
 
 void
@@ -83,6 +47,7 @@ copyBlock(physPlainBlock *d, physPlainBlock *s)
     memcpy(d->block,s->block,sBlock);
 }
 
+
 physPlainBlock *
 readPhysPlainBlock(rRequest *rr)
 {
@@ -90,28 +55,33 @@ readPhysPlainBlock(rRequest *rr)
 
     physPlainBlock *res=(physPlainBlock *)malloc(sizeof(physPlainBlock));
 
+
     int lev=rr->lev;
     int pi=rr->physInd;
-    if (pi>sInfo.s[lev]){
-        int x=0;
+    if (pi>=sInfo.s[lev]){
+   	    fprintf(stdout,"physical block %4d at lev %d (%d)\n",pi,lev,sInfo.s[lev]);
+        fflush(stdout);
+        return (physPlainBlock *)0;
     }
-   	//fprintf(stdout,"reading physical block: %2d at lev %d\n",rr->physInd,rr->lev);
     physPlainBlock *Level=memory[lev];
     physPlainBlock *pPB=Level+pi;
 
    	//fprintf(stdout,"\treturning block with logId %d\n",pPB->logInd);
 
-    return (char *)pPB;
+    return pPB;
 }
 
 
-void 
+int *
 writePhysPlainBlock(wRequest *wr)
 {
 
 
     int lev=wr->lev;
     int pos=wr->physInd;
+    int *res=malloc(sizeof(int));
+    *res=-25;
+
 #ifdef WPPB
    	fprintf(stdout,"writing physical block: %d (log: %d) for lev %d %c\n",
                                 pos,wr->pb->logInd,lev,wr->pb->block[0]);
@@ -120,7 +90,10 @@ writePhysPlainBlock(wRequest *wr)
     physPlainBlock *Level=memory[lev];
     physPlainBlock *pPB=Level+pos;
     
-    if (pos<sInfo.s[lev]) copyBlock(pPB,wr->pb);
+    
+    if (pos<sInfo.s[lev]){ copyBlock(pPB,wr->pb); *res=1;}
+    return res;
+        
 }
  
 void *
@@ -136,6 +109,7 @@ buildLev(serverSetup *ss)
         sInfo.s[lev]=ss->s[lev];
         memory[lev]=(physPlainBlock *)malloc(sInfo.s[lev]*sizeof(physPlainBlock));
     }
+    sInfo.s[maxL]=sInfo.s[maxL-1];
     memory[maxL]=(physPlainBlock *)malloc(sInfo.s[maxL-1]*sizeof(physPlainBlock));
     fprintf(stdout,"Finishing...\n");
 }
@@ -166,12 +140,11 @@ main(int argc, char **argv)
         buildLev,xdr_serverSetup,xdr_void);
 
 	res=registerrpc(ORAMPROG,ORAMVERS,WRITE_NUM,
-        writePhysPlainBlock, xdr_wRequest, xdr_void);
+        writePhysPlainBlock, xdr_wRequest, xdr_int);
 
 	res=registerrpc(ORAMPROG,ORAMVERS,READ_NUM,
         readPhysPlainBlock, xdr_rRequest, xdr_physPlainBlock);
 		
-
 	svc_run();
 	fprintf(stderr,"Errorr svc_run returned\n");
 	exit(1);

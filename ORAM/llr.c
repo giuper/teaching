@@ -12,7 +12,7 @@ physRead(int lev, int physInd)
 {
 
 cf->numPhysOps++;
-    physPlainBlock *res;
+    physPlainBlock *res=malloc(sizeof(physPlainBlock));
 	int stat;
     if (physInd>cf->s[lev]) return (physPlainBlock *)0;
 
@@ -42,20 +42,24 @@ cf->numPhysOps++;
 
 }
 
-void
+int
 physWrite(physPlainBlock *pPB, int lev,int pI)
 {
 
 cf->numPhysOps++;
-    static wRequest *wr=(wRequest *)0;
+    wRequest *wr=malloc(sizeof(wRequest));
+    //static wRequest *wr=(wRequest *)0;
 
-    if(!wr)
-        wr=(wRequest *)malloc(sizeof(wRequest));
+    int *resInt=malloc(sizeof(int));
+
+    //if(!wr)
+        //wr=(wRequest *)malloc(sizeof(wRequest));
     wr->lev=lev;
     wr->physInd=pI;
     wr->pb=pPB;
 
 #ifdef LOWLEVELDEBUG
+
     fprintf(stdout,"writing physical block: %2d (%d) for lev %d\n",
             wr->physInd, wr->pb->logInd,wr->lev);
 #endif
@@ -64,10 +68,11 @@ cf->numPhysOps++;
     stat=callrpc("localhost", ORAMPROG, ORAMVERS, 
         WRITE_NUM,
 		xdr_wRequest, wr,
-		xdr_void, (void *)0);
+		xdr_int, resInt);
 
     if (stat<0){clnt_perrno(stat);exit(1);}
 
+    return *resInt;
 
 }
 
@@ -76,16 +81,19 @@ sequentialPhysScan(int lev)
 {
     physPlainBlock *pPB;
 
-    fprintf(stdout,"\nStarting a sequential scan of level %d\n",lev);
+    fprintf(stdout,"\nSEQ: Starting a sequential scan of level %d of size %d\n",lev,cf->s[lev]);
     for(int j=0;j<cf->s[lev];j++){
         pPB=physRead(lev,j);
         if(pPB){
-            if(pPB->state==DUMMY) fprintf(stdout,"D");
-            if(pPB->state==REAL)  fprintf(stdout,"R");
-            if(pPB->state==FILLER)fprintf(stdout,"F");
+            if(pPB->state==DUMMY) fprintf(stdout,"SEQ: D");
+            if(pPB->state==REAL)  fprintf(stdout,"SEQ: R");
+            if(pPB->state==FILLER)fprintf(stdout,"SEQ: F");
             fprintf(stdout," logBlock %5d in physBlock %5d",pPB->logInd,j);
-            if(pPB->state!=FILLER)
+            if(pPB->state!=FILLER){
+                fprintf(stdout," (%d-%d)",cf->levPM[pPB->logInd],cf->posPM[pPB->logInd]);
                 fprintf(stdout,"\t%s\n",pPB->block);
+                if(cf->posPM[pPB->logInd]!=j) fprintf(stdout," Misplaced");
+            }
             else
                 fprintf(stdout,"\n");
         }
@@ -149,16 +157,6 @@ moveFromWorkTape()
     
 }
 
-int
-conf(void *a,void *b)
-{
-
-    physPlainBlock **aa=(physPlainBlock **)a;
-    physPlainBlock **bb=(physPlainBlock **)b;
-
-    return (*aa)->pos-(*bb)->pos;
-
-}
 
 void
 reShuffle()

@@ -91,7 +91,7 @@ fillLastLevel()
             cf->levPM[(cf->ND[L]-cf->n[L])+perm[i]]=L;
             cf->posPM[(cf->ND[L]-cf->n[L])+perm[i]]=i;
         }
-        physWrite(pb,L,i);
+        if(physWrite(pb,L,i)==-25){fprintf(stderr,"Write failed\n");}
     }
 
     if (perm[S-1]<R){
@@ -118,6 +118,12 @@ fillLevel(int level)
     int S=cf->s[level]; /* size of the level being built*/
     int D=cf->d[level]; /* number of dummy in the level */
 
+#ifdef ICFSC
+    printf("FL: filling level %d of size %d with %d dummy block\n", 
+                level,S,D);
+    printf("FL: dummy go from %d to %d\n",cf->ND[level],cf->ND[level]+D-1);
+#endif
+
     /* construct a random permutation of the blocks of the level */
     int perm[S];
     for (int i=0;i<S;i++) perm[i]=i;
@@ -127,14 +133,24 @@ fillLevel(int level)
     for (int i=0;i<S-1;i++){
         ri=random()%(S-i);
         temp=perm[i]; perm[i]=perm[i+ri]; perm[i+ri]=temp;
-        if (perm[i]<D)
+        if (perm[i]<D){
             pb=makeDummy(level,cf->ND[level]+perm[i]);
+            cf->levPM[cf->ND[level]+perm[i]]=level;
+            cf->posPM[cf->ND[level]+perm[i]]=i;
+#ifdef ICFSC
+            printf("FL: dummy %d goes to pos %d in level %d\n",
+                cf->ND[level]+perm[i],i,level);
+#endif
+        }
         else
             pb=makeFiller();
         physWrite(pb,level,i);
     }
-    if (perm[S-1]<D)
+    if (perm[S-1]<D){
         pb=makeDummy(level,cf->ND[level]+perm[S-1]);
+        cf->levPM[cf->ND[level]+perm[S-1]]=level;
+        cf->posPM[cf->ND[level]+perm[S-1]]=S-1;
+    }
     else
         pb=makeFiller();
     physWrite(pb,level,S-1);
@@ -160,7 +176,7 @@ initClientfromSC(serverConf *sc)
     cf->r         =(int *)malloc(maxL*sizeof(int));
     cf->f         =(int *)malloc(maxL*sizeof(int));
     cf->d         =(int *)malloc(maxL*sizeof(int));
-    cf->s         =(int *)malloc(maxL*sizeof(int));
+    cf->s         =(int *)malloc((maxL+1)*sizeof(int));
     cf->ND        =(int *)malloc(maxL*sizeof(int));
 
     cf->n[0]=(1<<(sc->nb[0]));
@@ -184,6 +200,7 @@ initClientfromSC(serverConf *sc)
     cf->s[maxL-1]=cf->r[maxL-1]+cf->f[maxL-1]+cf->d[maxL-1];
     cf->ND[maxL-1]=cf->N+cf->D;
     cf->D+=cf->d[maxL-1];
+    cf->s[maxL]=cf->s[maxL-1];
     initStash(cf);
 
     cf->levPM     =(int *)malloc((cf->D+cf->N)*sizeof(int));

@@ -71,17 +71,17 @@ cf->numLogOps++;
         } else
         {
             tmp=physRead(l,posPM[id]);
-            cf->stash[cf->ND[0]]=tmp;
-            cf->stash[cf->ND[0]]->lev=0;
-            cf->stash[cf->ND[0]]->logInd=id;
-            levPM[id]=0;
-            posPM[id]=cf->ND[0];
             tmp->state=FILLER;
-            physWrite(tmp,l,posPM[cf->ND[l]]);
-            tmp->state=REAL;
-            cf->ND[0]++;
+            physWrite(tmp,l,posPM[id]);
             cf->r[l]--;
             cf->f[l]++;
+
+            tmp->state=REAL;
+            tmp->lev=0;
+            levPM[id]=0;
+            posPM[id]=cf->ND[0];
+            cf->stash[cf->ND[0]]=tmp;
+            cf->ND[0]++;
         }
     }
 

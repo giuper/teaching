@@ -15,7 +15,7 @@
 #define MaxNumLev    10  
 //#define MaxLev        1    /* levels are 0,1,...,MaxLev */
 
-enum State {REAL, DUMMY, FILLER};
+enum State {REAL=0, DUMMY, FILLER};
 
 typedef struct serverConf{
 	int maxL;

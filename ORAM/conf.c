@@ -144,6 +144,7 @@ writeClientConf(clientConf *cf, char *dirname)
     writePM(fd,cf->n,cf->maxL);
     fclose(fd);
     
+    cf->r[0]=cf->ND[0];
     sprintf(filename,"%s/r.cnf",dirname);
     fd=fopen(filename,"w");
     writePM(fd,cf->r,cf->maxL);

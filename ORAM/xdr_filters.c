@@ -25,9 +25,11 @@ xdr_serverSetup(XDR *xdrs, serverSetup *ss)
 int
 xdr_wRequest(XDR *xdrs, wRequest *wr)
 {
+	if (!xdr_reference(xdrs,&wr->pb,sizeof(physPlainBlock),xdr_physPlainBlock)) return 0;
 	if (!xdr_int(xdrs,&(wr->lev)))     return 0;
-	if (!xdr_int(xdrs,&(wr->physInd))) return 0;
-	return xdr_reference(xdrs,&wr->pb,sizeof(physPlainBlock),xdr_physPlainBlock);
+	return xdr_int(xdrs,&(wr->physInd));
+	//if (!xdr_int(xdrs,&(wr->physInd))) return 0;
+	//return xdr_reference(xdrs,&wr->pb,sizeof(physPlainBlock),xdr_physPlainBlock);
 }
 
 int
