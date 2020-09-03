@@ -1,0 +1,92 @@
+Risolviamo il problema partendo da configurazioni iniziali senza alcuna regina, per n=3,...,9
+
+3
+Non ho trovato nessuna soluzione
+
+4
+Ho trovato una soluzione
+*Q**
+***Q
+Q***
+**Q*
+
+
+5
+Ho trovato una soluzione
+Q****
+**Q**
+****Q
+*Q***
+***Q*
+
+
+6
+Ho trovato una soluzione
+*Q****
+***Q**
+*****Q
+Q*****
+**Q***
+****Q*
+
+
+7
+Ho trovato una soluzione
+Q******
+**Q****
+****Q**
+******Q
+*Q*****
+***Q***
+*****Q*
+
+
+8
+Ho trovato una soluzione
+Q*******
+****Q***
+*******Q
+*****Q**
+**Q*****
+******Q*
+*Q******
+***Q****
+
+
+9
+Ho trovato una soluzione
+Q********
+**Q******
+*****Q***
+*******Q*
+*Q*******
+***Q*****
+********Q
+******Q**
+****Q****
+
+
+Risolviamo il problema per n=4, per tutte le possibili posizioni di una regina sulla prima riga
+
+x= 0
+Non ho trovato nessuna soluzione
+
+x= 1
+Ho trovato una soluzione
+*Q**
+***Q
+Q***
+**Q*
+
+
+x= 2
+Ho trovato una soluzione
+**Q*
+Q***
+***Q
+*Q**
+
+
+x= 3
+Non ho trovato nessuna soluzione
+
