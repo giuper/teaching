@@ -1,5 +1,5 @@
 # teaching
-classes I have taught and code I wrote for my classes
+classes I have taught and some of the code I have written for my classes
 
 
 
