@@ -43,6 +43,3 @@ class TickerS(TickerMF):
             res.setF(nF)
             return res
     
-    
-
-    
