@@ -7,13 +7,11 @@
 class Ticker:
 
     #costruttore -- usato per costruire nuovi oggetti
-    #numero massimo di persone viene passato come argomento
     
     def __init__(self):
         self.nprs=0
 
     #modificatori -- usati per modificare l'oggetto
-    #se il numero di persone eccede il massimo non viene incrementato
     def inc(self):
         self.nprs+=1
 

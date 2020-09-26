@@ -1,19 +1,40 @@
 from tickerS import TickerS
+from tickerS import MaxCapacity
 
-t1=TickerS()
-t1.incM()
-t1.incF()
-t1.incF()
+t1=TickerS(5)
+for i in range(6):
+    try:
+        t1.incM()
+    except MaxCapacity:
+        print("t1: capacita' massima raggiunta")
+    else:
+        print("t1: incremento effettuato")
 
-t2=TickerS()
-t2.incM()
-t2.incM()
-t2.incM()
+print("t1: numero persone",t1.currentP())
+
+t2=TickerS(5)
 t2.incF()
-#creo un oggetto della classe tickerS
-#che e' la "somma" dei due ticker
+print("t2: numero persone",t2.currentP())
 
-t=t1+t2
+print("Sommo i due ticker")
+try:
+    t3=t1+t2
+except MaxCapacity:
+    print("t3: capacita' massima raggiunta")
+else:
+    print("t3: somma effettuata")
+    print("t3: numero persone ",t3.currentP())
 
-print("Numero M nel nuovo oggetto: \t",t.currentM())
-print("Numero F nel nuovo oggetto: \t",t.currentF())
+t1.decM()
+t1.decM()
+print("t1: numero persone",t1.currentP())
+
+print("Sommo i due ticker")
+try:
+    t4=t1+t2
+except MaxCapacity:
+    print("t4: capacita' massima raggiunta")
+else:
+    print("t4: somma effettuata")
+    print("t4: numero persone ",t4.currentP())
+

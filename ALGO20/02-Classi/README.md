@@ -13,7 +13,7 @@
 
 3. *tickerS.py*
 
-    una classe derivata da tickerMG 
+    una classe derivata da tickerMF 
 
         3.1 aggiunge il metodo che riporta la somma dei due ticker
 
