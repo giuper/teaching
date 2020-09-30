@@ -30,7 +30,7 @@ class Stack:
     # Riceve un iterable e inserisce i suoi elementi,
     # a partire dalla posizione 0, nello stack
     
-    def __init__(self, sequence = None):
+    def __init__(self,sequence=None):
         # rappresentiamo lo stack con una lista
         # il top è la fine della lista
         # sequence  = None crea uno stack vuoto
@@ -39,8 +39,7 @@ class Stack:
         self._container = list()
         for element in sequence:
             self._container.append(element)
-            #self.push(element)
-
+            
     # Se lo stack è vuoto lancia un’eccezione
     # Rimuove l’elemento al top dello stack
     # Restituisce l’elemento eliminato
@@ -68,6 +67,8 @@ class Stack:
             return False
         else:
             return True
+        ##equivalente
+        ## return not self._container
 
     # Cancella tutti gli elementi contenuti nello stack
     def clear(self):
@@ -92,16 +93,17 @@ class Stack:
 
     # Usata da python quando deve assegnare un valore Booleano
     # ad un oggetto self delle classe Stack
-    # Restituisce true se lo stack è vuoto, false altrimenti
+    # Restituisce true se lo stack non è vuoto, false altrimenti
     def __bool__(self):
         return len(self._container)>0
+    ##return self._container
 
 
     # Usata da python quando deve valutare l'espressione Booleana
     # x in self 
     # per un oggetto self delle classe Stack
     # Restituisce true se item è contenuto nello stack, false altrimenti
-    def __contains__(self, item):
+    def __contains__(self,item):
         return item in self._container
 
     # Costruisce un iteratore per self

@@ -1,6 +1,7 @@
 from stack import Stack
 from stack import EmptyStack
     
+#esempio di utilizzo della classe Stack
 s = Stack([1,9,7])
 print('Contenuto stack:', s)
 size = len(s)
@@ -15,9 +16,9 @@ print("Eseguo push di 4")
 s.push(4)
 print("Eseguo push di 4")
 s.push(4)
-print("Eseguo push di 4")
+print("Eseguo push di 1")
 s.push(1)
-print("Eseguo push di 4")
+print("Eseguo push di 2")
 s.push(2)
 
 print("Stampo lo stack")
