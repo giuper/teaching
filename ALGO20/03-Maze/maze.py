@@ -32,9 +32,9 @@ class Maze:
         self.m[r][c]=1
 
     def __str__(self):
-        res="+"+"-"*(self.nc)+"+\n"
+        res=" +"+"-"*(self.nc)+"+\n"
         for r in range(self.nr):
-            res=res+"|"
+            res=res+str(r)+"|"
             for c in range(self.nc):
                 if self.m[r][c]==1:
                     res=res+"#"
@@ -43,7 +43,7 @@ class Maze:
                 if self.m[r][c]==-1:
                     res=res+"*"
             res=res+"|\n"
-        res=res+"+"+"-"*(self.nc)+"+\n"
+        res=res+" +"+"-"*(self.nc)+"+\n"
         return res
 
 
@@ -61,18 +61,19 @@ class Maze:
     def isAdmissible(self,newr,newc,verbose=False):
         if (newr<0) or (newr>=self.nr):
             return False
-        if (newc<0) or (newx>=self.nc):
+        if (newc<0) or (newc>=self.nc):
             return False
-        if self.m[newr][newc]!=0:
+        if self.m[newr][newc]>0:
             return False
+        return True
 
 
     def nextAdmMove(self,r,c,lmove):
         if lmove==4:
             return None
         for mossa in range(lmove+1,5):
-            newr=r+MOVES[mossa][0]
-            newc=c+MOVES[mossa][1]
+            newr=r+self.MOVES[mossa][0]
+            newc=c+self.MOVES[mossa][1]
             if self.isAdmissible(newr,newc):
                 return mossa
         return None
@@ -91,15 +92,19 @@ class Maze:
         while self.s:
             
             [r,c,lmove]=self.s.pop()
+            if verbose:
+                print(r,c,lmove)
             nmove=self.nextAdmMove(r,c,lmove)
+            if verbose:
+                print("nmove",nmove)
             if nmove is None:
                 self.m[r][c]=3
                 continue
             self.s.push([r,c,nmove])
             self.m[r][c]=2
-            newr=r+MOVES[nmove][0]
-            newc=c+MOVES[nmove][1]
-            if self.m[newr][newc]=-1:
+            newr=r+self.MOVES[nmove][0]
+            newc=c+self.MOVES[nmove][1]
+            if self.m[newr][newc]==-1:
                 return True
             self.s.push([newr,newc,0])
 

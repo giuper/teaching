@@ -1,5 +1,4 @@
 from maze import Maze
-from maze import myStack
 
 m=Maze(4,5)
 for c in range(4):
@@ -13,8 +12,9 @@ m.setFinish(0,3)
 print("Nuovo labirinto")
 print(m)
 
-if m.Solve(0,0,True):
-    print(m.printSol())
+if m.Solve(0,0):
+    print("Un cammino")
+    #print(m.printSol())
 else:
     print("Nessun cammino")
 print("\n\n")
