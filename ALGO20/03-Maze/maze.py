@@ -32,7 +32,14 @@ class Maze:
         self.m[r][c]=1
 
     def __str__(self):
-        res=" +"+"-"*(self.nc)+"+\n"
+        if(self.nc<10):
+            res="  "
+            for r in range(self.nc):
+                res=res+str(r)
+            res=res+"\n"
+        else:
+            res=""
+        res=res+" +"+"-"*(self.nc)+"+\n"
         for r in range(self.nr):
             res=res+str(r)+"|"
             for c in range(self.nc):
