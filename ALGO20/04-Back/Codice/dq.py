@@ -1,9 +1,10 @@
 from queen import Queen
 
-for n in range(8,9):
-    s=Queen(n)
+for x in range(1,20):
+    s=Queen(x)
     if(s.Solve()):
+        print(x)
         print(s)
     else:
-        print("No solution found for n=",n)
+        print("No solution found for ",x,"\n")
 
