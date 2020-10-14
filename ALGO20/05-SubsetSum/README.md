@@ -4,6 +4,7 @@
 
 
 ## Algoritmi di Backtrack per Subset Sum ##
+Tutte le classi sono derivate da [una classe generale per backtrack](back.py) che utilizza la struttura dati [stack](stack.py)
 
 1. Primo algoritmo.
 
