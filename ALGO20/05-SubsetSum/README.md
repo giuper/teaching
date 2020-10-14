@@ -13,6 +13,8 @@
     [file con la classe](subsetSum0.py)
 
     [file che richiama la classe](ds0.py)
+
+    [output file](aaa0)
    
 
 
