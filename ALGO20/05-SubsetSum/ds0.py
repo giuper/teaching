@@ -7,6 +7,6 @@ for t in range(1,9192):
     result=ss.Solve()
     print(t,result)
     if result:   
-        print(ss.sol)
+        print(ss)
 
 

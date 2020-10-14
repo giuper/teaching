@@ -80,3 +80,10 @@ class SubsetSum(BackTrack):
         else:
             return False
 
+
+    def __str__(self):
+        for i in range(len(self.L)):
+            if self.sol[1][i] is None or i>=self.sol[0]:
+                self.sol[1][i]=0
+
+        return "Input:     "+str(self.L)+"\n"+"Soluzione: "+str(self.sol[1])+"\n"
