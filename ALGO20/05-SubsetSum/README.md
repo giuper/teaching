@@ -10,9 +10,9 @@
     Sono provate tutte le mosse e uno stato è considerato finale solo
     se abbiamo una decisione su tutti gli elementi
 
-    [file con la classe](subsetsum0.py)
+    [file con la classe](subsetSum0.py)
 
-    [file che richiama la classe] (ds0.py)
+    [file che richiama la classe](ds0.py)
    
 
 
