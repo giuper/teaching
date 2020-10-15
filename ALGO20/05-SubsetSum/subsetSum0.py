@@ -1,24 +1,24 @@
 from back import BackTrack
 
-class SubsetSum(BackTrack):
+class SubsetSum0(BackTrack):
 
     def __init__(self,L,t):
         super().__init__()
         self.L=L
         self.t=t
-        self.n=len(L)
+        self.N=len(L)
         self.sol=None
 
 #required by BackTrack
     def initState(self):
-        return [0,[None]*self.n]
+        return [0,[None]*self.N]
         
 
 #required by BackTrack
     def nextAdmMove(self,state,lmove):
         [i,S]=state
 
-        if i==self.n:
+        if i==self.N:
             return None
         
         if lmove==None:
@@ -49,10 +49,10 @@ class SubsetSum(BackTrack):
         pass
 
 #required by BackTrack
-    def isFinal(self,state):
+    def isFinal0(self,state):
         [i,S]=state
 
-        if i<self.n:
+        if i<self.N:
             return False
 
         sm=0
@@ -63,10 +63,12 @@ class SubsetSum(BackTrack):
         return sm==self.t
 
 
+
+#required by BackTrack
 #suggerito durante la lezione
 #bisogna azzerare i valore delle mosse vecchie
 
-    def isFinal0(self,state):
+    def isFinal(self,state):
         [i,S]=state
         sm=0
         for j in range(i):
@@ -74,7 +76,7 @@ class SubsetSum(BackTrack):
                 sm=sm+self.L[j]
 
         if sm==self.t: #siamo in uno stato finale
-            for j in range(i,self.n):
+            for j in range(i,self.N):
                 S[j]=0  #azzeriamo tutti le rimanenti mosse
             return True
         else:

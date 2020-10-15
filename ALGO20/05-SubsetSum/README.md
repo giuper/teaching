@@ -16,6 +16,33 @@ Tutte le classi sono derivate da [una classe generale per backtrack](back.py) ch
     [file che richiama la classe](ds0.py)
 
     [output file](aaa0)
+
+    Tempo di esecuzione sul mio portatile 134s
    
+2. Secondo algoritmo.
+
+    Un elemento non &grave; aggiunto se mi farebbe eccedere il target
+    se abbiamo una decisione su tutti gli elementi
+
+    [file con la classe](subsetSum1.py)
+
+    [file che richiama la classe](ds1.py)
+
+    [output file](aaa1)
+   
+    Tempo di esecuzione sul mio portatile 88s
+
+3. Terzo algoritmo.
+
+    Non scarta un elemento che mi porta in uno stato in cui, anche aggiungendo 
+    tutti gli altri rimanenti, mi troverei sotto il target, 
+
+    [file con la classe](subsetSum2.py)
+
+    [file che richiama la classe](ds2.py)
+
+    [output file](aaa2)
+   
+    Tempo di esecuzione sul mio portatile 14s
 
 
