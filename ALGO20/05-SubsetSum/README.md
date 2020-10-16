@@ -45,4 +45,14 @@ Tutte le classi sono derivate da [una classe generale per backtrack](back.py) ch
    
     Tempo di esecuzione sul mio portatile 14s
 
+3. Quarto algoritmo.
+    
+    Risolve un piccolo bug di efficient del terzo algoritmo
+
+    [file con la classe](subsetSum4.py)
+
+    [file che richiama la classe](ds4.py)
+
+    [output file](aaa4)
+   
 
