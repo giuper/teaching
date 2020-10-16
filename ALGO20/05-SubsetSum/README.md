@@ -47,7 +47,7 @@ Tutte le classi sono derivate da [una classe generale per backtrack](back.py) ch
 
 3. Quarto algoritmo.
     
-    Risolve un piccolo bug di efficient del terzo algoritmo
+    Risolve due piccole inefficienze del terzo algoritmo
 
     [file con la classe](subsetSum4.py)
 
