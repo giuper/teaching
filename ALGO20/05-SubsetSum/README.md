@@ -55,4 +55,5 @@ Tutte le classi sono derivate da [una classe generale per backtrack](back.py) ch
 
     [output file](aaa4)
    
+    Tempo di esecuzione sul mio portatile 11s
 
