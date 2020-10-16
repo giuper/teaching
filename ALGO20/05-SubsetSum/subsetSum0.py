@@ -56,7 +56,7 @@ class SubsetSum0(BackTrack):
             return False
 
         sm=0
-        for j in range(len(S)):
+        for j in range(self.N):
             if S[j]==1:
                 sm=sm+self.L[j]
 
@@ -84,7 +84,7 @@ class SubsetSum0(BackTrack):
 
 
     def __str__(self):
-        for i in range(len(self.L)):
+        for i in range(self.N):
             if self.sol[1][i] is None or i>=self.sol[0]:
                 self.sol[1][i]=0
 

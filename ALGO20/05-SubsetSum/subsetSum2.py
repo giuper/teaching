@@ -12,8 +12,8 @@ class SubsetSum2(SubsetSum1):
 
         if lmove==None:
             rr=0
-            for i in range(i+1,self.N):
-                rr=rr+self.L[i]
+            for j in range(i+1,self.N):
+                rr=rr+self.L[j]
             if rr+s<self.t:
                 return 1
             else:
