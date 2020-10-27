@@ -21,7 +21,7 @@ Tutte le classi sono derivate da [una classe generale per backtrack](back.py) ch
    
 2. Secondo algoritmo.
 
-    Un elemento non &egrave; aggiunto se eccede il target
+    Un elemento non &egrave; aggiunto se mi fa superare il target
 
     [file con la classe](subsetSum1.py)
 
