@@ -21,8 +21,7 @@ Tutte le classi sono derivate da [una classe generale per backtrack](back.py) ch
    
 2. Secondo algoritmo.
 
-    Un elemento non &grave; aggiunto se mi farebbe eccedere il target
-    se abbiamo una decisione su tutti gli elementi
+    Un elemento non &egrave; aggiunto se eccede il target
 
     [file con la classe](subsetSum1.py)
 
@@ -59,7 +58,7 @@ Tutte le classi sono derivate da [una classe generale per backtrack](back.py) ch
 
 4. Soluzione per l'assegno
 
-    In questa versione del problema non &grave; possibile mettere in soluzione due interi che appaiono in posizioni consecutive nella lista L 
+    In questa versione del problema non &egrave; possibile mettere in soluzione due interi che appaiono in posizioni consecutive nella lista L 
 
     [file con la classe](subsetSum5.py)
 
