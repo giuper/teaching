@@ -57,3 +57,10 @@ Tutte le classi sono derivate da [una classe generale per backtrack](back.py) ch
    
     Tempo di esecuzione sul mio portatile 11s
 
+4. Soluzione per l'assegno
+
+    In questa versione del problema non &grave; possibile mettere in soluzione due interi che appaiono in posizioni consecutive nella lista L 
+
+    [file con la classe](subsetSum5.py)
+
+    [file che richiama la classe](ds5.py)
