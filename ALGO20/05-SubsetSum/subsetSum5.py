@@ -2,10 +2,9 @@ from subsetSum4 import SubsetSum4
 
 class SubsetSum5(SubsetSum4):
 
+#assuming the following structure for state
 #state[0] i next index to be considered
 #state[1] set S
-#state[2] somma degli elementi in S
-#state[3] somma degli element L[i+1]...L[N-1]
 
     def nextAdmMove(self,state,lmove):
         #compute the next move according to standard SubSetSum
