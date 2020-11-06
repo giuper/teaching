@@ -9,7 +9,7 @@ Implementazioni della struttura dati astratta Sparse Matrix
 1. Lista non ordinata
 
     Gli elementi non-zero della matrice sono in una lista non ordinata e 
-    dobbiamo cercare l'intera classe per verificare se un elemento è presente.
+    dobbiamo cercare l'intera lista per verificare se un elemento è presente.
 
     [file con la classe](sparseMatrix.py)
 
