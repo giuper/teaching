@@ -24,7 +24,7 @@ Implementazioni della struttura dati astratta Sparse Matrix
     [file con la classe ripulita](sparseMatrixBS.py)
 
 
-In questo [file] (driver.py) confronto i tempi delle due classi su matrici sparse
+In questo [file](driver.py) confronto i tempi delle due classi su matrici sparse
 di dimensioni medie. I risultati di un'esecuzione sul mio portatile si trovano
 in questo [file](result.txt). Notate lo speed-up offerto dalla ricerca binaria!!!
 
