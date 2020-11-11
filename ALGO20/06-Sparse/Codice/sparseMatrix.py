@@ -54,19 +54,23 @@ class SparseMatrix:
         ndx = self._findPosition(ndxTuple[0], ndxTuple[1])
         return self._elementList[ndx]._value if ndx != None else 0
 
-    def __mul__(self, B):
+    def __mul__(self,B):
         assert B.numRows() == self.numCols(), \
                "Le matrici non sono compatibili per essere moltiplicate."
         
         # Creare la nuova matrice.
-        N=SparseMatrix(self.numRows(), B.numCols())
+        C=SparseMatrix(self.numRows(), B.numCols())
 
-        for r in range(N.numRows()):
-            for c in range(N.numCols()):  #calcoliamo N[r,c]
-                for k in range(self.numCols()): 
-                    N[r,c]=N[r,c]+self[r,k]*B[k,c]
+        for r in range(C.numRows()):
+            for c in range(C.numCols()):   #calcoliamo N[r,c]
+                for k in range(self.numCols()):
+                    C[r,c]=C[r,c]+self[r,k]*B[k,c]
 
-        return N
+        return C
+
+
+
+
 
     def __add__(self, B):
         assert B.numRows() == self.numRows() and \

@@ -1,4 +1,4 @@
-from sparseMatrix import SparseMatrix
+from sparseMatrix2 import SparseMatrix
 
 class SparseMatrixBS(SparseMatrix):
 
