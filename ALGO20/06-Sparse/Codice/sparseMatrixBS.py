@@ -1,4 +1,6 @@
-class SparseMatrixBS:
+from sparseMatrix import SparseMatrix
+
+class SparseMatrixBS(SparseMatrix):
 
     class _MatrixElement:
         def __init__(self, row, col,value=None):
@@ -81,7 +83,7 @@ class SparseMatrixBS:
 
         found=pos<len(A) and A[pos]==newElement
         if found:
-            return A[pos]
+            return A[pos]._value
         else:
             return 0
         
