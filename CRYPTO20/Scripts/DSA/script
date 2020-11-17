@@ -1,0 +1,16 @@
+
+# generate parameters with 2048-bit DSA, SHA-256 (can be common to multiple keys)
+openssl genpkey -genparam -algorithm DSA -pkeyopt dsa_paramgen_bits:2048 -pkeyopt dsa_paramgen_q_bits:256 -pkeyopt dsa_paramgen_md:sha256 -out dsaparams.pem
+
+# generate a private key and extract the public key
+openssl genpkey -paramfile dsaparams.pem -out dsaprivkey.pem
+openssl dsa -in dsaprivkey.pem -pubout > dsapubkey.pem
+
+# create a file "myfile" to be signed
+echo 'The Magic Words are Squeamish Ossifrage' > myfile
+
+# create signature "myfile.sig"
+openssl dgst -sha256 -sign dsaprivkey.pem myfile > myfile.sig
+
+# verify "myfile" against signature "myfile.sig" and public key
+openssl dgst -sha256 -verify dsapubkey.pem -signature myfile.sig myfile

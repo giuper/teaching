@@ -1,0 +1,19 @@
+
+#generate parameters
+openssl ecparam -name secp256k1 -out secp256k1.pem
+
+#generate private key
+openssl ecparam -in secp256k1.pem -genkey -noout -out keyo.pem
+
+#extracting the public key
+openssl ec -in keyo.pem -pubout -out publickeyo.pem
+
+##openssl req -new -key keyo.pem -x509 -nodes -days 365 -out cert.pem
+
+openssl dgst -sha256 -sign keyo.pem -out firma data.txt
+
+openssl dgst -sha256 -verify publickeyo.pem -signature firma data.txt
+
+
+
+
