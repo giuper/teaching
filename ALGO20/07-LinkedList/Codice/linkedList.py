@@ -3,9 +3,6 @@ class ListNode:
         self.data=data
         self.next=None
 
-    def __str__(self):
-        return str(self.data)
-    
 class LinkedList:
     def __init__(self):
         self.head=None
@@ -18,31 +15,30 @@ class LinkedList:
         return len(self)>0
 
     def __contains__(self,item):
-        curr=self.head
-        while curr is not None:
-            if item==curr.data:
+        curNode=self.head
+        while curNode is not None:
+            if item==curNode.data:
                 return True
-            curr=curr.next
+            curNode=curNode.next
         return False
         
     def remove(self,target):
-        prev=None
-        curr=self.head
-        
-        while curr is not None and curr.data!=target:
-            prev=curr
-            curr=curr.next
+        predNode=None
+        curNode=self.head
+    
+        while curNode is not None and curNode.data!=target:
+            predNode=curNode
+            curNode=curNode.next
     	
-        if curr is None:
+        if curNode is None:
             return
 
-        if curr is self.head:
-            self.head=curr.next
+        if curNode is self.head:
+            self.head=curNode.next
         else:
-            prev.next=curr.next
+            predNode.next=curNode.next
 
         self.size-=1
-
 
     def pop(self,index=None):
         if index==None:
@@ -51,43 +47,43 @@ class LinkedList:
         if index<0:
             index+=self.size
 
-        prev=None
-        curr=self.head
+        predNode=None
+        curNode=self.head
         pos=0
         while pos!=index:
-            prev=curr
-            curr=curr.next
+            predNode=curNode
+            curNode=curNode.next
             pos+=1
 
-        if curr is self.head:
-            self.head=curr.next
+        if curNode is self.head:
+            self.head=curNode.next
         else:
-            prev.next=curr.next
+            predNode.next=curNode.next
 
         self.size-=1
-        return curr.data
+        return curNode.data
 
       
     def __getitem__(self,index):
         if index<0:
             index+=self.size
 
-        curr=self.head
+        curNode=self.head
         pos=0
-        while curr is not None:
+        while curNode is not None:
             if pos==index:
-                return curr.data
+                return curNode.data
             else:
-                curr=curr.next
+                curNode=curNode.next
                 pos+=1
 
-        if curr is self.head:
-            self.head=curr.next
+        if curNode is self.head:
+            self.head=curNode.next
         else:
-            prev.next=curr.next
+            predNode.next=curNode.next
 
         self.size-=1
-        return curr.data
+        return curNode.data
 
 
     def __iter__(self):
@@ -107,6 +103,9 @@ class LinkedList:
         return item
 
 
+    def append(self,elem):
+        self.insert(len(self),elem)
+
     def insert(self,index,elem):
         newNode=ListNode(elem)
 
@@ -120,39 +119,38 @@ class LinkedList:
             index+=self.size
 
 
-        prev=None
-        curr=self.head
+        predNode=None
+        curNode=self.head
         pos=0
         while pos!=index:
-            prev=curr
-            curr=curr.next
+            predNode=curNode
+            curNode=curNode.next
             pos+=1
 
-        if curr is self.head:
+        if curNode is self.head:
             newNode.next=self.head
             self.head=newNode
         else:
-            prev.next=newNode
-            newNode.next=curr
+            predNode.next=newNode
+            newNode.next=curNode
 
         self.size+=1
         
 
-        
-
     def __str__(self):
         res='<'
-        curr=self.head
-        while curr is not None:
-            res+=str(curr.data)
-            curr=curr.next
-            if curr is not None:
+        curNode=self.head
+        while curNode is not None:
+            res+=str(curNode.data)
+            curNode=curNode.next
+            if curNode is not None:
                 res+=','
         res+='>'
         return res
 
 
-    def insert_head(self,node):
-        node.next=self.head
-        self.head=node
+    def insertHead(self,element):
+        new_node=ListNode(element)
+        new_node.next=self.head
+        self.head=new_node
         self.size+=1
