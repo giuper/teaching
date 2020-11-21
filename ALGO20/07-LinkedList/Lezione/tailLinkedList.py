@@ -1,6 +1,6 @@
 from linkedList import LinkedList
 from linkedList import ListNode
-#c'e' un errore da aggiustare in remove 
+
 class TailLinkedList(LinkedList):
     
     def __init__(self):
@@ -25,14 +25,21 @@ class TailLinkedList(LinkedList):
         self.size+=1
         
     def insert(self,index,element):
+#inserisci un nuovo nodo contentente element come data
+#in modo tale che al termine della insert
+#il nuovo nodo ha indice uguale a index
+        
+        #se index=0,...,len(self)-1  --> index conta dal primo
+        
+        if index<-self.size: #ci dovrebbe essere un errore
+            index=0          #scegliamo di accedere al primo elemento
+            
+        if index>=self.size: #ci dovrebbe essere un errore
+            index=self.size  #scegliamo di aggiungere element come ultimo
 
-        if index<-self.size:
-            index=0
-            
-        if index>=self.size:
-            index=self.size
-            
-        if index<0:
+        #se index=-1,...,-len(self)  --> index conta dall'ultimo
+        #                                equivalent ad aggiungere len(self)    
+        if index<0:         #riportiamo l'indice negativo al range [0,len(self)-1]
             index+=self.size
 
         predNode=None
@@ -85,21 +92,8 @@ class TailLinkedList(LinkedList):
         if curNode is self.tail: #sto cancellando l'ultimo
             self.tail=predNode
             predNode.next=None
-            self.size-=1
             return
 
         #sto cancellando un nodo intermedio
         predNode.next=curNode.next
         
-
-        
-
-
-
- 
-L=TailLinkedList()
-L.insertHead(33)
-L.append(99)
-L.insertHead(22)
-print(L)
-L.insert(2,67)
