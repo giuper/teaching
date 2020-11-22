@@ -1,38 +1,40 @@
 # x509 Certificate Authority #
 
 
-1. Step 1: create the needed directory structure for the Root CA
+1. Create the needed directory structure for the Root CA
 
     Execute [script](setupCA.sh) in the root directory
 
-2. Step 2: generate the private key for the Root CA and self-sign it
+2. Generate the private key for the Root CA and self-sign it
     to generate the Root CA certificate
 
     Execute [script](createRootCert.sh) in the root directory
 
-3. Step 3: create the needed directory structure for the Intermediate CA
+3. Create the needed directory structure for the Intermediate CA
 
     Execute [script](setupCA.sh) in the intermediate directory
 
-4. Step 4: generate the private for the Intermediate CA and produce 
+4. Generate the private for the Intermediate CA and produce 
     a CSR for the Root CA
 
     Execute [script](setupCA.sh) in the intermediate directory
 
-5. Step 5: sign the Intermediate CA certificate using the key of the Root CA
+5. Sign the Intermediate CA certificate using the key of the Root CA
     
     Execute [script](signIntermediateCA.sh) in the root directory
     
-6. Step 6: verify the Intermediate CA certificate
+6. Verify the Intermediate CA certificate
+
     Execute [script](verifyIntermediate.sh) in the intermediate directory
 
-7. Step 7: generate a server certificate signed by the Intermediate CA
+7. Generate a server certificate signed by the Intermediate CA
+
     Execute [script](createServer.sh) in the intermediate directory
     
-8. Step 8: generate a client certificate signed by the Intermediate CA
+8. Generate a client certificate signed by the Intermediate CA
+
     Execute [script](createClient.sh) in the intermediate directory
     
-
 
 
 
