@@ -3,12 +3,12 @@
 
 1. Step 1: create the needed directory structure for the Root CA
 
-    [script](setupCA.sh)
+    Execute [script](setupCA.sh) in the root directory
 
 2. Step 2: generate the private key for the Root CA and self-sign it
     to generate the Root CA certificate
 
-    [script](createRootCert.sh)
+    Execute [script](createRootCert.sh) in the root directory
 
 3. Step 3: create the needed directory structure for the Intermediate CA
 
