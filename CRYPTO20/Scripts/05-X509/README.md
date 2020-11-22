@@ -36,7 +36,7 @@
 
 
 
-##Config files##
+## Config files ##
 
 1. [Config file for the Root CA](opensslRoot.cnf)
 
