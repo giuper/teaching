@@ -35,6 +35,17 @@
 
     Execute [script](createClient.sh) in the intermediate directory
     
+## Using Certificates ##
+
+1. Encrypting and Decryptig a document to be sent by email
+    
+    Execute [script](sMimeEnc.sh) 
+             (filenames are relative to the intermediate directory)
+
+2. Signing and Verifying a document to be sent by email
+
+    Execute [script](sMimeSign.sh) 
+             (filenames are relative to the intermediate directory)
 
 
 
