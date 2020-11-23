@@ -37,7 +37,7 @@
     
 ## Using Certificates ##
 
-1. Encrypting and Decryptig a document to be sent by email
+1. Encrypting and Decrypting a document to be sent by email
     
     Execute [script](sMimeEnc.sh) 
              (filenames are relative to the intermediate directory)
@@ -47,7 +47,10 @@
     Execute [script](sMimeSign.sh) 
              (filenames are relative to the intermediate directory)
 
+3. Signing and Encrypting and then Decrypting and Verifying 
 
+    Execute [script](sMimeSignEnc.sh) 
+             (filenames are relative to the intermediate directory)
 
 ## Config files ##
 
