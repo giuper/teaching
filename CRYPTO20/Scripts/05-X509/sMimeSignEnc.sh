@@ -15,8 +15,8 @@ rcertfile=certs/${recipient}.cert.pem
 
 read -p "Name of sender:    "
 sender=${REPLY}
-skeyfile=otherPrivate/${recipient}.key.pem
-scertfile=certs/${recipient}.cert.pem
+skeyfile=otherPrivate/${sender}.key.pem
+scertfile=certs/${sender}.cert.pem
 
 read -p "Name of document:  "
 doc=${REPLY}
