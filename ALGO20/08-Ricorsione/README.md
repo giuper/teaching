@@ -10,7 +10,7 @@
 
 2. [Algoritmi per calcolare i numeri di Fibonacci](fibo.py)
 
-        In [questo file](result.txt) i tempi di esecuzione per il
-        calcolo dei primi 43 numeri di Fibonacci
+In [questo file](result.txt) i tempi di esecuzione per il
+calcolo dei primi 43 numeri di Fibonacci
 
 
