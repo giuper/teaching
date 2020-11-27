@@ -40,7 +40,7 @@ def fibMemLRU(n):
     return fibMemLRU(n-1)+fibMemLRU(n-2)
 
 
-
+#usiamo le 4 funzioni per calcolare i primi 43 numeri di Fibonacci
 for fct in funzioni:
     times=time.time()
     for n in range(1,43):
