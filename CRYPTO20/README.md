@@ -39,5 +39,8 @@
 
 12. *User Authentication*, Chapter 15 of [S]
 
+13. *Using OpenSSL for Cryptographic Operations*
+
+    See slides and scripts on the github repository of the class
 
 The needed number theoretic background is found in Chapter 2 of [S]
