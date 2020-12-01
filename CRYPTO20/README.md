@@ -57,4 +57,5 @@ The needed number theoretic background is found in Chapter 2 of [S]
 
 4. *Secure messaging: Signal*, see [Signal's wikipedia entry as a starting point](https://en.wikipedia.org/wiki/Signal_Protocol)
 
+5. *Secure messaging: WhatsAPP*, see [WhatsApp Encryption Overview](WA_Security_WhitePaper.pdf)
 
