@@ -40,3 +40,4 @@
 12. *User Authentication*, Chapter 15 of [S]
 
 
+The needed number theoretic background is found in Chapter 2 of [S]
