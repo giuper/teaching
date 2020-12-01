@@ -1,5 +1,5 @@
 # ALGO20: *Cryptographic Tools for Privacy in Big Data* #
-## *Business Innovation and Informatics * ##
+## Business Innovation and Informatics  ##
 ### Academic year 2020/21 ###
 
 *Textbook: [S] Cryptography and Network Security by William Stallings, Seventh Edition*
