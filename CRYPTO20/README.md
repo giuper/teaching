@@ -74,3 +74,5 @@ The needed number theoretic background is found in Chapter 2 of [S]
 12. *NIST Test for Randomness*, see [this](https://csrc.nist.gov/Projects/Random-Bit-Generation/Documentation-and-Software)
 Please submit a proposal for my approval at least two weeks before the exam.
 
+
+
