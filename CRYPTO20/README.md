@@ -44,3 +44,17 @@
     See slides and scripts on the github repository of the class
 
 The needed number theoretic background is found in Chapter 2 of [S]
+
+
+
+## Possible final projects ##
+
+1. *Network Access Control*, Chapter 16.1-16.4 of [S]
+
+2. *Cloud Security*, Chapter 16.5-16.7 of [S]
+
+3. *SSH*, Chapter 17.4 of [S]
+
+4. *Secure messaging: Signal*, see [Signal's wikipedia entry as a starting point](https://en.wikipedia.org/wiki/Signal_Protocol)
+
+
