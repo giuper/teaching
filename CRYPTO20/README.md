@@ -59,3 +59,13 @@ The needed number theoretic background is found in Chapter 2 of [S]
 
 5. *Secure messaging: WhatsAPP*, see [WhatsApp Encryption Overview](WA_Security_WhitePaper.pdf)
 
+6. *Wireless Network Security*, Chapter 18 of [S]
+
+7. *Email Security*, Chapters 19.1-19.5 of [S]
+
+8. *DNS Security*, Chapters 19.6-19.9 of [S]
+
+9. *IP Security*, Chapter 20 of [S]
+
+Please submit a proposal for my approval at least two weeks before the exam.
+
