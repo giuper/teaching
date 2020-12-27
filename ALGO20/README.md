@@ -46,4 +46,10 @@ In mancanza di riferimenti al libro di testo fare riferimento al codice.
     3. Torre di Hanoi: Capitolo 10.4.2
 
 
+9. *Alberi binari*
+    1. Strutture ad alberi: Capitolo  13.1
+    2. Alberi binari: Capitolo 13.2
+
+10. *Alberi binari di ricerca*
+    1. Algoritmo di ricerca, Min, Max, Inserimento: Capitolo 14.1
 
