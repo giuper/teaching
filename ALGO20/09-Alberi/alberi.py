@@ -69,6 +69,14 @@ class node:
                 self.right.insert(val,path[1:])
                 return
             
+    def _stampaFoglie(self):
+        if self.left is None and self.right is None:
+            print (self.data)
+        else:
+            if self.left is not None:
+                self.left._stampaFoglie()
+            if self.right is not None:
+                self.right._stampaFoglie()
             
 
 class tree:
@@ -100,19 +108,10 @@ class tree:
         if self.root is None:  #se l'albero e' vuoto
             newNode=node(val)
             self.root=newNode  #newNode ne diventa la radice
-
         self.root.insert(val,path)
 
-#esercizio
-        #stampa i campi data
-        #delle foglie
-        #non importa l'ordine
     def stampaFoglie(self):
-        pass
-
-
-
-
-        
-            
-
+        if self.root is None:
+            return
+        else:
+            self.root._stampaFoglie()
