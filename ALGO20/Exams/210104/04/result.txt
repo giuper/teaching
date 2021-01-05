@@ -1,0 +1,29 @@
+Inserisco 5 stringhe di lunghezza 4
+l'albero ha 1 nodo contenente una lista di 5 stringhe
+<4 -- ['aaaa', 'abaa', 'aaca', 'aaad', 'abcd']>
+
+
+Inserisco delle stringhe ed effettuo la visita inorder
+<1 -- ['b']>
+<2 -- ['bc']>
+<3 -- ['bcd']>
+<4 -- ['aaaa', 'abaa', 'aaca', 'aaad', 'abcd']>
+<5 -- ['abcdd']>
+<6 -- ['abcddf']>
+<7 -- ['abcddfg']>
+l'albero ha 7 nodi
+
+
+Inserisco delle altre stringhe ed effettuo la visita inorder
+<1 -- ['b', 'a']>
+<2 -- ['bc', 'ac']>
+<3 -- ['bcd', 'acd']>
+<4 -- ['aaaa', 'abaa', 'aaca', 'aaad', 'abcd', 'aacd']>
+<5 -- ['abcdd', 'aacdd']>
+<6 -- ['abcddf', 'aacddf']>
+<7 -- ['abcddfg', 'aacddfg']>
+Notare che le stringhe della stessa lunghezza sono nello stesso nodo
+che ha come chiave la lunghezza delle stringhe
+l'albero ha 7 nodi
+
+

@@ -1,0 +1,79 @@
+\documentclass{amsart}
+
+\usepackage{fullpage}
+
+
+\begin{document}
+\title{Algoritmi e Strutture Dati\\
+Statistica per i big data\\
+Esame del 4 Gennaio 2021
+}
+
+
+\newcommand{\NomeStudente}{Giuseppe Persiano}
+\newcommand{\nomeClasse}{{\tt{Sol}}}
+\newcommand{\nomeMetodo}{{\tt{Solve}}}
+\newcommand{\oraconsegna}{10:35}
+\newcommand{\dataoggi}{4 Gennaio, 2021}
+
+
+\maketitle
+
+\hfill{{\bf Studente: \NomeStudente}}
+
+\smallskip
+Vittorino, il capo dei vigili urbani del comune di Bugliano, passa il tempo,
+tra una multa e l'altra, a studiare il codice {\tt python} che trova
+sul sito del corso. Ultimamente ha trovato interessante il problema 
+del Subset Sum ma ritiene uno spreco il poter utilizzare ogni elemento
+della lista input $L$ una sola volta.
+La sua coscienza ecologista gli impone di dover riutilizzare gli elementi
+e quindi vi commissiona l'implementazione di una classe python \nomeClasse.
+Gli oggetti di questa classe, oltre alla lista $L$ ed al target $t$,
+hanno come attributo una lista $M$ di molteplicit\`a:
+il valore $M[i]$ indica il numero massimo di volte che $L[i]$ pu\`o essere 
+usato per raggiungere il target $t$.
+Questa classe deve offrire, oltre al costruttore che prende
+in input $L,M$ e $t$, 
+il metodo \nomeMetodo\ che applicato ad un oggetto ci dice se esiste
+o no soluzione.
+
+
+Ad esempio
+\begin{itemize}
+\item Consideriamo $L=[2,3]$ ed $M=[1,2]$ e quindi
+        abbiamo due elementi $2$ e $3$ ma il $3$ pu\`o essere riutilizzato.
+
+\noindent
+    Possiamo ottenere il target $t=8$ usando una volta il $2$
+        e due volte il $3$. Infatti $2+3+3=8$.
+
+\noindent
+    Anche il target $t=5$ pu\`o essere raggiunto sommando $2+3$.
+
+\noindent
+    Invece il target $t=4$ non pu\`o essere raggiunto. Nota che $2+2=4$ non
+    \`e una soluzione in quanto $L[0]=2$ pu\`o essere usato una sola volta
+    come indicato da $M[0]=1$.
+
+\end{itemize}
+
+\medskip\noindent{\bf Materiale della traccia.}
+La cartella contiene il pdf di questa traccia, i file
+{\tt stack.py, back.py, subsetSum0.py},
+il file {\tt driver.py} che pu\`o essere usato
+per verificare il funzionamento della classe progettata
+e il file  {\tt result.txt} che contiene l'output atteso di {\tt driver.py}.
+
+\medskip\noindent{\bf Istruzione per la consegna.}
+Tutto il codice consegnato deve essere contenuto nel file
+{\tt \nomeClasse .py} ed inviato per e-mail all'indirizzo
+{\tt giuper@gmail.com} prima delle ore \oraconsegna\ di oggi, 
+\dataoggi. Non inviare altri file e n\'e tantomeno file zip.
+Il file deve contenere la classe {\tt \nomeClasse}  
+che pu\`o essere usata per eseguire
+il codice di {\tt driver.py}. Si pu\`o assumere che i file
+{\tt stack.py, back.py, subsetSum0.py},
+siano presenti al momento dell'esecuzione. 
+
+\end{document}

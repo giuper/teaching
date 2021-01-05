@@ -1,0 +1,39 @@
+Inseriamo dei valori
+Eseguiamo la inorder e notiamo che tutti i valori hanno count=1
+['S', 1]
+['C', 1]
+['Ct', 1]
+['Z', 1]
+['Cl', 1]
+['G', 1]
+['O', 1]
+
+Inseriamo S a LL di nuovo
+Eseguiamo la inorder e notiamo che S ha count=2
+['S', 2]
+['C', 1]
+['Ct', 1]
+['Z', 1]
+['Cl', 1]
+['G', 1]
+['O', 1]
+
+Inseriamo Ct a LR per altre due volte
+Eseguiamo la inorder e notiamo che Ct ha count=3
+['S', 2]
+['C', 1]
+['Ct', 3]
+['Z', 1]
+['Cl', 1]
+['G', 1]
+['O', 1]
+
+Inseriamo Sc a LL
+Eseguiamo la inorder e notiamo che Sc ha count=1
+['Sc', 1]
+['C', 1]
+['Ct', 3]
+['Z', 1]
+['Cl', 1]
+['G', 1]
+['O', 1]
