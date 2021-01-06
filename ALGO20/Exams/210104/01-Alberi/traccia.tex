@@ -1,0 +1,75 @@
+\documentclass{amsart}
+
+
+\usepackage{fullpage}
+
+
+\begin{document}
+\title{Algoritmi e Strutture Dati\\
+Statistica per i big data\\
+Esame del 4 Gennaio 2021
+}
+
+
+\newcommand{\NomeStudente}{Giuseppe Persiano}
+\newcommand{\nomeClasse}{{\tt{Sol}}}
+\newcommand{\nomeMetodo}{{\tt{nuovo}}}
+\newcommand{\oraconsegna}{10:35}
+\newcommand{\dataoggi}{4 Gennaio, 2021}
+
+
+\maketitle
+
+\hfill{{\bf Studente: \NomeStudente}}
+
+\smallskip
+L'ufficio Big Data del comune di Bugliano utilizza la struttura dati alberi
+discussa a lezione.
+In questa struttura dati si pu\`o inserire un valore specificando
+il percorso dalla radice al nodo che dovr\`a contenere il valore.
+L'ufficio BD vi commissiona una modifica della struttura dati che permette
+di tenere conto di quante volte lo stesso valore \`e stato inserito in
+un nodo. Per questo motivo dovrete ampliare l'oggetto {\tt node} in modo
+da poter memorizzare un campo aggiuntivo chiamato {\tt count} che
+viene aggiornato nel modo seguente.
+\begin{itemize}
+\item quando {\tt node} \`e creato {\tt count} \`e posto uguale a $1$;
+\item se viene eseguito l'inserimento di {\tt val} per un
+nodo {\tt node} gi\`a esistente e {\tt val} \`e diverso dal valore corrente
+di {\tt node.data}, allora
+{\tt node.data} viene posto uguale a {\tt val} e {\tt node.count } 
+\`e posto uguale a $1$.
+\item se, invece, viene eseguito l'inserimento di {\tt val} per un
+nodo {\tt node} gi\`a esistente e {\tt val} \`e uguale al valore corrente
+di {\tt node.data}, allora
+{\tt node.data} non viene modificato e  {\tt node.count } 
+\`e incrementato.
+\end{itemize}
+
+Il compito consiste nel modificare la class {\tt tree}
+in modo da supportare la gestione di {\tt count} come descritta sopra
+e di modificare la visita {\tt inorder} in modo
+da stampare anche il campo {\tt count} oltre al campo {\tt data}.
+
+
+\medskip\noindent{\bf Materiale della traccia.}
+La cartella contiene il pdf di questa traccia, il file
+{\tt alberi.py} che contiene la classe sviluppata in classe,
+il file {\tt driver.py} che pu\`o essere usato
+per verificare il funzionamento della classe progettata, e il file  {\tt result.txt} che contiene
+l'output atteso di {\tt driver.py}.
+
+\medskip\noindent{\bf Istruzione per la consegna.}
+Tutto il codice consegnato deve essere contenuto nel file
+{\tt Sol.py} ed inviato per e-mail all'indirizzo
+{\tt giuper@gmail.com} prima delle ore \oraconsegna\ di oggi, 
+\dataoggi. Non inviare altri file e n\'e tantomeno file zip.
+Il file deve contenere la classe {\tt tree}  
+che pu\`o essere usata per eseguire
+il codice di {\tt driver.py}. Si pu\`o assumere che il file
+{\tt alberi.py} sia presente al momento dell'esecuzione. 
+
+
+
+
+\end{document}
