@@ -1,0 +1,16 @@
+Lista input:
+['1 Dicembre 2020', 2]
+['2 Dicembre 2020', 3]
+['3 Dicembre 2020', 4]
+['4 Dicembre 2020', 7]
+['5 Dicembre 2020', 2]
+['6 Dicembre 2020', 21]
+['7 Dicembre 2020', 12]
+
+Lista derivata:
+['2 Dicembre 2020', 1]
+['3 Dicembre 2020', 1]
+['4 Dicembre 2020', 3]
+['5 Dicembre 2020', -5]
+['6 Dicembre 2020', 19]
+['7 Dicembre 2020', -9]
