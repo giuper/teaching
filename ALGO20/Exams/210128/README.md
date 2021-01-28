@@ -9,6 +9,8 @@ I seguenti studenti sono invitati a sostenere la prova orale
 nel giorno e nell'ora indicati.
 L'esame sar&agrave; online nel team del corso.
 
+### Prova Scritta svolta in mattina ###
+
 1. *Francesco Landi*: 28 Gennaio, 2021 ore 12:00
 2. *Francesco Pescatore*: 28 Gennaio, 2021 ore 12:30
 3. *Sara Zampelli*: 28 Gennaio, 2021 ore 15:10
