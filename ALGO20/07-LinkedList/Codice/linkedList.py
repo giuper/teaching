@@ -109,7 +109,7 @@ class LinkedList:
     def insert(self,index,elem):
         newNode=ListNode(elem)
 
-        if index<self.size:
+        if index<-self.size:
             index=0
         
         if index>=self.size:
