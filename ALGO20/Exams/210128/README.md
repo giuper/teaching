@@ -22,6 +22,17 @@ L'esame sar&agrave; online nel team del corso.
 9. *Nicola Grieco*: 29 Gennaio, 2021 ore 9:00
 10. *Alessandro Falco*: 29 Gennaio, 2021 ore 9:45
 
+### Prova Scritta svolta in pomeriggio ###
+
+1. *Paolo Vizzo*: 29 Gennaio, 2021 ore 10:15
+2. *Francesco Pio Falcone*: 29 Gennaio, 2021 ore 10:45
+3. *Matteo Toriello*: 29 Gennaio, 2021 ore 11:15
+4. *Paolo Caggiano*: 29 Gennaio, 2021 ore 11:45
+5. *Emanuele Damiano*: 29 Gennaio, 2021 ore 12:15
+6. *Salzarulo Pasquale*: 29 Gennaio, 2021 ore 15:00
+7. *Pietro Citro*: 29 Gennaio, 2021 ore 15:30
+8. *Noemi Biondi*: 29 Gennaio, 2021 ore 16:00
+9. *Chiara Campitiello*: 29 Gennaio, 2021 ore 16:30
 
 
 Gli studenti non in elenco hanno prodotto un elaborato ritenuto insufficiente.
