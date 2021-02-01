@@ -41,11 +41,20 @@ class LinkedList:
         self.size-=1
 
     def pop(self,index=None):
+
         if index==None:
+            index=self.size-1
+
+        if index<-self.size:
+            index=0
+
+        if index>=self.size:
             index=self.size-1
 
         if index<0:
             index+=self.size
+
+        print("Pop: ",index)
 
         predNode=None
         curNode=self.head
@@ -65,6 +74,12 @@ class LinkedList:
 
       
     def __getitem__(self,index):
+        if index<-self.size:
+            index=0
+
+        if index>=self.size:
+            index=self.size-1
+
         if index<0:
             index+=self.size
 
@@ -77,12 +92,6 @@ class LinkedList:
                 curNode=curNode.next
                 pos+=1
 
-        if curNode is self.head:
-            self.head=curNode.next
-        else:
-            predNode.next=curNode.next
-
-        self.size-=1
         return curNode.data
 
 
