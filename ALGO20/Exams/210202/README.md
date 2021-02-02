@@ -11,7 +11,7 @@ L'esame sar&agrave; online nel team del corso.
 
 1. *Sara Zampelli*:  2 Febbraio, 2021 ore 11:30
 2. *Cristian Leone*:  2 Febbraio, 2021 ore 12:00
-3. * *:  2 Febbraio, 2021 ore 12:30
+3. *Mariarosaria Altieri*:  2 Febbraio, 2021 ore 12:30
 4. * *:  2 Febbraio, 2021 ore 15:00
 5. * *:  2 Febbraio, 2021 ore 15:30
 6. * *:  2 Febbraio, 2021 ore 17:10
