@@ -12,13 +12,12 @@ L'esame sar&agrave; online nel team del corso.
 1. *Sara Zampelli*:  2 Febbraio, 2021 ore 11:30
 2. *Cristian Leone*:  2 Febbraio, 2021 ore 12:00
 3. *Mariarosaria Altieri*:  2 Febbraio, 2021 ore 12:30
-4. * *:  2 Febbraio, 2021 ore 15:00
-5. * *:  2 Febbraio, 2021 ore 15:30
-6. * *:  2 Febbraio, 2021 ore 17:10
-7. * *:  2 Febbraio, 2021 ore 17:40
-8. * *:  3 Febbraio, 2021 ore 9:00
-9. * *:  3 Gennaio, 2021 ore 9:30
-10. * *: 3 Gennaio, 2021 ore 10:00
+4. *Gianluca Antignani*:  2 Febbraio, 2021 ore 15:00
+5. *Andrea Emanuele Giorgio*:  2 Febbraio, 2021 ore 15:30
+6. *Giovanni Citarella*:  2 Febbraio, 2021 ore 17:10
+7. *Enrico Daniele*:  2 Febbraio, 2021 ore 17:40
+8. *Aldo Budetta*:  3 Febbraio, 2021 ore 8:45
+9. *Ivan Pugliese*:  3 Febbraio, 2021 ore 9:15
 
 
 
