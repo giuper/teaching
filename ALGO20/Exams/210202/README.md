@@ -9,7 +9,7 @@ I seguenti studenti sono invitati a sostenere la prova orale
 nel giorno e nell'ora indicati.
 L'esame sar&agrave; online nel team del corso.
 
-1. * *:  2 Febbraio, 2021 ore 11:30
+1. *Sara Zampelli*:  2 Febbraio, 2021 ore 11:30
 2. * *:  2 Febbraio, 2021 ore 12:00
 3. * *:  2 Febbraio, 2021 ore 12:30
 4. * *:  2 Febbraio, 2021 ore 15:00
