@@ -1,0 +1,20 @@
+Visita inorder
+<Francia -- Parigi>
+<Giappone -- Tokyo>
+<Italia -- Roma>
+<Russia -- Mosca>
+<Spagna -- Madrid>
+
+Visita disorder
+<Spagna -- Madrid>
+<Russia -- Mosca>
+<Italia -- Roma>
+<Giappone -- Tokyo>
+<Francia -- Parigi>
+
+Visita inorder
+<Francia -- Parigi>
+<Giappone -- Tokyo>
+<Italia -- Roma>
+<Russia -- Mosca>
+<Spagna -- Madrid>
