@@ -1,0 +1,64 @@
+insertHead( 10 )
+Lista: <10>
+Numero elementi pari e Lunghezza:  1 1
+
+insertHead( 4 )
+Lista: <4,10>
+Numero elementi pari e Lunghezza:  2 2
+
+insertHead( 8 )
+Lista: <8,4,10>
+Numero elementi pari e Lunghezza:  3 3
+
+insertHead( 4 )
+Lista: <4,8,4,10>
+Numero elementi pari e Lunghezza:  4 4
+
+append( 1000 )
+Lista: <4,8,4,10,1000>
+Numero elementi pari e Lunghezza:  5 5
+
+append( 11 )
+Lista: <4,8,4,10,1000,11>
+Numero elementi pari e Lunghezza:  5 6
+
+append( 12 )
+Lista: <4,8,4,10,1000,11,12>
+Numero elementi pari e Lunghezza:  6 7
+
+append( 3 )
+Lista: <4,8,4,10,1000,11,12,3>
+Numero elementi pari e Lunghezza:  6 8
+
+append( 1001 )
+Lista: <4,8,4,10,1000,11,12,3,1001>
+Numero elementi pari e Lunghezza:  6 9
+
+insert( [4, 15] )
+Lista: <4,8,4,10,15,1000,11,12,3,1001>
+Numero elementi pari e Lunghezza:  6 10
+
+insert( [2, 1] )
+Lista: <4,8,1,4,10,15,1000,11,12,3,1001>
+Numero elementi pari e Lunghezza:  6 11
+
+pop( 4 )
+Pop:  4
+10
+Lista: <4,8,1,4,15,1000,11,12,3,1001>
+Numero elementi pari e Lunghezza:  5 10
+
+pop( 5 )
+Pop:  5
+1000
+Lista: <4,8,1,4,15,11,12,3,1001>
+Numero elementi pari e Lunghezza:  4 9
+
+remove( 1000 )
+Lista: <4,8,1,4,15,11,12,3,1001>
+Numero elementi pari e Lunghezza:  4 9
+
+remove( 12 )
+Lista: <4,8,1,4,15,11,3,1001>
+Numero elementi pari e Lunghezza:  3 8
+
