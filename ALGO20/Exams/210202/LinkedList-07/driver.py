@@ -21,3 +21,4 @@ for x in iL:
     print("Lista:",A)
     print("Massimo e Lunghezza: ",A.max,A.size)
 
+
