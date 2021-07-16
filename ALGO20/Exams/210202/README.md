@@ -20,7 +20,6 @@ L'esame sar&agrave; online nel team del corso.
 9. *Ivan Pugliese*:  3 Febbraio, 2021 ore 9:15
 
 
-
 Gli studenti non in elenco hanno prodotto un elaborato ritenuto insufficiente.
 Se lo desiderano, possono contattare il docente per spiegazioni.
 

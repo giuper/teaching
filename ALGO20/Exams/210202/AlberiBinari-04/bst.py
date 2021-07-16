@@ -29,12 +29,15 @@ class nodeS:
         if self.right is not None:
             self.right.inorder()
 
-    def disorder(self):
-        if self.right is not None:
-            self.right.disorder()
-        print(self)
+    def gt(self,T):
+        s=l=r=0
         if self.left is not None:
-            self.left.disorder()
+            l=self.left.gt(T)
+        if self.key<T:
+            s=1
+            if self.right is not None:
+                r=self.right.gt(T)
+        return s+l+r
 
 class BST:
     def __init__(self):
@@ -116,10 +119,8 @@ class BST:
         if self.root is not None:
             return self.__max(self.root)
 
-    def disorder(self):
-        if self.root is None:
-            return
+    def gt(self,T):
+        if self.root is not None:
+            return self.root.gt(T)
         else:
-            self.root.disorder()
-
-
+            return 0

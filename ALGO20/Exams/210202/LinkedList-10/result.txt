@@ -1,0 +1,88 @@
+insertHead( 10 )
+Lista (t): <10> ( 50 )
+Numero tentativi e lunghezza:  0 1
+
+insertHead( 4 )
+Lista (t): <4,10> ( 50 )
+Numero tentativi e lunghezza:  0 2
+
+insertHead( 8 )
+Lista (t): <8,4,10> ( 50 )
+Numero tentativi e lunghezza:  0 3
+
+insertHead( 4 )
+Lista (t): <4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  0 4
+
+insertHead( 83 )
+Lista (t): <83,4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  0 5
+
+insertHead( 18 )
+Lista (t): <18,83,4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  0 6
+
+insertHead( 94 )
+Lista (t): <94,18,83,4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  0 7
+
+insertHead( 51 )
+Lista (t): <51,94,18,83,4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  0 8
+
+append( 1000 )
+Lista (t): <51,94,18,83,4,8,4,10,1000> ( 50 )
+Numero tentativi e lunghezza:  0 9
+
+append( 11 )
+Lista (t): <51,94,18,83,4,8,4,10,1000,11> ( 50 )
+Numero tentativi e lunghezza:  0 10
+
+append( 120 )
+Lista (t): <51,94,18,83,4,8,4,10,1000,11,120> ( 50 )
+Numero tentativi e lunghezza:  0 11
+
+append( 3 )
+Lista (t): <51,94,18,83,4,8,4,10,1000,11,120,3> ( 50 )
+Numero tentativi e lunghezza:  0 12
+
+append( 1001 )
+Lista (t): <51,94,18,83,4,8,4,10,1000,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  0 13
+
+insert( [4, 15] )
+Lista (t): <51,94,18,83,15,4,8,4,10,1000,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  0 14
+
+insert( [2, 1] )
+Lista (t): <51,94,1,18,83,15,4,8,4,10,1000,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  0 15
+
+pop( 4 )
+Pop:  4
+83
+Lista (t): <83,51,94,1,18,15,4,8,4,10,1000,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  1 15
+
+pop( 5 )
+Pop:  5
+15
+Lista (t): <83,51,94,1,18,4,8,4,10,1000,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  1 14
+
+remove( 1000 )
+Lista (t): <1000,83,51,94,1,18,4,8,4,10,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  2 14
+
+remove( 83 )
+Lista (t): <83,1000,51,94,1,18,4,8,4,10,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  3 14
+
+remove( 57 )
+Lista (t): <83,1000,51,94,1,18,4,8,4,10,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  3 14
+
+remove( 94 )
+Lista (t): <94,83,1000,51,1,18,4,8,4,10,11,120,3,1001> ( 50 )
+Numero tentativi e lunghezza:  4 14
+

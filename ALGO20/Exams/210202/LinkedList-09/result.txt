@@ -1,0 +1,80 @@
+insertHead( 10 )
+Lista (t): <10> ( 50 )
+Numero tentativi e lunghezza:  0 1
+
+insertHead( 4 )
+Lista (t): <4,10> ( 50 )
+Numero tentativi e lunghezza:  0 2
+
+insertHead( 8 )
+Lista (t): <8,4,10> ( 50 )
+Numero tentativi e lunghezza:  0 3
+
+insertHead( 4 )
+Lista (t): <4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  0 4
+
+insertHead( 83 )
+Lista (t): <4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  1 4
+
+insertHead( 18 )
+Lista (t): <18,4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  1 5
+
+insertHead( 94 )
+Lista (t): <18,4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  2 5
+
+insertHead( 51 )
+Lista (t): <18,4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  3 5
+
+append( 1000 )
+Lista (t): <18,4,8,4,10> ( 50 )
+Numero tentativi e lunghezza:  4 5
+
+append( 11 )
+Lista (t): <18,4,8,4,10,11> ( 50 )
+Numero tentativi e lunghezza:  4 6
+
+append( 120 )
+Lista (t): <18,4,8,4,10,11> ( 50 )
+Numero tentativi e lunghezza:  5 6
+
+append( 3 )
+Lista (t): <18,4,8,4,10,11,3> ( 50 )
+Numero tentativi e lunghezza:  5 7
+
+append( 1001 )
+Lista (t): <18,4,8,4,10,11,3> ( 50 )
+Numero tentativi e lunghezza:  6 7
+
+insert( [4, 15] )
+Lista (t): <18,4,8,4,15,10,11,3> ( 50 )
+Numero tentativi e lunghezza:  6 8
+
+insert( [2, 1] )
+Lista (t): <18,4,1,8,4,15,10,11,3> ( 50 )
+Numero tentativi e lunghezza:  6 9
+
+pop( 4 )
+Pop:  4
+4
+Lista (t): <18,4,1,8,15,10,11,3> ( 50 )
+Numero tentativi e lunghezza:  6 8
+
+pop( 5 )
+Pop:  5
+10
+Lista (t): <18,4,1,8,15,11,3> ( 50 )
+Numero tentativi e lunghezza:  6 7
+
+remove( 1000 )
+Lista (t): <18,4,1,8,15,11,3> ( 50 )
+Numero tentativi e lunghezza:  6 7
+
+remove( 12 )
+Lista (t): <18,4,1,8,15,11,3> ( 50 )
+Numero tentativi e lunghezza:  6 7
+

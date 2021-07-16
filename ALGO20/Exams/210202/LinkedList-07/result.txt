@@ -1,0 +1,22 @@
+Lista: <10>
+Massimo e Lunghezza:  10 1
+Lista: <40,10>
+Massimo e Lunghezza:  40 2
+Lista: <20,40,10>
+Massimo e Lunghezza:  40 3
+Lista: <40,20,40,10>
+Massimo e Lunghezza:  40 4
+Lista: <40,20,40,10,1000>
+Massimo e Lunghezza:  1000 5
+Lista: <40,20,40,10,1000,11>
+Massimo e Lunghezza:  1000 6
+Lista: <40,20,40,10,1000,11,12>
+Massimo e Lunghezza:  1000 7
+Lista: <40,20,40,10,1000,11,12,13>
+Massimo e Lunghezza:  1000 8
+Lista: <40,20,40,10,1000,11,12,13,1001>
+Massimo e Lunghezza:  1001 9
+Lista: <40,20,40,10,15,1000,11,12,13,1001>
+Massimo e Lunghezza:  1001 10
+Lista: <40,20,40,10,15,1000,11,12,15000,13,1001>
+Massimo e Lunghezza:  15000 11
