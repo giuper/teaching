@@ -4,7 +4,7 @@
 
 
 ## Readings ##
-1. [Blockchain Technology Overview, Draft NISTIR, 8202, January 2018](.Readings/nistir8202-draft.pdf)
+1. [Blockchain Technology Overview, Draft NISTIR, 8202, January 2018](./Readings/nistir8202-draft.pdf)
 
 
 
