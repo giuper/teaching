@@ -14,3 +14,15 @@ A data structure that supports the following two operations:
 The dynamic version includes a third operation *Set* that takes 
 integer *i* and value *val* and sets *A[i]=val*
 
+
+We will implement the data structure as a python class.
+The *Init* operation is the class constructor *__init__*;
+the *Lookup* operation is implemented by the *__getitem__* operation
+and can thus be invoked by *A[i,j]*;
+the *Set* operation is implemented by the *__setitem__* operation and
+can thus be invoked by *A[i]=val*.
+
+
+
+### First algorithm ###
+
