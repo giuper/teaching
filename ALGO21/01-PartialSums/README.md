@@ -12,7 +12,7 @@ A data structure that supports the following two operations:
     the sum of all elements from *A[i]* to *A[j-1]*
 
 The dynamic version includes a third operation *Set* that takes 
-integer *i* and value *val* and sets *A[i]=val*
+integer *k* and value *val* and sets *A[k]=val*
 
 
 We will implement the data structure as a python class.
@@ -20,14 +20,16 @@ The *Init* operation is the class constructor *__init__*;
 the *Lookup* operation is implemented by the *__getitem__* operation
 and can thus be invoked by *A[i,j]*;
 the *Set* operation is implemented by the *__setitem__* operation and
-can thus be invoked by *A[i]=val*.
+can thus be invoked by *A[k]=val*.
 
 
 
 ### First algorithm ###
 We precompute and store all the possible answers
 in a two-dimensional list *A[i][j]*;
-*Lookup(i,j)* is implemented by returning *A[i][j]*
+*Lookup(i,j)* is implemented by returning *A[i][j]*;
+*Set(k,val)* is implemented by modifying all *A[i][j]* with *i ≤ k < j*
+
 
 1. Memory: *O(n^2)*
 2. Time for *Init*: *O(n^2)* 
