@@ -25,4 +25,13 @@ can thus be invoked by *A[i]=val*.
 
 
 ### First algorithm ###
+We precompute and store all the possible answers
+in a two-dimensional list *A[i][j]*;
+*Lookup(i,j)* is implemented by returning *A[i][j]*
+
+1. Memory: *O(n^2)*
+2. Time for *Init*: *O(n^2)* 
+3. Time for *Lookup*: *O(1)* 
+4. Time for *Set*: *O(n^2)* 
+
 
