@@ -25,15 +25,14 @@ can thus be invoked by *A[k]=val*.
 
 
 ### First algorithm ###
-We precompute and store all the possible answers
+
+1.  We precompute and store all the possible answers
 in a two-dimensional list *A[i][j]*;
-*Lookup(i,j)* is implemented by returning *A[i][j]*;
-*Set(k,val)* is implemented by modifying all *A[i][j]* with *i ≤ k < j*
-
-
-1. Memory: *O(n^2)*
-2. Time for *Init*: *O(n^2)* 
-3. Time for *Lookup*: *O(1)* 
-4. Time for *Set*: *O(n^2)* 
+    1. Memory: *O(n^2)*
+    2. Time for *Init*: *O(n^2)* 
+2. *Lookup(i,j)* is implemented by returning *A[i][j]*;
+    1.  Time for *Lookup*: *O(1)* 
+3. *Set(k,val)* is implemented by modifying all *A[i][j]* with *i ≤ k < j*
+    1. Time for *Set*: *O(n^2)* 
 
 
