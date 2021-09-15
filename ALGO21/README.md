@@ -5,5 +5,5 @@
 
 ## List of topics ##
 
-1. *Partial Sums*
+1. [Partial Sums](./01-PartialSums/README.md)
 
