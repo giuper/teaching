@@ -24,7 +24,7 @@ can thus be invoked by *A[k]=val*.
 
 
 
-### First algorithm: Precompute and store all answers##
+### First algorithm: Precompute and store all answers ##
 
 1.  We precompute and store all the possible answers
 in a two-dimensional list *A[i][j]*;
@@ -39,7 +39,7 @@ in a two-dimensional list *A[i][j]*;
 Code available [here](./Code/zero.py)
 
 
-### Second algorithm: No Precomputation##
+### Second algorithm: No Precomputation ##
 
 1.  We store input list *A*
     1. Memory: *O(n)*
@@ -52,7 +52,7 @@ Code available [here](./Code/zero.py)
 
 Code available [here](./Code/uno.py)
 
-### Third algorithm: Precompute prefixes##
+### Third algorithm: Precompute prefixes ##
 
 1. We compute *Prefixes[k]=A[0]+A[1]+...+A[k-1]*, for *k=0,...,N+1*
     1. Memory: *O(n)*
