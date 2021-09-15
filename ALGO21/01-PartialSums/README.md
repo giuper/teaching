@@ -24,7 +24,7 @@ can thus be invoked by *A[k]=val*.
 
 
 
-### First algorithm ###
+### First algorithm: Precompute and store all answers##
 
 1.  We precompute and store all the possible answers
 in a two-dimensional list *A[i][j]*;
@@ -38,3 +38,28 @@ in a two-dimensional list *A[i][j]*;
 
 Code available [here](./Code/zero.py)
 
+
+### Second algorithm: No Precomputation##
+
+1.  We store input list *A*
+    1. Memory: *O(n)*
+    2. Time for *Init*: *O(n)*
+2. *Lookup(i,j)* is implemented by summing all elements of *A* from *A[i]* 
+    to *A[j-1]*
+    1. Time for *Lookup*: *O(n)*
+3. *Set(k,val)* is implemented by modifying all *A[k]* 
+    1. Time for *Set*: *O(1)* 
+
+Code available [here](./Code/uno.py)
+
+### Third algorithm: Precompute prefixes##
+
+1. We compute *Prefixes[k]=A[0]+A[1]+...+A[k-1]*, for *k=0,...,N+1*
+    1. Memory: *O(n)*
+    2. Time for *Init*: *O(n)*
+2. *Lookup(i,j)* is computed by returning *Prefixes[j]-Prefixes[i]*
+    1. Time for *Lookup*: *O(1)*
+3. *Set(k,val)* is implemented by modifying *Prefixes[i]*, for *i=k+1,...,N+1* 
+    1. Time for *Set*: *O(n)* 
+   
+Code available [here](./Code/due.py)

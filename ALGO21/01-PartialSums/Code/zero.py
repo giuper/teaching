@@ -1,5 +1,5 @@
 class parSum:
-    desc="Precompute all answers and store results"
+    desc="Precompute and store all answers"
 
     def __init__(self,A):
         self.N=len(A)

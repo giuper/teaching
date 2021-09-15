@@ -1,7 +1,6 @@
 import time
-from zero import parSum
-from uno import parSumF
-from due import parSumNP
+from zero import parSumP
+from uno import parSumNP
 from tre import parSumPre
 from partialSum import parSumT
 SIZE=2**5
@@ -35,8 +34,7 @@ def driver(theClass):
 
 if __name__=='__main__':
 
-    classes=[parSumNP,parSumPre,parSumT]
-    classes=[parSum,parSumF,parSumNP,parSumPre,parSumT]
+    classes=[parSumP,parSumNP,parSumPre,parSumT]
     for cl in classes:
         driver(cl)
         print()
