@@ -38,11 +38,15 @@ Code available [here](./Code/zero.py)
 1. For each *i* compute the following two quantities
     1. *P[i]* that is set to the largest *j<i* such that *A[j]=A[i]*.
         If no such  *j* exists *P[i]=-1*
+        1. Memory and time *O(n)*
     2. *Q[i]* the largest value of *P[j]* for *j<= i*
-
+        1. Memory and time *O(n)*
+    
+    
 2.  *Lookup(i,j)* is implemented by checking if *Q[j-1]<i*.
         If this the case then no there is no duplicate in *[i,j)*.
         Otherwise, *A[Q[j-1]]* is a duplicate.
+    1. Time *O(1)*
 
 Code available [here](./Code/uno.py)
 
