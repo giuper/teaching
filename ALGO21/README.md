@@ -2,6 +2,13 @@
 ## Corso di Laurea Triennale in *Statistica per i Big Data* ##
 ### Anno Accademico 2021/22 ###
 
+Prof. [Giuseppe Persiano](https://giuper.github.io)
+
+### Class schedule ###
+
+1. Monday 8:30-10:10 online
+2. Tuesday 8:30-10:10 SP/4
+3. Thursday 8:30-10:10 online
 
 ## List of topics ##
 
