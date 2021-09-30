@@ -8,6 +8,7 @@ Prof. [Giuseppe Persiano](https://giuper.github.io)
 
 0. [binarySearch.py](./binarySearch.py)
     contains the implementation of 4 search algorithms on sorted lists
+
     0. the *in* python construct (*inP* function)
     1. the *linear search* algorithm (*LS* function)
     2. the *iterative binary search* algorithm (*BSIter*)
