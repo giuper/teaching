@@ -36,9 +36,9 @@ def BSIter(L,x,comp=(lambda x,y:x>=y)):
 
 ##Binary Search Recursive Version
 def BSRec(L,x,comp=(lambda x,y:x>=y)):
-    return _BSRec(L,0,len(L)-1,x,comp)
+    return _BSRec(0,len(L)-1,L,x,comp)
 
-def _BSRec(L,l,h,x,comp=(lambda x,y:x>=y)):
+def _BSRec(l,h,L,x,comp=(lambda x,y:x>=y)):
     if l>h:
         return l
     m=(h+l)//2
@@ -46,9 +46,9 @@ def _BSRec(L,l,h,x,comp=(lambda x,y:x>=y)):
         return m
     #if x<L[m]:
     if comp(L[m],x):
-        return _BSRec(L,l,m-1,x)
+        return _BSRec(l,m-1,L,x)
     else:
-        return _BSRec(L,m+1,h,x)
+        return _BSRec(m+1,h,L,x)
 
 
 def driverInt(sizes,algos):
