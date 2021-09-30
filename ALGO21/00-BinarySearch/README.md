@@ -63,3 +63,10 @@ Prof. [Giuseppe Persiano](https://giuper.github.io)
 | Bin Search Rec      | 134217728   |        0.000013 | 
 
 
+1. Class [SortedList](sortedList.py) overrides the 
+    *__contains__* method of the class *list*. 
+    In file [driverInt.py](driverInt.py) we execute *in* 
+    for lists and sorted lists of varying size.
+    For lists of size 134217728, sorted lists have a speedup of
+    40000-50000x circa.
+
