@@ -4,7 +4,7 @@
 
 Prof. [Giuseppe Persiano](https://giuper.github.io)
 
-### Code for Binary Search ###
+### Binary Search ###
 
 0. [binarySearch.py](./binarySearch.py)
     contains the implementation of 4 search algorithms on sorted lists
@@ -70,7 +70,8 @@ Prof. [Giuseppe Persiano](https://giuper.github.io)
     For lists of size 134217728, sorted lists have a speedup of
     40000-50000x circa.
 
-2. Select
+### Select ###
+
 
     1. [Deterministic Select vs Randomized Select](DetRandSelect.py)
     we run the deterministic and randomized select algorithms
