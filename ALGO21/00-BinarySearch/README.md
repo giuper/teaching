@@ -70,3 +70,7 @@ Prof. [Giuseppe Persiano](https://giuper.github.io)
     For lists of size 134217728, sorted lists have a speedup of
     40000-50000x circa.
 
+2. Select
+
+    1. [Deterministic Select vs Randomized Select](DetRandSelect.py)
+
