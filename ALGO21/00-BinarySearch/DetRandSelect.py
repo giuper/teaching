@@ -42,7 +42,7 @@ def RandSelect(A,k):
     
 
 def driver(N):
-    print(f'{"Lista di lunghezza: "}{N:12d}')
+    print(f'{"Lista di lunghezza: ":30s}{N:>10d}')
     A=list(range(N))
     maxN=sys.getrecursionlimit()-10
     totalR=0
@@ -55,14 +55,14 @@ def driver(N):
         finishR=time.time()
         totalR+=finishR-startR
     averageR=totalR/nofRuns
-    print(f'{"Algoritmo probabilistico: ":30s}{averageR:3.10f}')
+    print(f'{"Algoritmo probabilistico: ":30s}{averageR:10.5f}')
 
     if N<maxN:   
         startD=time.time()
         DetSelect(A,N-1)
         finishD=time.time()
-        print(f'{"Algoritmo deterministico: ":30s}{finishD-startD:3.10f}')
-        print(f'{"Speed-up:":30s}{(finishD-startD)/averageR:3.10f}')
+        print(f'{"Algoritmo deterministico: ":30s}{finishD-startD:10.5f}')
+        print(f'{"Speed-up:":30s}{(finishD-startD)/averageR:10.5f}')
         
     print()
         
