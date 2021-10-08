@@ -11,14 +11,14 @@ def driver(N):
     nofRuns=10
     for i in range(nofRuns):
         startR=time.time()
-        xr=randIteSelect(A,N-1)
+        xr=randIteSelect(A,0)
         finishR=time.time()
         totalR+=finishR-startR
     averageR=totalR/nofRuns
     print(f'{"Algoritmo iterativo probabilistico: ":40s}{averageR:10.5f}')
 
     startD=time.time()
-    xd=detIteSelect(A,N-1)
+    xd=detIteSelect(A,0)
     finishD=time.time()
     print(f'{"Algoritmo iterativo deterministico: ":40s}{finishD-startD:10.5f}')
     print(f'{"Speed-up:":30s}{(finishD-startD)/averageR:10.5f}')
