@@ -83,4 +83,12 @@ The randomized algorithm works up to lists of 200 Million elements
 See [Battle of Recursive](BattleRecSelective.py).
 
         
+2. [Deterministic Iterative Select](DetIteSelect.py) vs 
+   [Randomized Iterative Select](RandIteSelect.py)
+we run the deterministic and randomized select algorithms
+implemented using iteration on the worst case (ordered list).
+See [Battle of Iterative](BattleIteSelective.py).
+
+        
+
 
