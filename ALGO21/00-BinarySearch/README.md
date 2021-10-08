@@ -72,13 +72,15 @@ Prof. [Giuseppe Persiano](https://giuper.github.io)
 
 ### Select ###
 
-1. [Deterministic Select vs Randomized Select](DetRandSelect.py)
+1. [Deterministic Recursive Select](DetRecSelect.py) vs 
+   [Randomized Recursive Select](RandRecSelect.py)
 we run the deterministic and randomized select algorithms
-on the worst case (ordered list).
+implemented using recursion on the worst case (ordered list).
 The deterministic algorithm stops working for lists 
 of around 1000 elements (for exceeding maximum recursion depth).
 The randomized algorithm works up to lists of 200 Million elements
 (and then stops for lack of space).
+See [Battle of Recursive](BattleRecSelective.py).
 
         
 
