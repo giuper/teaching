@@ -2,6 +2,15 @@
 ## Corso di Laurea Magistrale in *Data Science e Gestione dell'Innovazione	* ##
 ### Anno Accademico 2021/22 ###
 
+## Topics ##
+1. Bitcoin. Reference text: Mastering Bitcoin by Andreas M. Antonopoulos
+
+
+    1. Overview of Bitcoin: Chapter 1-2
+    2. Key, Addresses: Chapter 4
+    3. Transactions: Chapter 6-7
+    4. Nodes, Network and Consensus: Chapter 8,9,10
+
 
 ## Readings ##
 1. [The Bitcoin paper](https://bitcoin.org/bitcoin.pdf)
