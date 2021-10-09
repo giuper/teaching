@@ -29,7 +29,26 @@ def partition(L,l,h):
     return i+1
 
 if __name__=='__main__':
-    A=list(range(10))
+    N=20
+    A=list(range(N))
+    for i in range(len(A)-1):
+        idx=random.randrange(i,len(A)-1)
+        A[i],A[idx]=A[idx],A[i]
+
+    B=[]
     for k in range(len(A)):
-        print(k,randIteSelect(A,k))
-        print()
+        C=A.copy()
+        B.append(randIteSelect(C,k))
+    if N<=20:
+        print("Lista input: ",A)
+        print("Lista output:",B)
+
+    #B dovrebbe essere [0,1,...,N-1]
+    correct=True
+    for i in range(len(B)):
+        if i!=B[i]:
+            correct=False
+    if correct:
+        print("Esecuzione corretta su lista di lunghezza",N)
+    else:
+        print("Errore su lista di lunghezza",N)
