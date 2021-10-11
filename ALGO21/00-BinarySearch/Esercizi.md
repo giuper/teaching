@@ -1,5 +1,5 @@
 
-### Esercizi su ricerca binaria e select###
+### Esercizi su ricerca binaria e select ###
 
 1. Una lista *A* di *N* elementi distinti è *bitonica*  se esiste un indice *j* tale che
 
