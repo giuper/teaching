@@ -1,10 +1,12 @@
 import sys
 import random
 import time
-from DetIteSelect import detIteSelect
-from RandIteSelect import randIteSelect
+
 
 def driver(N):
+    sys.path.insert(1,'./SelectImpl')
+    from DetIteSelect import detIteSelect
+    from RandIteSelect import randIteSelect
     print(f'{"Lista di lunghezza: ":30s}{N:>10d}')
     A=list(range(N))
     totalR=0

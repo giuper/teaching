@@ -71,25 +71,29 @@ Prof. [Giuseppe Persiano](https://giuper.github.io)
     40000-50000x circa.
 
 ### Select ###
+The algorithms for Select are found in [this](./SelectImpl) folder.
 
-1. [Deterministic Recursive Select](DetRecSelect.py) vs 
-   [Randomized Recursive Select](RandRecSelect.py)
-we run the deterministic and randomized select algorithms
-implemented using recursion on the worst case (ordered list).
-The deterministic algorithm stops working for lists 
-of around 1000 elements (for exceeding maximum recursion depth).
-The randomized algorithm works up to lists of 200 Million elements
-(and then stops for lack of space).
-See [Battle of Recursive](BattleRecSelective.py).
+1. [Deterministic Recursive Select](./SelectImpl/DetRecSelect.py) vs 
+   [Randomized Recursive Select](./SelectImpl/RandRecSelect.py)
+
+    We run the deterministic and randomized select algorithms
+    implemented using recursion on the worst case (ordered list).
+    The deterministic algorithm stops working for lists 
+    of around 1000 elements (for exceeding maximum recursion depth).
+    The randomized algorithm works up to lists of 200 Million elements
+    (and then stops for lack of space).
+    See [Battle of Recursive](BattleRecSelective.py).
 
         
-2. [Deterministic Iterative Select](DetIteSelect.py) vs 
-   [Randomized Iterative Select](RandIteSelect.py)
-we run the deterministic and randomized select algorithms
-implemented using iteration on the worst case (ordered list).
-See [Battle of Iterative](BattleIteSelective.py).
+2. [Deterministic Iterative Select](./SelectImpl/DetIteSelect.py) vs 
+   [Randomized Iterative Select](./SelectImpl/RandIteSelect.py)
 
-See also notes on [partition](Notes/partition.pdf).
+    We run the deterministic and randomized select algorithms
+    implemented using iteration on the worst case (ordered list).
+    See [Battle of Iterative](BattleIteSelective.py).
+
+    The iterative algorithms use the [partition](./SelectImpl/Partition.py)
+    function described in [these](Notes/partition.pdf) notes.
         
 
 

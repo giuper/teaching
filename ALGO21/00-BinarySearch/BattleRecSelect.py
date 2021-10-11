@@ -1,10 +1,13 @@
 import sys
 import random
 import time
-from DetRecSelect import detRecSelect
-from RandRecSelect import randRecSelect
 
 def driver(N):
+
+    sys.path.insert(1,'./SelectImpl')
+    from DetRecSelect import detRecSelect
+    from RandRecSelect import randRecSelect
+
     print(f'{"Lista di lunghezza: ":30s}{N:>10d}')
     A=list(range(N))
     maxN=sys.getrecursionlimit()-10
