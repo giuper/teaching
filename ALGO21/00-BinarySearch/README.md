@@ -71,7 +71,7 @@ Prof. [Giuseppe Persiano](https://giuper.github.io)
     40000-50000x circa.
 
 ### Select ###
-The algorithms for Select are found in [this](./SelectImpl) folder.
+The python implementations for the algorithms for Select are found in [this](./SelectImpl) folder.
 
 1. [Deterministic Recursive Select](./SelectImpl/DetRecSelect.py) vs 
    [Randomized Recursive Select](./SelectImpl/RandRecSelect.py)
