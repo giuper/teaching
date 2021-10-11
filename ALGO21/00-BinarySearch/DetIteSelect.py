@@ -1,10 +1,14 @@
 import random
+from Partition import partition
 
+#A e' modificata
 def detIteSelect(A,k):
     l=0
     h=len(A)
+#sottolista di interesse
+#A da indice l a indice h-1
     while(l<h):
-        i=partition(A,l,h-1)
+        i=partition(A,l,h)
         if k<i:
             h=i
         if k==i:
@@ -13,21 +17,8 @@ def detIteSelect(A,k):
             l=i+1
     return A[l]
 
-def partition(L,l,h):
-    i=l-1         # first element 
-    pivot=L[h]    # pivot
-  
-    for j in range(l,h):
-        if L[j]<=pivot:
-            i=i+1
-            L[i],L[j]=L[j],L[i]
-
-    L[i+1],L[h]=L[h],L[i+1]
-
-    return i+1
-
 if __name__=='__main__':
-    N=20
+    N=2000
     A=list(range(N))
     for i in range(len(A)-1):
         idx=random.randrange(i,len(A))
@@ -37,6 +28,7 @@ if __name__=='__main__':
     for k in range(len(A)):
         C=A.copy()
         B.append(detIteSelect(C,k))
+
     if N<=20:
         print("Lista input: ",A)
         print("Lista output:",B)

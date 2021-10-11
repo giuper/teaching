@@ -20,7 +20,7 @@ def randRecSelect(A,k):
         return randRecSelect(R,k-l-1)
 
 if __name__=='__main__':
-    N=20
+    N=20000
     A=list(range(N))
     for i in range(len(A)-1):
         idx=random.randrange(i,len(A))

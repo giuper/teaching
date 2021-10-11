@@ -89,6 +89,7 @@ we run the deterministic and randomized select algorithms
 implemented using iteration on the worst case (ordered list).
 See [Battle of Iterative](BattleIteSelective.py).
 
+See also notes on [partition](Notes/partition.pdf).
         
 
 
