@@ -1,5 +1,5 @@
 
-### Esercizi ###
+### Esercizi su ricerca binaria e select###
 
 1. Una lista *A* di *N* elementi distinti è *bitonica*  se esiste un indice *j* tale che
 
@@ -16,4 +16,5 @@
 2. Modificare gli algoritmi per il problema *Select* in modo da ottenere
         in output tutti i primi *k* elementi più piccoli della lista input.
 
+3. Il problema *DoubleSelect(A,k)* chiede  di calcolare il *k*-esimo elemento più grande e il *k*-esimo elemento più piccolo.
 
