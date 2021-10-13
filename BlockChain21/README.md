@@ -1,5 +1,5 @@
 # BC21: *Blockchain* #
-## Corso di Laurea Magistrale in *Data Science e Gestione dell'Innovazione	* ##
+## Corso di Laurea Magistrale in *Data Science e Gestione dell'Innovazione* ##
 ### Anno Accademico 2021/22 ###
 
 ## Topics ##
