@@ -7,6 +7,7 @@ import time
 ##else
 ## it returns where it should be
 
+##comp is not used here
 def inP(L,x,comp=(lambda x:x)):
     return x in L
 
@@ -31,7 +32,6 @@ def BSIter(L,x,comp=(lambda x,y:x>=y)):
             h=m-1
         else:
             l=m+1
-
     return l
 
 ##Binary Search Recursive Version
@@ -89,4 +89,3 @@ if __name__=='__main__':
     driverS(sizes[:3],algos)
     
 
-    
