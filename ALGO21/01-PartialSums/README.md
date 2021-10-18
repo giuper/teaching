@@ -1,4 +1,4 @@
-# ALGO20: *Algoritmi e Strutture Dati* #
+# ALGO21: *Algoritmi e Strutture Dati* #
 ## Corso di Laurea Triennale in *Statistica per i Big Data* ##
 ### Anno Accademico 2021/22 ###
 
