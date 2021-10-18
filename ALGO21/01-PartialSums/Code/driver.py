@@ -36,7 +36,7 @@ def driver(theClass):
 
 if __name__=='__main__':
 
-    SIZE=2**10
+    SIZE=2**20
     if(SIZE<=2**10):
         classes=[parSum,parSumF,parSumNP,parSumPre,parSumT]
     else:

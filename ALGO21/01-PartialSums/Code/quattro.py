@@ -15,7 +15,7 @@ class parSumT:
             end=end+l
         self.A.reverse()
 
-    def __init2__(self,B):
+    def __init2__(self,B): #inefficient
         self.N=len(B)
         self.A=B.copy()
         start=len(B)-1
@@ -46,7 +46,7 @@ class parSumT:
         if i==j:       #sum of the empty interval
             return 0
 
-        if i==s and j==t:         #[s,t) is the subtree of x
+        if i==s and j==t:         #[i,j)=[s,t) answer found at index x
             ##print(x,i,j,s,t,"finisce")
             return self.A[x] 
 
@@ -83,8 +83,5 @@ if __name__=='__main__':
         print("dopo la modifica: ",B)
     x=A[2,10] ##invoca getitem che implementa lookup/query
     print("lookup(2,10):",x)
-
-
-
 
 
