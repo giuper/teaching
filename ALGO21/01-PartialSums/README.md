@@ -38,6 +38,8 @@ in a two-dimensional list *A[i][j]*;
 
 Code available [here](./Code/zero.py)
 
+Also, see [here](./Code/uno.py) for faster precomputation
+
 
 ### Second algorithm: No Precomputation ##
 
@@ -50,7 +52,7 @@ Code available [here](./Code/zero.py)
 3. *Set(k,val)* is implemented by modifying all *A[k]* 
     1. Time for *Set*: *O(1)* 
 
-Code available [here](./Code/uno.py)
+Code available [here](./Code/due.py)
 
 ### Third algorithm: Precompute prefixes ##
 
@@ -62,4 +64,9 @@ Code available [here](./Code/uno.py)
 3. *Set(k,val)* is implemented by modifying *Prefixes[i]*, for *i=k+1,...,N+1* 
     1. Time for *Set*: *O(n)* 
    
-Code available [here](./Code/due.py)
+Code available [here](./Code/tre.py)
+
+### Fourth algorithm: The tree ##
+
+Code available [here](./Code/quattro.py)
+(See [slides](Slides/partialSum.pdf))
