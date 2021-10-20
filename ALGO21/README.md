@@ -15,4 +15,6 @@ Prof. [Giuseppe Persiano](https://giuper.github.io)
 0. [Binary Search](./00-BinarySearch)
 1. [Partial Sums](./01-PartialSums/README.md)
 2. [Duplicates in a List](./02-Duplicates/README.md)
+3. [Pattern Matching](./03-PatternMatching/README.md)
+
 
