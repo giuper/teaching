@@ -76,3 +76,8 @@ Code available [here](./Code/quattro.py)
 
 Code available [here](./Code/driver.py)
 
+### Esercizi ###
+
+1. Modificare le implementazioni per il minimo (o il massimo) di un intervallo. Nota che non tutti gli algoritmi discussi possono essere modificati. Perché?
+2. Modificare il codice in modo che funzioni per tutte le operazioni associative con un elemento neutro. 
+3. Spiegare perché l'implementazione di [uno.py](./uno.py) riesce ad effettuare la __init__ più velocemente di [zero.py](./zero.py)
