@@ -35,12 +35,12 @@ def driver(theClass):
     print(f'{"Second result after update:":39s}{s2:20d}')
 
 if __name__=='__main__':
-
-    SIZE=2**20
+    SIZE=2**10
     if(SIZE<=2**10):
         classes=[parSum,parSumF,parSumNP,parSumPre,parSumT]
     else:
         classes=[parSumNP,parSumPre,parSumT]
+
     for cl in classes:
         driver(cl)
         print()

@@ -1,7 +1,9 @@
 import sys
+import time
+
 class parSumT:
     desc="Binary tree"
-    def __init__(self,B):
+    def __init2__(self,B):
         self.N=len(B)
         self.A=B.copy()
         self.A.reverse()
@@ -15,7 +17,7 @@ class parSumT:
             end=end+l
         self.A.reverse()
 
-    def __init2__(self,B): #inefficient
+    def __init__(self,B): #inefficient
         self.N=len(B)
         self.A=B.copy()
         start=len(B)-1
@@ -69,16 +71,22 @@ class parSumT:
 if __name__=='__main__':
     SIZE=2**20
     B=list(range(SIZE))
+    start=time.time()
     A=parSumT(B)
+    print(f'{time.time()-start:3.10f}')
     print("Oggetto costruito")
 
+    start=time.time()
     x=A[2,10] ##invoca getitem che implementa lookup/query
+    print(f'{time.time()-start:3.10f}')
     print("lookup(2,10):",x)
 
     if len(B)<100:
         print("prima della modifica: ",B)
     print("modifica elemento di indice 4")
+    start=time.time()
     A[4]=28  ##invoca setitem che implementa set
+    print(f'{time.time()-start:3.10f}')
     if len(B)<100:
         print("dopo la modifica: ",B)
     x=A[2,10] ##invoca getitem che implementa lookup/query

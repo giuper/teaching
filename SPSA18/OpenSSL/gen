@@ -1,4 +1,0 @@
-#!/bin/csh
-openssl genrsa -des3 -out KEYS/private.pem 2048
-openssl rsa -in KEYS/private.pem -outform PEM -pubout -out KEYS/public.pem
-openssl rsa -in KEYS/private.pem -out KEYS/private_unencrypted.pem -outform PEM
