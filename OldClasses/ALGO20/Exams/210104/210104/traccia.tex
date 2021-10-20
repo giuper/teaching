@@ -1,0 +1,89 @@
+\documentclass{amsart}
+
+
+\usepackage{fullpage}
+
+
+\begin{document}
+\title{Algoritmi e Strutture Dati\\
+Statistica per i big data\\
+Esame del 4 Gennaio 2021
+}
+
+
+\newcommand{\NomeStudente}{Annunziata Francesco}
+\newcommand{\nomeClasse}{{\tt{Sol}}}
+\newcommand{\nomeMetodo}{{\tt{nuovo}}}
+\newcommand{\oraconsegna}{10:35}
+\newcommand{\dataoggi}{4 Gennaio, 2021}
+
+
+\maketitle
+
+\hfill{{\bf Studente: \NomeStudente}}
+
+\smallskip
+L'ufficio statistico del comune di Bugliano raccoglie i dati della
+recente epidemia usando una lista con puntatori implementata mediante la 
+classe {\tt{LinkedList}} discussa durante il corso.
+Nello specifico, l'ufficio ha una lista in cui ogni nodo contiene una
+lista di due elementi: il primo \`e la data mentre il secondo \`e il
+numero di guariti relativo alla data.
+La lista \`e ordinata per data crescente. 
+
+Il compito consiste nel costruire una nuova classe \nomeClasse\ che 
+aggiunge a {\tt{LinkedList}} il metodo \nomeMetodo\
+che costruisce la lista {\em derivata} cos\`\i\ definita.
+Data una lista di $n$ nodi $L$, la lista derivata $L'$ consiste di $n-1$
+nodi. L'$i$-esimo nodo della lista derivata $L'$ contiene una lista
+di due elementi:
+\begin{itemize}
+\item la data dell'$(i+1)$-esimo nodo di $L$;
+\item la differenza tra il numero di guariti dell'$(i+1)$-esimo nodo di $L$
+e il numero di guariti dell'$i$-esimo nodo di $L$.
+\end{itemize}
+In altre parole, la lista derivata riporta, per ogni giorno
+tranne il primo, la variazione del numero di guariti.
+Ad esempio, 
+se la lista $L$ contiene i dati nell'ordine seguente
+\begin{enumerate}
+\item '1 Dicembre 2020', 2
+\item '2 Dicembre 2020', 3
+\item '3 Dicembre 2020', 4
+\item '4 Dicembre 2020', 7
+\item '5 Dicembre 2020', 2
+\item '6 Dicembre 2020', 21
+\item '7 Dicembre 2020', 12
+\end{enumerate}
+la lista derivata $L'$ contiene i seguenti dati
+\begin{enumerate}
+\item '2 Dicembre 2020', 1
+\item '3 Dicembre 2020', 1
+\item '4 Dicembre 2020', 3
+\item '5 Dicembre 2020', -5
+\item '6 Dicembre 2020', 19
+\item '7 Dicembre 2020', -9
+\end{enumerate}
+
+
+\medskip\noindent{\bf Materiale della traccia.}
+La cartella contiene il pdf di questa traccia, il file
+{\tt linkedList.py} che contiene la classe sviluppata in classe,
+il file {\tt driver.py} che pu\`o essere usato
+per verificare il funzionamento della classe progettata, e il file  {\tt result.txt} che contiene
+l'output atteso di {\tt driver.py}.
+
+\medskip\noindent{\bf Istruzione per la consegna.}
+Tutto il codice consegnato deve essere contenuto nel file
+{\tt \nomeClasse .py} ed inviato per e-mail all'indirizzo
+{\tt giuper@gmail.com} prima delle ore \oraconsegna\ di oggi, 
+\dataoggi. Non inviare altri file e n\'e tantomeno file zip.
+Il file deve contenere la classe {\tt \nomeClasse}  
+che offre il metodo $\nomeMetodo$ e che pu\`o essere usata per eseguire
+il codice di {\tt driver.py}. Si pu\`o assumere che il file
+{\tt linkedList.py} sia presente al momento dell'esecuzione. 
+
+
+
+
+\end{document}

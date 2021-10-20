@@ -1,0 +1,24 @@
+Size:  1000 	 with Binary Search:	 0.06451702117919922
+Size:  1000 	 without Binary Search:	 0.1778402328491211
+Rapporto:  2.0
+
+Size:  2000 	 with Binary Search:	 0.051661014556884766
+Size:  2000 	 without Binary Search:	 0.6364567279815674
+Rapporto:  12.0
+
+Size:  5000 	 with Binary Search:	 0.1438443660736084
+Size:  5000 	 without Binary Search:	 4.0133843421936035
+Rapporto:  27.0
+
+Size:  10000 	 with Binary Search:	 0.3011147975921631
+Size:  10000 	 without Binary Search:	 15.84603476524353
+Rapporto:  52.0
+
+Size:  20000 	 with Binary Search:	 0.642071008682251
+Size:  20000 	 without Binary Search:	 67.06330466270447
+Rapporto:  104.0
+
+Size:  50000 	 with Binary Search:	 2.233046770095825
+Size:  50000 	 without Binary Search:	 433.33950448036194
+Rapporto:  194.0
+

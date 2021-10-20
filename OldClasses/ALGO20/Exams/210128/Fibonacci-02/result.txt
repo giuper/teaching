@@ -1,0 +1,6 @@
+da N= 10 	a N= 12 	massimo ottenuto per k= 3
+da N= 13 	a N= 28 	massimo ottenuto per k= 4
+da N= 29 	a N= 62 	massimo ottenuto per k= 5
+da N= 63 	a N= 132 	massimo ottenuto per k= 6
+da N= 133 	a N= 277 	massimo ottenuto per k= 7
+da N= 278 	a N= 500 	massimo ottenuto per k= 8

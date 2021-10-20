@@ -1,0 +1,60 @@
+\documentclass{amsart}
+\newcommand{\ignore}[1]{}
+\renewcommand{\ignore}[1]{#1}
+
+
+\newcommand{\esame}[3]{
+\hfill{\bf Studente:} #1
+\par
+\bigskip\noindent{\bf Valutare un'espressione in forma postfissa.} 
+In un'espressione in notazione postfissa,
+l'operatore segue gli operandi. Ad esempio,
+la seguente espressione  in forma postfissa
+\begin{center}{\tt 4 5 +}\end{center}
+\`e equivalente  all'espressione 
+\begin{center}{\tt 4 + 5}\end{center}
+e quindi il suo valore \`e $9$.
+\par\medskip\noindent{\bf Esercizio 1.} Progettare una funzione Python 
+di nome {\tt #3}{\tt 1} che prende come input una stringa che rappresenta
+un'espressione in forma postfissa e restituisca il suo valore.
+
+Si pu\`o assumere che la stringa in input
+contenga solo addizioni (indicate dal segno {\tt +}) e moltiplicazioni
+(indicate dal segno {\tt *}) e che i valori numerici consistano di una sola cifra decimale.
+Si pu\`o anche assumere che tra ogni cifra ed ogni operatore vi sia esattamente un carattere spazio.
+
+
+\par\medskip\noindent{\bf Esercizio 2.} Progettare una funzione Python 
+di nome {\tt #3}{\tt 2} che prende in input una stringa che rappresenta 
+un'espressione in forma postfissa. Oltre a costanti numeriche e agli 
+operatori di addizione e moltiplicazione, l'espressione contiene anche 
+delle variabile identificate da una {\em singola} lettera;
+ad esempio, {\tt a 5 +}. Per valutare espressioni con variabile,
+la funzione {\tt #3}{\tt 2} prende come secondo input un {\tt dict} python
+in cui ad ogni variabile \`e assegnato un valore numerico.
+Ad esempio con input
+\begin{center}{\tt ``a\ 5\ +'' \qquad \{'a':65\}}\end{center}
+la funzione {\tt #3}{\tt 2} restituisce 70.
+
+\par\medskip\noindent{\bf Esercizio 3.} Progettare una funzione Python 
+di nome {\tt #3}{\tt 3} che possa gestire anche valori numerici che consistono di pi\`u cifre decimali.
+
+
+
+\par\medskip\noindent{\bf Istruzioni per la consegna.}
+Tutto il codice consegnato deve essere contenuto nel file {\tt #2.py}
+Si pu\`o assumere che il file venga eseguito nella stessa cartella
+in cui \`e presente il file {\tt stack.py} che contiene la classe {\tt Stack} che implementa la struttura dati stack. Il file {\tt driver.py} pu\`o essere usato per controllare la correttezza dell'elaborato. La commissione pu\`o ovviamente verificare la correttezza dell'elaborato usando anche altre istanza del problema.
+}
+
+\title{Prova d'Esame\\ 
+    Algoritmi e Strutture Dati \\
+    Statistica per i Big Data\\
+    8 Gennaio 2020}
+\author{}
+
+\begin{document}
+\maketitle
+
+\esame{Giuseppe Persiano}{sol}{sol}
+\end{document}

@@ -1,0 +1,18 @@
+Lista:  <>
+Massimo:  0
+
+Lista:  <12,3,8,45>
+Massimo:  45
+
+Faccio pop
+Risultato:  45
+Lista:  <12,3,8>
+Massimo:  12
+
+Faccio remove di 3
+Lista:  <12,8>
+Massimo:  12
+
+Faccio remove di 7
+Lista:  <12,8>
+Massimo:  12

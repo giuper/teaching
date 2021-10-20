@@ -1,0 +1,54 @@
+\documentclass{amsart}
+
+
+\begin{document}
+\title{Algoritmi e Strutture Dati\\
+Statistica per i big data\\
+Esame del 3 Settembre 2020
+}
+
+
+\newcommand{\NomeStudente}{Giuseppe Persiano}
+\newcommand{\nomeClasse}{soldp}
+
+
+\maketitle
+
+\hfill{{\bf Studente: \NomeStudente}}
+
+\smallskip
+
+In classe abbiamo discusso una semplice classe python che risolve il 
+problema delle $N$ regine.
+In questo problema d'esame viene chiesto di risolvere una generalizzazione 
+del problema  delle $N$ regine che,
+invece di considerare come configurazione iniziale una scacchiera vuota,
+chiede di risolvere il problema partendo da una configurazione iniziale
+in cui un certo numero di regine \`e gi\`a stato posizionato.
+
+\medskip\noindent{\bf Istruzione per la consegna.}
+Tutto il codice consegnato deve essere contenuto nel file
+{\tt \nomeClasse .py} ed inviato per e-mail all'indirizzo
+{\tt giuper@gmail.com} prima delle ore 11 di oggi, 3 Settembre 2020.
+
+Il file deve contenere una classe {\tt \nomeClasse} che deve offrire
+i seguenti due metodi:
+\begin{enumerate}
+\item {\tt \_\_init\_\_} che prende in input la grandezza $n$ della scacchiera
+ed una lista $L$ di lunghezza $n$.
+Se $L[i]=j$ con $0\leq j\leq n-1$, allora la configurazione iniziale
+ha una regina in posizione $(i,j)$.
+Se invece $L[i]=-1$, allora nella configurazione iniziale nessuna regina
+\`e presente nella riga $i$.
+\item {\tt solve} che risolve un'istanza del problema.
+\end{enumerate}
+
+La cartella contiene il pdf di questa traccia, il file
+{\tt nRegine.py} che contiene la classe sviluppata in classe,
+il file {\tt driver.py} che pu\`o essere usato
+per verificare il funzionamento della classe progettata, e il file  {\tt result.txt} che contiene
+un possibile output di {\tt driver.py}.
+
+
+
+\end{document}

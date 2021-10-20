@@ -1,0 +1,4 @@
+Prima visita:  [10, 3, 100, 33, 200, 333]
+Seconda visita:  [10, 3, 1, 7, 100, 33, 200, 333]
+Terza visita:  [10, 3, 1, 7, 5, 100, 33, 80, 200, 150, 120, 333]
+Quarta visita:  []

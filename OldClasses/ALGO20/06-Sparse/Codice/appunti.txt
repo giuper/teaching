@@ -1,0 +1,51 @@
+
+A: n x n
+B: n x n
+
+C=A*B
+C: n x n
+
+C[r,c] = Somma per k=0,...,n-1
+            A[r,k] * B[k,c]
+
+per ottenere A[r,k] spendiamo O(n) (oppure O(log(n)) se usiamo BS) 
+     in entrambi i casi
+Sia se A[r,k]=0    --->  tempo perso perche' se A[r,k]=0 il prodotto e' zero
+Sia se A[r,k]!=0   --->  tempo ben speso
+
+per ottenere B[r,k] spendiamo O(n)  (oppure O(log(n)) se usiamo BS) 
+    in entrambi i casi
+Sia se B[r,k]=0    --->  tempo perso perche' se B[r,k]=0 il prodotto e' zero
+Sia se B[r,k]!=0   --->  tempo ben speso
+
+
+per calcolare la matrice risultato C:
+devo calcolare C[r,c] per 
+r=0,...,n-1
+e 
+c=0,...,n-1
+
+
+
+
+Nuovo Algoritmo con la Speranza di essere MOLTO piu' VELOCE
+
+A._elementList  contiene tutti gli elementi di A diversi da 0
+B._elementList  contiene tutti gli elementi di B diversi da 0
+
+
+for eA in A._elementList:     ---> O(n)
+    for eB in B._elementList: ---> O(n)
+
+        rA,cA, vA sono riga, colonna e valore di eA   ---> O(1)
+        rB,cB, vB sono riga, colonna e valore di eB   ---> O(1)
+
+        if cA==rB:                                    ---> O(1)
+            p=vA*vB                                   ---> O(1)
+            C[rA,cB]=C[rA,cB]+p                       ---> O(log n)
+
+O(n^2*log n)  
+Il precedente algoritmo prendeva tempo O(n^4)        senza Binary Search
+Il precedente algoritmo prendeva tempo O(n^3*\log n)  con Binary Search
+
+

@@ -1,0 +1,113 @@
+\documentclass{amsart}
+
+
+\usepackage{fullpage}
+
+
+\begin{document}
+\title{Algoritmi e Strutture Dati\\
+Statistica per i big data\\
+Esame del 4 Gennaio 2021
+}
+
+
+\newcommand{\NomeStudente}{Giuseppe Persiano}
+\newcommand{\nomeClasse}{{\tt{Sol}}}
+\newcommand{\nomeMetodo}{{\tt{maxK}}}
+\newcommand{\oraconsegna}{11}
+\newcommand{\dataoggi}{4 Gennaio, 2021}
+
+
+\maketitle
+
+\hfill{{\bf Studente: \NomeStudente}}
+
+\smallskip
+Il nostro amico Capparaccio ha letto dei numeri di Fibonacci ed ha avuto un'idea
+che lo tiene sveglio la notte: ha inventato i numeri $k$-acci.
+Per $n>0$ e $k\geq 2$, l'$n$-esimo numero Capparaccio di ordine $k$,
+$C_{n,k}$, \`e definito nel modo seguente:
+
+$$C_{n,k}=\begin{cases}
+        1, & \text{se } 0<n\leq k;\cr
+        C_{n-1,k}+C_{n-2,k}+\ldots,C_{n-k,k}, & \text{se } n>k.\cr
+\end{cases}
+$$
+Quindi, invece di sommare i due interi precedenti della sequenza come
+nei numeri di Fibonacci (un suo lontano parente) sommiamo i $k$ interi
+precedenti.
+Ad esempio, per $k=3,4$ abbiamo
+$$
+\begin{array}{rcl}
+C_{1,3}&=&1\\
+C_{2,3}&=&1\\
+C_{3,3}&=&1\\
+C_{4,3}&=&1+1+1=3\\
+C_{5,3}&=&1+1+3=5\\
+C_{6,3}&=&1+3+5=9\\
+C_{7,3}&=&3+5+9=17\\
+C_{8,3}&=&5+9+17=31\\
+C_{9,3}&=&9+17+31=57\\
+\ldots& &\ldots
+\end{array}
+\qquad
+\qquad
+\begin{array}{rcl}
+C_{1,4}&=&1\\
+C_{2,4}&=&1\\
+C_{3,4}&=&1\\
+C_{4,4}&=&1\\
+C_{5,4}&=&1+1+1+1=4\\
+C_{6,4}&=&1+1+1+4=7\\
+C_{7,4}&=&1+1+4+7=13\\
+C_{8,4}&=&1+4+7+13=25\\
+C_{9,4}&=&4+7+13+25=49\\
+\ldots& &\ldots
+\end{array}
+$$
+
+Il nostro amico Capparaccio \`e interessato a studiare per quale valore di 
+$k$ il numero $C_{n,k}$ raggiunge il valore massimo quando $n$ \`e fissato.
+Chiaramente, per trovare questo valore $k$ basta controllare tutti i valori
+$k\in[2,3,\ldots,n-1]$ e scegliere quello che d\`a il massimo.
+Ad esempio per $n=8$ abbiamo che
+
+$$\begin{array}{|r|r|}\hline
+C_{8,2} & 21  \\ \hline
+C_{8,3} & 31  \\ \hline
+C_{8,4} & 25  \\ \hline
+C_{8,5} & 17  \\ \hline
+C_{8,6} & 11  \\ \hline
+C_{8,7} & 7   \\ \hline
+\end{array}$$
+e quindi il valore di $k$ che ottiene il massimo di $C_{8,k}$ \`e $k=3$.
+Nota che per definizione  $C_{8,8}=C_{8,9}=C_{8,10}=\ldots=1$ e quindi,
+per $n=8$, \`e inutile controllare per valore di $k\geq 8$.
+
+Il vostro compito \`e di scrivere una funzione {\tt python} \nomeMetodo\
+che prende in input $n$ e restituisce {\tt k} tale che 
+$C_{n,k}$ \`e massimo tra i valori $C_{n,2},C_{n,3},\ldots,C_{n,n-1}$.
+Quindi {\tt\nomeMetodo(8,3)} restituisce $3$.
+
+
+\medskip\noindent{\bf Materiale della traccia.}
+La cartella contiene il pdf di questa traccia, il file
+{\tt fibo.py} che contiene le implementazione dei numeri di Fibonacci
+che abbiamo discusso in classe e 
+il file {\tt driver.py} che usa la funzione \nomeMetodo\ che avete
+progettato, e il file  {\tt result.txt} che contiene
+l'output atteso di {\tt driver.py}.
+
+\medskip\noindent{\bf Istruzione per la consegna.}
+Tutto il codice consegnato deve essere contenuto nel file
+{\tt \nomeClasse .py} ed inviato per e-mail all'indirizzo
+{\tt giuper@gmail.com} prima delle ore \oraconsegna\ di oggi, 
+\dataoggi. Non inviare altri file e n\'e tantomeno file zip.
+Il file deve contenere la funzione
+\nomeMetodo\ e che pu\`o essere usata per eseguire
+il codice di {\tt driver.py}. 
+
+
+
+
+\end{document}

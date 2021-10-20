@@ -1,0 +1,22 @@
+\newcommand{\esempio}[7]{
+\begin{tikzpicture}
+[
+cs/.style={rectangle,draw=green!50,fill=black!10,thick,minimum height=7mm,minimum width=70mm},
+stack/.style={rectangle,draw=black!50,fill=black!20,thick,minimum height=7mm,minimum width=70mm},
+nm/.style={rectangle,draw=black!50,fill=green!20,thick,minimum size=7mm},
+]
+\node at (0.5,0.5) [stack] (s0) {\color{brown} #2};
+\node [stack,above=2mm] at (s0.north) [stack] (s1) {\color{brown} #3};
+\node [stack,above=2mm] at (s1.north) [stack] (s2) {\color{brown} #4};
+\node [stack,above=2mm] at (s2.north) [stack] (s3) {\color{brown} #5};
+\node [left of=4mm] at (s0.west) {$\color{red}\mathsf{Stack[0]}$};
+\node [left of=4mm] at (s1.west) {$\color{red}\mathsf{Stack[1]}$};
+\node [left of=4mm] at (s2.west) {$\color{red}\mathsf{Stack[2]}$};
+\node [left of=4mm] at (s3.west) {$\color{red}\mathsf{Stack[3]}$};
+\node [above=6mm] at (s3.west) (scacchiera) {\includegraphics[width=1in]{#1}};
+
+\node [cs,right of=4mm,anchor=west] at (scacchiera.east) (csb) {{\color{blue} #6}};
+\node [above=6mm,anchor=west] at (csb.west) {\color{blue} \bf Stato corrente};
+\node [below=9mm,anchor=west] at (csb.west) {\color{purple}\bf Prossima mossa: #7};
+\end{tikzpicture}
+}
