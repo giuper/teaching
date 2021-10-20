@@ -70,3 +70,9 @@ Code available [here](./Code/tre.py)
 
 Code available [here](./Code/quattro.py)
 (See [slides](Slides/partialSum.pdf))
+
+
+### Evaluating the algorithms ##
+
+Code available [here](./Code/driver.py)
+
