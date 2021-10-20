@@ -2,7 +2,6 @@
 ## Corso di Laurea Triennale in *Statistica per i Big Data* ##
 ### Anno Accademico 2021/22 ###
 
-
 ## Partial Sums ##
 
 A data structure that supports the following two operations:
