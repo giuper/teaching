@@ -20,3 +20,8 @@ di Medjedovic e Tahirovic.
 
 [Codice](./Code)
 
+
+## Esercizi ##
+
+1. Pattern Matching Parziale. Modifica l'algoritmo di forza bruta in modo da individuare tutte i valori s tali che il pattern P e il testo T[s:s+m] differiscono in al più una posizione.
+2. Pattern Matching con Alternative. In pattern matching tradizionale il pattern è una stringa, cioè una lista di caratteri. Consideriamo invece un pattern esteso come una lista di liste di caratteri. Ad esempio, il pattern esteso P=['a','b',['c','d']] ha match sia con la stringa 'abc' che con la stringa 'abd'. Quindi il testo 'ababcaabdaa' contiene occorrenze del pattern per s=2,6. L'esercizio richiede di modificare l'algorito di forza bruta per il pattern matching in modo da individuare anche occorrenze di pattern estesi all'interno di un testo.
