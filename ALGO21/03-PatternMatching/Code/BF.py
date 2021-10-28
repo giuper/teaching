@@ -25,11 +25,15 @@ if __name__=='__main__':
     P="cabc"
     print("Testo:      ",T)
     print("Pattern:    ",P)
-    print("Occorrenze: ",bfPM(T,P))
+    res=bfPM(T,P)
+    print("Confronti:  ",res[0])
+    print("Occorrenze: ",res[1:])
 
     print()
     N=10_000
     print(N,"a seguite da una b")
     T="a"*N+"b"
     P="a"*(N//2)+"b"
-    print("Occorenze: ",bfPM(T,P))
+    res=bfPM(T,P)
+    print("Confronti:  ",res[0])
+    print("Occorrenze: ",res[1:])

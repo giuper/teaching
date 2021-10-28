@@ -58,7 +58,9 @@ if __name__=='__main__':
     print(N,"a seguite da una b")
     T="a"*N+"b"
     P="a"*(N//2)+"b"
-    print("Occorenze: ",kmpPM(T,P))
+    res=kmpPM(T,P)
+    print("Confronti:  ",res[0])
+    print("Occorrenze: ",res[1:])
 
         
     
