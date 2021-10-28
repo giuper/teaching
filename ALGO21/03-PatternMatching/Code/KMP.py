@@ -2,7 +2,9 @@ def calcolaNext(P):
     M=len(P)
     NXT=[0]
     l=0; i=1
+    nofC=0
     while i<M:
+        nofC+=1
         if P[i]==P[l]:
             l=l+1
             NXT.append(l)
@@ -13,6 +15,7 @@ def calcolaNext(P):
             else:
                 NXT.append(0)
                 i=i+1
+    NXT.append(nofC)
     return NXT
     
 
@@ -23,7 +26,9 @@ def kmpPM(T,P):
     res=[]
     i=0
     j=0
+    nofC=NXT.pop()
     while(i<N):
+        nofC+=1
         if (P[j]==T[i]):
             j=j+1
             i=i+1
@@ -37,17 +42,23 @@ def kmpPM(T,P):
                 j=NXT[j-1]
             else:
                 i=i+1
+    res.insert(0,nofC)
     return res
            
         
 if __name__=='__main__':
-    T="111011110111101111001110111101"
-    P="1110111101"
-    res=kmpPM(T,P)
-    for x in res:
-        print(T[x:x+len(P)])
-    print(P)
+    T="bacabcabcabdcabdcabdcabccccabc"
+    P="cabc"
+    print("Testo:      ",T)
+    print("Pattern:    ",P)
+    print("Occorrenze: ",kmpPM(T,P))
 
+    print()
+    N=10_000
+    print(N,"a seguite da una b")
+    T="a"*N+"b"
+    P="a"*(N//2)+"b"
+    print("Occorenze: ",kmpPM(T,P))
 
         
     
