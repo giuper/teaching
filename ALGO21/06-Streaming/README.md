@@ -18,7 +18,11 @@ I riferimenti bibliografici sono relativi al testo
 ``Foundations of Data Science'', di A. Blum, J. Hopcroft e R. Kannan.
 
 
-[Calcolo dell'elemento di maggioranza](./majority.py)
+## Codice ##
+
+1. [Calcolo dell'elemento di maggioranza](./majority.py)
+
+2. [Selezione casuale di elemento di uno stream](./streamR.py)
 
 
 ## Esercizi ##
