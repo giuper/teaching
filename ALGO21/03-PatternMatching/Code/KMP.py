@@ -54,7 +54,7 @@ if __name__=='__main__':
     print("Occorrenze: ",kmpPM(T,P))
 
     print()
-    N=10_000
+    N=100_000_000
     print(N,"a seguite da una b")
     T="a"*N+"b"
     P="a"*(N//2)+"b"
