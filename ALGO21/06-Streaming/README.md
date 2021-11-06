@@ -18,7 +18,7 @@ I riferimenti bibliografici sono relativi al testo
 ``Foundations of Data Science'', di A. Blum, J. Hopcroft e R. Kannan.
 
 
-[./majority.py](Calcolo dell'elemento di maggioranza)
+[Calcolo dell'elemento di maggioranza](./majority.py)
 
 
 ## Esercizi ##
