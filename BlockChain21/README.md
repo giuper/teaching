@@ -11,6 +11,11 @@
     3. Transactions: Chapter 6-7
     4. Nodes, Network and Consensus: Chapter 8,9,10
 
+2. Algorand:
+
+    1. Single Pay TX [code](./Code/01-SinglePayTx)
+    2. Multi Signature Pay TX  [code](./Code/02-MultiPayTx)
+    
 
 ## Readings ##
 1. [The Bitcoin paper](https://bitcoin.org/bitcoin.pdf)
