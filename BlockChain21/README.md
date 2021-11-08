@@ -13,6 +13,7 @@
 
 2. Algorand:
 
+    0. [Slides](./slides.pdf)
     1. Single Pay TX [code](./Code/01-SinglePayTx)
     2. Multi Signature Pay TX  [code](./Code/02-MultiPayTx)
     
