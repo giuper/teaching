@@ -2,7 +2,6 @@
 
 ##change this to the folder that contains goal
 DIRECTORY=~/node
-
 GOAL=${DIRECTORY}/goal
 
 FILE=thirtyfour.teal
