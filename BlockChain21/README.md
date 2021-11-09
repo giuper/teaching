@@ -13,7 +13,7 @@
 
 2. Algorand:
 
-    0. [Slides](./slides.pdf)
+    0. [Slides](./slides.pdf) used in class
     1. Single Pay TX [code](./Code/01-SinglePayTx)
     2. Multi Signature Pay TX  [code](./Code/02-MultiPayTx)
     3. Smart Signatures through the command line [code](./Code/03-SmartSigPayTX-CLI)
