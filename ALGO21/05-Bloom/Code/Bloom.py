@@ -2,6 +2,8 @@ import time
 from bitarray import bitarray
 import hashlib
 import random
+import math
+import sys
 
 class bloomF:
 
@@ -36,41 +38,84 @@ class bloomF:
     
 
 
-B=bloomF(20,2)
-personaggi=['pluto','topolino','pluto','paperino','minnie']
-for p in personaggi:
+def esempioSemplice():
+    print("Creo un Bloom filter di taglia 20 con 2 hash function")
+    B=bloomF(20,2)
+    personaggi=['pluto','topolino','pluto','paperino','minnie']
+    for p in personaggi:
+        print("Inserisco : ",p)
+        B.insert(p)
+    
+    p='paperoga'
+    print("Cerco",p,"ed ottengo",B.lookup('paperoga'))
+    
     print("Inserisco : ",p)
-    B.insert(p)
-p='paperoga'
-print(p,B.lookup('paperoga'))
-print("Inserisco : ",p)
-B.insert('paperoga')
-print(p,B.lookup('paperoga'))
+    B.insert('paperoga')
+    print("Cerco",p,"ed ottengo",B.lookup('paperoga'))
+    print(p,B.lookup('paperoga'))
 
-N=1_000_000
-M=N//5
-d=6
+##come varia il numero di falsi positivi come funzione
+##del numero k di funzioni hash
+##ottimo teorico: k=M/N*ln(2)
+def falsiPositiviK(M,N):
+    opt=M/N*.69
+    print(f'{"N=":2s}{N:<9d}{"M=":2s}{M:<9d}')
+    print(f'{"Ottimo k="}{opt:6.3}')
+    opt=math.floor(opt)
+    for k in range(max(1,opt-5),opt+5):
+        B=bloomF(M,k)
+        print(f'{"   k=":2s}{k:<3d}')
+        start=time.time()
+        x="a"
+        for i in range(1,N+1):
+            #if i%10_000==0:
+                #print(i," inserimenti")
+            B.insert(x)
+            x=x+"a"
+        print(f'{"   Inserimento:":20s}{time.time()-start:7.3f}')
+    
+        fp=0
+        start=time.time()
+        for i in range(N+1,2*N+1):
+            if B.lookup(x):
+                #print("Falso positivo a ",i)
+                fp+=1
+            x=x+"a"
+        print(f'{"   Lookup:":20s}{time.time()-start:7.3f}')
+        print(f'{"   Falsi positivi:":20s}{fp/N:5.4f}')
+        print()
 
-B=bloomF(N,d)
-x="a"
-start=time.time()
-print("Inseriamo ",M," elementi in un filtro con ", N," posizioni")
-print("Usiamo ",d,"hash function")
-for i in range(1,M+1):
-    if i%10_000==0:
-        print(i," inserimenti")
-    B.insert(x)
-    x=x+"a"
-print("Tempo per ",M," inserimenti ",time.time()-start)
+##filtro contiene M bit
+##come varia il numero di falsi positivi come funzione
+##del carico L=M/N del filtro
+##ottimo teorico: K=M/N*ln(2)
+def falsiPositiviL(M):
+    for L in range(2,14):
+        N=M//L
+        K=round(L*.69) 
+        #print(f'{"M=":2s}{M:<7d}')
+        print(f'{"   N="}{N:<10d}{"L="}{L:<3d}{" K="}{K}')
+        B=bloomF(M,K)
+        start=time.time()
+        x="a"
+        for i in range(1,N+1):
+            B.insert(x)
+            x=x+"a"
+        print(f'{"   Inserimento:":20s}{(time.time()-start)/N:7.6f}')
+        fp=0
+        start=time.time()
+        for i in range(N+1,2*N+1):
+            if B.lookup(x):
+                fp+=1
+            x=x+"a"
+        print(f'{"   Lookup:":20s}{(time.time()-start)/N:7.6f}')
+        print(f'{"   Falsi positivi:":20s}{fp/N:5.4f}')
+        print()
 
-print("Eseguiamo il lookup di ", M," elementi non nel filtro")
-fn=0
-start=time.time()
-for i in range(M+1,2*M+1):
-    if B.lookup(x):
-        print("Falso negativo a ",i)
-        fn+=1
-    x=x+"a"
-print("Tempo per ",M," lookup ",time.time()-start)
-print(fn," falsi negativi su ",M," lookup")
-
+if __name__=='__main__':
+    
+    for M in [100_000,1_000_000,2_000_000,5_000_000,7_000_000,10_000_000]:
+        print(f'{"M=":2s}{M:<7d}')
+        falsiPositiviL(M)
+        sys.stdout.flush()
+    
