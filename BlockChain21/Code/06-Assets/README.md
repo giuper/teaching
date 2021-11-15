@@ -5,7 +5,7 @@
 
 ### Step by step  ###
 
-1. Run [createAsset.py](./createAsset.py) to create asset with name ```NovemberAssetXX```
+1. Run [createAsset.py](./createAsset.py) to create asset with name ```NovemberAssetXX```.
     It takes three command line arguments: the directory of the node, 
     the filename containing the mnemonic of the creator account, and
     the filename containing the address of the manager.
