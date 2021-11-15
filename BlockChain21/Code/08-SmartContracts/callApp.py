@@ -1,12 +1,9 @@
 import sys
-import json
 import base64
 from algosdk import account, mnemonic
 from algosdk.v2client import algod
 from algosdk.future.transaction import write_to_file
 from algosdk.future.transaction import ApplicationNoOpTxn
-from algosdk.future.transaction import OnComplete
-from algosdk.future.transaction import StateSchema
 from utilities import wait_for_confirmation, getClient
 
 def main(MnemFIle,index,directory)

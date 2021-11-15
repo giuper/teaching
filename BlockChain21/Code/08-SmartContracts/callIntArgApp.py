@@ -1,25 +1,21 @@
-import datetime
 import sys
-import json
 import base64
 from algosdk import account, mnemonic
 from algosdk.v2client import algod
 from algosdk.future.transaction import write_to_file
 from algosdk.future.transaction import ApplicationNoOpTxn
-from algosdk.future.transaction import OnComplete
-from algosdk.future.transaction import StateSchema
 from utilities import wait_for_confirmation, getClient
 
 def main(MnemFile,index,incr,directory):
 
     algodClient=getClient(directory)
+    params=algodClient.suggested_params()
 
     f=open(MnemFile,'r')
     Mnem=f.read()
     SK=mnemonic.to_private_key(Mnem)
     Addr=account.address_from_private_key(SK)
     f.close()
-    params=algodClient.suggested_params()
 
     appArgs=[incr.to_bytes(8,'big')]
     utxn=ApplicationNoOpTxn(Addr,params,index,appArgs)
