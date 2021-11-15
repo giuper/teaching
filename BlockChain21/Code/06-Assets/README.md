@@ -16,7 +16,7 @@
     the filename containing the mnemonic of the address that wishes to opt in,  and 
     the asset index.
 
-3.Run [transferAsset.py](./transferAsset.py) to transfer assets between two addresses. 
+3. Run [transferAsset.py](./transferAsset.py) to transfer assets between two addresses. 
     It takes three command line arguments: the directory of the node, 
     the filename containing the mnemonic of the sender,
     the filename containing the address of the receiver,
