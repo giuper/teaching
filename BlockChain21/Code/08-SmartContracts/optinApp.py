@@ -23,7 +23,7 @@ def main(MnemFile,index,directory):
     stxn=utxn.sign(SK)
     write_to_file([stxn],"optin.stxn")
     txId=stxn.transaction.get_txid()
-    print("Transaction id: ",txId)
+    print("Transaction id:  ",txId)
     algodClient.send_transactions([stxn])
     wait_for_confirmation(algodClient,txId,4)
     txResponse=algodClient.pending_transaction_info(txId)

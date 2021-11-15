@@ -1,7 +1,7 @@
 # Blockchain21: *Blockchain* #
 ### Academic year 2021/22 ###
 
-## Code for smart (stateful) constracts ##
+## Code for smart (stateful) contracts (no arguments) ##
 
 We create a simple smart contract that exemplifies the use of global and local state.
 Specifically, the contract maintains one global counter ```gcnt1``` (incremented by 1 at each invocation)
@@ -18,14 +18,23 @@ and one local variable ```lcnt1``` (incremented by 7 at each invocation).
     Note that you must use the creator address in the approval program. Currently the teal file  has the address
     that I have used during my lecture.
 
+    [Here](./TX/create.stxn) is the signed transaction that creates an application.
+    Use command ```goal node clerk inspect create.stxn``` to view its content.
+
 2. Run [optinApp.py](optinApp.py) to allow addresses to opt in the contract. 
     It takes three command line arguments: the filename containing the mnemonic of the address
     that wishes to opt in, the application index, and the directory of the node.
+
+    [Here](./TX/optin.stxn) is the signed transaction to opt in an application.
+    Use command ```goal node clerk inspect optin.stxn``` to view its content.
     
 3. Run [callApp.py](callApp.py) to allow addresses to opt in the contract. 
     It takes three command line arguments: the filename containing the mnemonic of the address
     that wishes to opt in, the application index, and the directory of the node.
     
+    [Here](./TX/noop.stxn) is the signed transaction to invoke an application.
+    Use command ```goal node clerk inspect noop.stxn``` to view its content.
+
     The output shows the current values of the counters.
     The global and local counter can be obtained from the ```response``` returned by the transaction once it 
     has completed (in the fields ```global-state-delta``` and ```local-state-delta```, respectively).
