@@ -25,7 +25,7 @@
 4. Run [destroyAsset.py](./destroyAsset.py) to destroy an asset.
     Note that it is required that all assets are owned by the manager.
     
-5. [listCreatedAsset.py](./listCreatedAsset.py) can be used to list all assets created by an asset. i
+5. [listCreatedAsset.py](./listCreatedAsset.py) can be used to list all assets created by an asset.
     It takes two command line arguments: 
     the directory of the node and 
     the filename containing the address of the creator for which we want to list the created assets.
