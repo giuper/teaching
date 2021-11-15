@@ -1,13 +1,13 @@
 # Blockchain21: *Blockchain* #
 ### Academic year 2021/22 ###
 
-## Code for smart (stateful) contracts (no arguments) ##
+## Code for smart (stateful) contracts  ##
 
 We create a simple smart contract that exemplifies the use of global and local state.
 Specifically, the contract maintains one global counter ```gcnt1``` (incremented by 1 at each invocation)
 and one local variable ```lcnt1``` (incremented by 7 at each invocation).
 
-### Step by step ###
+### Step by step (no arguments) ###
 
 1. Create the approval file [01-class.teal](01-class.teal)
 2. Run [createApp.py](createApp.py) to create the application.
@@ -21,14 +21,14 @@ and one local variable ```lcnt1``` (incremented by 7 at each invocation).
     [Here](./TX/create.stxn) is the signed transaction that creates an application.
     Use command ```goal node clerk inspect create.stxn``` to view its content.
 
-2. Run [optinApp.py](optinApp.py) to allow addresses to opt in the contract. 
+2. Run [optinApp.py](optinApp.py) to allow addresses to opt in the application.
     It takes three command line arguments: the filename containing the mnemonic of the address
     that wishes to opt in, the application index, and the directory of the node.
 
     [Here](./TX/optin.stxn) is the signed transaction to opt in an application.
     Use command ```goal node clerk inspect optin.stxn``` to view its content.
     
-3. Run [callApp.py](callApp.py) to allow addresses to opt in the contract. 
+3. Run [callApp.py](callApp.py) to allow addresses to execute the application.
     It takes three command line arguments: the filename containing the mnemonic of the address
     that wishes to opt in, the application index, and the directory of the node.
     
@@ -45,3 +45,17 @@ and one local variable ```lcnt1``` (incremented by 7 at each invocation).
 
     The global state can also be obtained from the script ```readGlobalValues.py``` that accesses 
     the ```account_info``` of the creator of the application.
+
+### Step by step (with arguments) ###
+
+1.  We modify the teal program so that the local value is incremented by a user provided 
+integer (and not by 1 as before). [Here](02-class.teal) is the revised source.
+
+2. Opting in is the same as before.
+
+3. Run [callIntArgApp.py](callIntArgApp.py) to allow addresses to execute the application
+    and pass the parameter.
+
+    It takes four command line arguments: the filename containing the mnemonic of the address
+    that wishes to opt in, the application index, the increment and the directory of the node.
+    
