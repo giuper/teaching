@@ -7,24 +7,12 @@ from algosdk.future.transaction import write_to_file
 from algosdk.future.transaction import ApplicationCreateTxn
 from algosdk.future.transaction import OnComplete
 from algosdk.future.transaction import StateSchema
-from w4c import wait_for_confirmation
+from utilities import wait_for_confirmation, getClient
 
-def main():
-    if len(sys.argv)!=4:
-        print("usage: python3 "+sys.argv[0]+" <creator mnem> <approval file> <node directory>")
-        exit()
+def main(creatorMnemFile,approvalFile,directory):
 
-    creatorMnemFile=sys.argv[1]
-    approvalFile=sys.argv[2]
-    directory=sys.argv[3]
-
-    f=open(directory+"/algod.token",'r')
-    algodToken=f.read()
-    f.close()
-    f=open(directory+"/algod.net",'r')
-    algodAddress="http://"+f.read()[:-1]   #to remove the trailing newline
-    f.close()
-    algodClient=algod.AlgodClient(algodToken,algodAddress)
+    algodClient=getClient(directory)
+    params=algodClient.suggested_params()
 
     f=open(creatorMnemFile,'r')
     creatorMnem=f.read()
@@ -32,7 +20,7 @@ def main():
     creatorAddr=account.address_from_private_key(creatorSK)
     print("Creator address: ",creatorAddr)
     f.close()
-    params=algodClient.suggested_params()
+
     on_complete=OnComplete.NoOpOC.real
 
     # declare application state storage (immutable)
@@ -72,6 +60,14 @@ def main():
     print("Created a new app with id: ",appId);
 
 if __name__=='__main__':
-    main()
+    if len(sys.argv)!=4:
+        print("usage: python3 "+sys.argv[0]+" <creator mnem> <approval file> <node directory>")
+        exit()
+
+    creatorMnemFile=sys.argv[1]
+    approvalFile=sys.argv[2]
+    directory=sys.argv[3]
+
+    main(creatorMnemFile,approvalFile,directory)
     
     

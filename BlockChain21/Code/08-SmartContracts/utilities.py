@@ -1,3 +1,5 @@
+from algosdk.v2client import algod
+
 # utility function for waiting on a transaction confirmation
 def wait_for_confirmation(client,transaction_id,timeout):
     """
@@ -27,4 +29,13 @@ def wait_for_confirmation(client,transaction_id,timeout):
         current_round += 1
     raise Exception(
         'pending tx not found in timeout rounds, timeout value = : {}'.format(timeout))
+
+def getClient(directory):
+    f=open(directory+"/algod.token",'r')
+    algodToken=f.read()
+    f.close()
+    f=open(directory+"/algod.net",'r')
+    algodAddress="http://"+f.read()[:-1]   #to remove the trailing newline
+    f.close()
+    return algod.AlgodClient(algodToken,algodAddress)
 

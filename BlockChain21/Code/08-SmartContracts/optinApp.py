@@ -5,33 +5,18 @@ from algosdk import account, mnemonic
 from algosdk.v2client import algod
 from algosdk.future.transaction import write_to_file
 from algosdk.future.transaction import ApplicationOptInTxn
-from algosdk.future.transaction import OnComplete
-from algosdk.future.transaction import StateSchema
-from w4c import wait_for_confirmation
+from utilities import wait_for_confirmation, getClient
 
-def main():
-    if len(sys.argv)!=4:
-        print("usage: python3 "+sys.argv[0]+" <mnem> <app index> <node directory>")
-        exit()
+def main(MnemFile,index,directory):
 
-    MnemFile=sys.argv[1]
-    index=int(sys.argv[2])
-    directory=sys.argv[3]
-
-    f=open(directory+"/algod.token",'r')
-    algodToken=f.read()
-    f.close()
-    f=open(directory+"/algod.net",'r')
-    algodAddress="http://"+f.read()[:-1]   #to remove the trailing newline
-    f.close()
-    algodClient = algod.AlgodClient(algodToken,algodAddress)
+    algodClient=getClient(directory)
+    params=algodClient.suggested_params()
 
     f=open(MnemFile,'r')
     Mnem=f.read()
     SK=mnemonic.to_private_key(Mnem)
     Addr=account.address_from_private_key(SK)
     f.close()
-    params=algodClient.suggested_params()
 
     utxn=ApplicationOptInTxn(Addr,params,index)
     write_to_file([utxn],"optin.utxn")
@@ -46,6 +31,14 @@ def main():
 
 
 if __name__=='__main__':
-    main()
+    if len(sys.argv)!=4:
+        print("usage: python3 "+sys.argv[0]+" <mnem> <app index> <node directory>")
+        exit()
+
+    MnemFile=sys.argv[1]
+    index=int(sys.argv[2])
+    directory=sys.argv[3]
+
+    main(MnemFile,index,directory)
     
     
