@@ -38,9 +38,9 @@ class bloomF:
     
 
 
-def esempioSemplice():
-    print("Creo un Bloom filter di taglia 20 con 2 hash function")
-    B=bloomF(20,2)
+def esempioSemplice(M,K):
+    print("Creo un Bloom filter di taglia",M," con ",K," hash function")
+    B=bloomF(M,K)
     personaggi=['pluto','topolino','pluto','paperino','minnie']
     for p in personaggi:
         print("Inserisco : ",p)
@@ -52,7 +52,6 @@ def esempioSemplice():
     print("Inserisco : ",p)
     B.insert('paperoga')
     print("Cerco",p,"ed ottengo",B.lookup('paperoga'))
-    print(p,B.lookup('paperoga'))
 
 ##come varia il numero di falsi positivi come funzione
 ##del numero k di funzioni hash
@@ -113,9 +112,12 @@ def falsiPositiviL(M):
         print()
 
 if __name__=='__main__':
+
+    esempioSemplice(16,3)
+    exit()
     
-    for M in [100_000,1_000_000,2_000_000,5_000_000,7_000_000,10_000_000]:
-        print(f'{"M=":2s}{M:<7d}')
-        falsiPositiviL(M)
-        sys.stdout.flush()
+##    for M in [100_000,1_000_000,2_000_000,5_000_000,7_000_000,10_000_000]:
+##        print(f'{"M=":2s}{M:<7d}')
+##        falsiPositiviL(M)
+##        sys.stdout.flush()
     
