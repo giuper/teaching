@@ -18,6 +18,7 @@
     2. Multi Signature Pay TX  [code](./Code/02-MultiPayTx)
     3. Smart Signatures through the command line [code](./Code/03-SmartSigPayTX-CLI)
     4. Smart Signatures through the Python SDK [code](./Code/04-SmartSigPayTX-PY)
+    8. Smart Contracts [code](./Code/08-SmartContracts)
     
 ## Readings ##
 1. [The Bitcoin paper](https://bitcoin.org/bitcoin.pdf)
