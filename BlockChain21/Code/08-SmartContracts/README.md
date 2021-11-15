@@ -7,7 +7,7 @@ We create a simple smart contract that exemplifies the use of global and local s
 Specifically, the contract maintains one global counter ```gcnt1``` (incremented by 1 at each invocation)
 and one local variable ```lcnt1``` (incremented by 7 at each invocation).
 
-# Step by step #
+### Step by step ###
 
 1. Create the approval file [01-class.teal](01-class.teal)
 2. Run [createApp.py](createApp.py) to create the application.
