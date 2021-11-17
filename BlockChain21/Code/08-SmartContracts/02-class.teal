@@ -51,16 +51,16 @@ app_global_put
 
 // read local state for sender and sum the argument to it
 int 0
-byte "lcnt1"
+byte "lcnt"
 app_local_get
 txn ApplicationArgs 0
 btoi
 +
 store 3
 
-// update "cnt1
+// update lcnt
 int 0
-byte "lcnt1"
+byte "lcnt"
 load 3
 app_local_put
 
