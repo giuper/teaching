@@ -20,6 +20,7 @@
     4. Smart Signatures through the Python SDK [code](./Code/04-SmartSigPayTX-PY)
     6. Assets [code](./Code/06-Assets)
     8. Smart Contracts [code](./Code/08-SmartContracts)
+    9. NIM [code](./Code/09-NIM)
     
 ## Readings ##
 1. [The Bitcoin paper](https://bitcoin.org/bitcoin.pdf)
