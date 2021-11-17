@@ -12,7 +12,7 @@ and one local counter ```lcnt``` (incremented by 7 at each invocation) per addre
 1. Create the approval file [01-class.teal](01-class.teal)
 2. Run [createApp.py](createApp.py) to create the application.
     It takes three command line arguments: the filename containing the mnemonic of the creator account,
-        the filename containing the teal program, the directory of the node.
+        the filename containing the teal program, and the directory of the node.
     Take note of the application index that will be needed for the following steps.
 
     Note that you must use the creator address in the approval program. Currently the teal file  has the address
