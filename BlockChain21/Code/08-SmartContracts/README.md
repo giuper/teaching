@@ -38,7 +38,7 @@ and one local counter ```lcnt``` (incremented by 7 at each invocation) per addre
     The output shows the current values of the counters.
     The global and local counter can be obtained from the ```response``` returned by the transaction once it 
     has completed (in the fields ```global-state-delta``` and ```local-state-delta```, respectively).
-    Note that only variables whose value have changed are reported (whence the ```delta```).
+    Note that only variables whose values have changed are reported (whence the ```delta```).
 
     Alternatively, the local state can be obtained from the field ```apps-local-state``` of the 
     ```account_info``` obtained from the node about the address that has called the application.
