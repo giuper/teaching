@@ -19,21 +19,21 @@ and one local counter ```lcnt``` (incremented by 7 at each invocation) per addre
     that I have used during my lecture.
 
     [Here](./TX/create.stxn) is the signed transaction that creates an application.
-    Use command ```goal node clerk inspect create.stxn``` to view its content.
+    Use command ```goal clerk inspect create.stxn``` to view its content.
 
 2. Run [optinApp.py](optinApp.py) to allow addresses to opt in the application.
     It takes three command line arguments: the filename containing the mnemonic of the address
     that wishes to opt in, the application index, and the directory of the node.
 
     [Here](./TX/optin.stxn) is the signed transaction to opt in an application.
-    Use command ```goal node clerk inspect optin.stxn``` to view its content.
+    Use command ```goal clerk inspect optin.stxn``` to view its content.
     
 3. Run [callApp.py](callApp.py) to allow addresses to execute the application.
     It takes three command line arguments: the filename containing the mnemonic of the address
     that wishes to opt in, the application index, and the directory of the node.
     
     [Here](./TX/noop.stxn) is the signed transaction to invoke an application.
-    Use command ```goal node clerk inspect noop.stxn``` to view its content.
+    Use command ```goal clerk inspect noop.stxn``` to view its content.
 
     The output shows the current values of the counters.
     The global and local counter can be obtained from the ```response``` returned by the transaction once it 
