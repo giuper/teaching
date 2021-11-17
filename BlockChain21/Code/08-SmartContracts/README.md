@@ -5,7 +5,7 @@
 
 We create a simple smart contract that exemplifies the use of global and local state.
 Specifically, the contract maintains one global counter ```gcnt1``` (incremented by 1 at each invocation)
-and one local counter ```lcnt1``` (incremented by 7 at each invocation) per address.
+and one local counter ```lcnt``` (incremented by 7 at each invocation) per address.
 
 ### Step by step (no arguments) ###
 
