@@ -51,7 +51,7 @@ and one local counter ```lcnt``` (incremented by 7 at each invocation) per addre
 1.  We modify the teal program so that the local value is incremented by a user provided 
 integer (and not by 1 as before). [Here](02-class.teal) is the revised source.
 
-2. Opting in is the same as before.
+2. Opting is the same as before.
 
 3. Run [callIntArgApp.py](callIntArgApp.py) to allow addresses to execute the application
     and pass the parameter.
