@@ -34,7 +34,7 @@ err
 handle_noop:
 // Handle NoOp
 // Check for creator
-addr IUF3CPTWUN6NGASKHYJR7PCUUDKCDQCKGPMB577XYQ4CJRUZV3FDXEYL7Q
+addr JNXSVKOM24BQWKFWOZVWNL24ONVQ5K7TP7YD6EJGU4JERFH5JMO6X35KKI
 txn Sender
 ==
 bnz SShandle_optin
@@ -117,7 +117,7 @@ byte "heap"
 int 12
 app_global_put
 byte "max"
-int 4
+int 3
 app_global_put
 
 handle_optin:
@@ -134,14 +134,14 @@ return
 
 handle_deleteapp:
 // Check for creator
-addr IUF3CPTWUN6NGASKHYJR7PCUUDKCDQCKGPMB577XYQ4CJRUZV3FDXEYL7Q
+addr JNXSVKOM24BQWKFWOZVWNL24ONVQ5K7TP7YD6EJGU4JERFH5JMO6X35KKI
 txn Sender
 ==
 return
 
 handle_updateapp:
 // Check for creator
-addr IUF3CPTWUN6NGASKHYJR7PCUUDKCDQCKGPMB577XYQ4CJRUZV3FDXEYL7Q
+addr JNXSVKOM24BQWKFWOZVWNL24ONVQ5K7TP7YD6EJGU4JERFH5JMO6X35KKI
 txn Sender
 ==
 return

@@ -9,7 +9,7 @@ from algosdk.future.transaction import OnComplete
 from algosdk.future.transaction import StateSchema
 from utilities import wait_for_confirmation, getClient
 
-def startGame(dealerMnemFile,approvalFile,directory)
+def startGame(dealerMnemFile,approvalFile,directory):
 
     print("Starting a new istance of the 'NIM on Algorand' game")
 
@@ -18,10 +18,10 @@ def startGame(dealerMnemFile,approvalFile,directory)
 
     f=open(dealerMnemFile,'r')
     dealerMnem=f.read()
-    print("Dealer address: ",dealerAddr)
     f.close()
     dealerSK=mnemonic.to_private_key(dealerMnem)
     dealerAddr=account.address_from_private_key(dealerSK)
+    print("Dealer address: ",dealerAddr)
 
     on_complete=OnComplete.NoOpOC.real
 
