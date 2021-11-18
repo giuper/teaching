@@ -55,3 +55,4 @@ and produces the teal file ```nim.teal``` that will be the approval program for 
 7. At any time [readStatus.py](readStatus.py) can be used to read the current status of the game:
     the next player and the number pebbles left in the heap.
 
+8. The instance of the game can be deleted by running [04-endGame.py](04-endGame.py)
