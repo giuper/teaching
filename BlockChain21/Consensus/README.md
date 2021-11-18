@@ -1,7 +1,7 @@
 # Blockchain21: *Blockchain* #
 ### Academic year 2021/22 ###
 
-## The Algorand Consensus protocol##
+## The Algorand Consensus protocol ##
 
 The [slides](./consensus.pdf) give an overview of the PPoS consensus algorithm
 at the basis of Algorand.
