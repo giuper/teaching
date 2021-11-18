@@ -59,7 +59,7 @@ def esempioSemplice(M,K):
 def falsiPositiviK(M,N):
     opt=M/N*.69
     print(f'{"N=":2s}{N:<9d}{"M=":2s}{M:<9d}')
-    print(f'{"Ottimo k="}{opt:6.3}')
+    print(f'{"Ottimo k="}{opt:<6.3}')
     opt=math.floor(opt)
     for k in range(max(1,opt-5),opt+5):
         B=bloomF(M,k)
@@ -81,7 +81,7 @@ def falsiPositiviK(M,N):
                 fp+=1
             x=x+"a"
         print(f'{"   Lookup:":20s}{time.time()-start:7.3f}')
-        print(f'{"   Falsi positivi:":20s}{fp/N:5.4f}')
+        print(f'{"   Falsi positivi:":22s}{fp/N:5.4f}')
         print()
 
 ##filtro contiene M bit
@@ -113,11 +113,12 @@ def falsiPositiviL(M):
 
 if __name__=='__main__':
 
-    esempioSemplice(16,3)
-    exit()
-    
 ##    for M in [100_000,1_000_000,2_000_000,5_000_000,7_000_000,10_000_000]:
 ##        print(f'{"M=":2s}{M:<7d}')
 ##        falsiPositiviL(M)
 ##        sys.stdout.flush()
-    
+      
+    ##for M in [100_000,1_000_000,2_000_000,5_000_000,7_000_000,10_000_000]:
+    for M in [10_000_000]:
+        for N in [M//2, M//4, M//8 , M//16]:
+            falsiPositiviK(M,N)
