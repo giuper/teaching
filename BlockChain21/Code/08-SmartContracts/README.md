@@ -59,3 +59,7 @@ integer (and not by 1 as before). [Here](02-class.teal) is the revised source.
     It takes four command line arguments: the filename containing the mnemonic of the address
     that wishes to opt in, the application index, the increment and the directory of the node.
     
+
+### Deleting the application ###
+
+1. Run [deleteApp.py](deleteApp.py) to delete the contract
