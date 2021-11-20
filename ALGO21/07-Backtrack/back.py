@@ -1,23 +1,28 @@
 class BackTrack:
 
-#derived class must provide
-# initState   -- to get the initial state
-# nextAdmMove -- to compute the next admissible move
-# makeMove    -- to compute the new state resulting from making a move
-# setVisited  -- to mark a state as visited
-# isFinal     -- to decide if a state is final
+#la classe derivata deve implementare
+# allMoves(stato)   -- restituisce la lista di mosse nello stato 
+# isAdm(stato,m)    -- True sse mossa m e' ammissibile in stato
+# newStato(stato,m) -- restituisce lo stato che si ottiene applicando m
+# isFinal(stato)    -- Ture sse lo stato e' finale
 
-#the stack contains pairs
-#state -- as defined by the derived class
-#lmove -- last move performed
 
+##restituisce una lista
+##all'indice 0 True/False
+##se l'indice 0 e' uguale a True, l'indice 1 contiene uno stato finale
     def _Solve(self,stato,verbose=False):
 
+        if verbose:
+            print("Stato:",stato)
         if self.isFinal(stato):
             return [True,stato]
-        for m in self.admMoves(stato):
+        for m in self.allMoves(stato):
             if not self.isAdm(stato,m):
+                if verbose:
+                    print("mossa ",m,"non ammissibile in",stato)
                 continue
+            if verbose:
+                print("mossa ",m,"ammissibile in",stato)
             newStato=self.newStato(stato,m)
             risultato=self._Solve(newStato,verbose)
             if risultato[0]:

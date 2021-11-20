@@ -1,5 +1,14 @@
 from back import BackTrack
 
+##lo stato per questo problema consiste di una lista di due elementi
+##all'indice 0 abbiamo una lista che contiene le posizioni delle regine
+##gia' decise
+##all'indice 1 abbiamo l'indice della prossima regina da considerare
+##stato iniziale 
+##0  -->  [None]*n  nessuna posizione decisa
+##1  -->   0        prossima regina da considerare
+##                  e' la regina in riga 0
+
 class Queen(BackTrack):
 
     def __init__(self,n):
@@ -7,10 +16,10 @@ class Queen(BackTrack):
         self.n=n
         self.sol=None
 
-    def Solve(self):
-        return self._Solve([[None]*self.n,0])
+    def Solve(self,verbose=False):
+        return self._Solve([[None]*self.n,0],verbose)
 
-    def admMoves(self,stato):
+    def allMoves(self,stato):
         return list(range(self.n))
 
     def isAdm(self,stato,m):
@@ -52,11 +61,9 @@ class Queen(BackTrack):
         return r1+c1==r2+c2
 
 
-    def __str__(self):
-        res=""
-        if self.sol is not None:
-            for r in range(self.n):
-                res=res+"."*self.sol[0][r]+"Q"+"."*(self.n-self.sol[0][r]-1)+"\n"
-        return res
-
-
+q=Queen(8)
+soluzione=q.Solve()
+if soluzione[0]:
+    print(f'Soluzione per N={q.n}: {soluzione[1][0]}')
+else:
+    print("Nessuna soluzione")
