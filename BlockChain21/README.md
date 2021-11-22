@@ -5,15 +5,14 @@
 ## Topics ##
 1. Bitcoin. Reference text: Mastering Bitcoin by Andreas M. Antonopoulos
 
-
     1. Overview of Bitcoin: Chapter 1-2
     2. Key, Addresses: Chapter 4
     3. Transactions: Chapter 6-7
-    4. Nodes, Network and Consensus: Chapter 8,9,10
+    4. Nodes, Network and Consensus: Chapter 8, 9, 10
 
 2. Algorand:
 
-    0. [Slides](./slides.pdf) used in class
+    0. [Slides](./slides.pdf) on transactions
     1. Single Pay TX [code](./Code/01-SinglePayTx)
     2. Multi Signature Pay TX  [code](./Code/02-MultiPayTx)
     3. Smart Signatures through the command line [code](./Code/03-SmartSigPayTX-CLI)
@@ -21,6 +20,7 @@
     6. Assets [code](./Code/06-Assets)
     8. Smart Contracts [code](./Code/08-SmartContracts)
     9. NIM [code](./Code/09-NIM)
+    10. [The Algorand consensus](./Consensus) 
     
 ## Readings ##
 1. [The Bitcoin paper](https://bitcoin.org/bitcoin.pdf)
