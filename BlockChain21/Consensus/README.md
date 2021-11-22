@@ -6,7 +6,7 @@
 The [slides](./consensus.pdf) give an overview of the PPoS consensus algorithm
 at the basis of Algorand.
 
-We next show how to take part in consesus
+We next show how to take part in consensus
 
 ### Participating in Consensus: Step by step  ###
 
