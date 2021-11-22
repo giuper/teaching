@@ -20,6 +20,8 @@ echo "Step 3"
 echo "Step 4"
 ${GOAL} account changeonlinestatus --address=${ADDRESS} --fee=2000 --firstvalid=${FIRST} --lastvalid=${LAST} --online=true --txfile=online.txn -d ${DIRECTORY}
 
+##do not execute this on an online machine
+##unless you are on the testnet
 echo "Step 5" 
 ${ALGOK} sign -m ${PASSPhrase} -t online.txn -o algokeySigned.stxn
 
