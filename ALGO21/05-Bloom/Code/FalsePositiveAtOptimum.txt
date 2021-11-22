@@ -1,0 +1,366 @@
+M=100000 
+   N=50000     L=2   K=1
+   Inserimento:     0.000078
+   Lookup:          0.000216
+   Falsi positivi:  0.3926
+
+   N=33333     L=3   K=2
+   Inserimento:     0.000095
+   Lookup:          0.000205
+   Falsi positivi:  0.2348
+
+   N=25000     L=4   K=3
+   Inserimento:     0.000107
+   Lookup:          0.000195
+   Falsi positivi:  0.1474
+
+   N=20000     L=5   K=3
+   Inserimento:     0.000092
+   Lookup:          0.000158
+   Falsi positivi:  0.0933
+
+   N=16666     L=6   K=4
+   Inserimento:     0.000111
+   Lookup:          0.000144
+   Falsi positivi:  0.0538
+
+   N=14285     L=7   K=5
+   Inserimento:     0.000115
+   Lookup:          0.000132
+   Falsi positivi:  0.0368
+
+   N=12500     L=8   K=6
+   Inserimento:     0.000121
+   Lookup:          0.000121
+   Falsi positivi:  0.0221
+
+   N=11111     L=9   K=6
+   Inserimento:     0.000114
+   Lookup:          0.000105
+   Falsi positivi:  0.0118
+
+   N=10000     L=10  K=7
+   Inserimento:     0.000118
+   Lookup:          0.000096
+   Falsi positivi:  0.0081
+
+   N=9090      L=11  K=8
+   Inserimento:     0.000121
+   Lookup:          0.000089
+   Falsi positivi:  0.0047
+
+   N=8333      L=12  K=8
+   Inserimento:     0.000112
+   Lookup:          0.000077
+   Falsi positivi:  0.0031
+
+   N=7692      L=13  K=9
+   Inserimento:     0.000117
+   Lookup:          0.000074
+   Falsi positivi:  0.0020
+
+M=1000000
+   N=500000    L=2   K=1
+   Inserimento:     0.000968
+   Lookup:          0.002980
+   Falsi positivi:  0.3923
+
+   N=333333    L=3   K=2
+   Inserimento:     0.001097
+   Lookup:          0.002454
+   Falsi positivi:  0.2365
+
+   N=250000    L=4   K=3
+   Inserimento:     0.001224
+   Lookup:          0.002215
+   Falsi positivi:  0.1474
+
+   N=200000    L=5   K=3
+   Inserimento:     0.000990
+   Lookup:          0.001636
+   Falsi positivi:  0.0921
+
+   N=166666    L=6   K=4
+   Inserimento:     0.001089
+   Lookup:          0.001503
+   Falsi positivi:  0.0562
+
+   N=142857    L=7   K=5
+   Inserimento:     0.001177
+   Lookup:          0.001398
+   Falsi positivi:  0.0351
+
+   N=125000    L=8   K=6
+   Inserimento:     0.001228
+   Lookup:          0.001269
+   Falsi positivi:  0.0213
+
+   N=111111    L=9   K=6
+   Inserimento:     0.001099
+   Lookup:          0.001061
+   Falsi positivi:  0.0134
+
+   N=100000    L=10  K=7
+   Inserimento:     0.001148
+   Lookup:          0.000981
+   Falsi positivi:  0.0082
+
+   N=90909     L=11  K=8
+   Inserimento:     0.001202
+   Lookup:          0.000922
+   Falsi positivi:  0.0047
+
+   N=83333     L=12  K=8
+   Inserimento:     0.001094
+   Lookup:          0.000794
+   Falsi positivi:  0.0031
+
+   N=76923     L=13  K=9
+   Inserimento:     0.001140
+   Lookup:          0.000758
+   Falsi positivi:  0.0022
+
+M=2000000
+   N=1000000   L=2   K=1
+   Inserimento:     0.002165
+   Lookup:          0.007005
+   Falsi positivi:  0.3939
+
+   N=666666    L=3   K=2
+   Inserimento:     0.002179
+   Lookup:          0.004902
+   Falsi positivi:  0.2369
+
+   N=500000    L=4   K=3
+   Inserimento:     0.002450
+   Lookup:          0.004451
+   Falsi positivi:  0.1459
+
+   N=400000    L=5   K=3
+   Inserimento:     0.001957
+   Lookup:          0.003246
+   Falsi positivi:  0.0914
+
+   N=333333    L=6   K=4
+   Inserimento:     0.002177
+   Lookup:          0.003010
+   Falsi positivi:  0.0561
+
+   N=285714    L=7   K=5
+   Inserimento:     0.002324
+   Lookup:          0.002759
+   Falsi positivi:  0.0348
+
+   N=250000    L=8   K=6
+   Inserimento:     0.002440
+   Lookup:          0.002541
+   Falsi positivi:  0.0213
+
+   N=222222    L=9   K=6
+   Inserimento:     0.002172
+   Lookup:          0.002093
+   Falsi positivi:  0.0136
+
+   N=200000    L=10  K=7
+   Inserimento:     0.002310
+   Lookup:          0.002078
+   Falsi positivi:  0.0084
+
+   N=181818    L=11  K=8
+   Inserimento:     0.002383
+   Lookup:          0.001834
+   Falsi positivi:  0.0057
+
+   N=166666    L=12  K=8
+   Inserimento:     0.002173
+   Lookup:          0.001583
+   Falsi positivi:  0.0032
+
+   N=153846    L=13  K=9
+   Inserimento:     0.002258
+   Lookup:          0.001509
+   Falsi positivi:  0.0019
+
+M=5000000
+   N=2500000   L=2   K=1
+   Inserimento:     0.004256
+   Lookup:          0.012709
+   Falsi positivi:  0.3936
+
+   N=1666666   L=3   K=2
+   Inserimento:     0.005470
+   Lookup:          0.012332
+   Falsi positivi:  0.2368
+
+   N=1250000   L=4   K=3
+   Inserimento:     0.008089
+   Lookup:          0.012033
+   Falsi positivi:  0.1471
+
+   N=1000000   L=5   K=3
+   Inserimento:     0.005118
+   Lookup:          0.008646
+   Falsi positivi:  0.0922
+
+   N=833333    L=6   K=4
+   Inserimento:     0.011220
+   Lookup:          0.007732
+   Falsi positivi:  0.0561
+
+   N=714285    L=7   K=5
+   Inserimento:     0.005916
+   Lookup:          0.006959
+   Falsi positivi:  0.0346
+
+   N=625000    L=8   K=6
+   Inserimento:     0.006163
+   Lookup:          0.006439
+   Falsi positivi:  0.0217
+
+   N=555555    L=9   K=6
+   Inserimento:     0.005470
+   Lookup:          0.005279
+   Falsi positivi:  0.0135
+
+   N=500000    L=10  K=7
+   Inserimento:     0.005745
+   Lookup:          0.004925
+   Falsi positivi:  0.0081
+
+   N=454545    L=11  K=8
+   Inserimento:     0.006077
+   Lookup:          0.004753
+   Falsi positivi:  0.0051
+
+   N=416666    L=12  K=8
+   Inserimento:     0.010704
+   Lookup:          0.003997
+   Falsi positivi:  0.0032
+
+   N=384615    L=13  K=9
+   Inserimento:     0.005670
+   Lookup:          0.005738
+   Falsi positivi:  0.0019
+
+M=7000000
+   N=3500000   L=2   K=1
+   Inserimento:     0.005899
+   Lookup:          0.018459
+   Falsi positivi:  0.3932
+
+   N=2333333   L=3   K=2
+   Inserimento:     0.008342
+   Lookup:          0.019591
+   Falsi positivi:  0.2372
+
+   N=1750000   L=4   K=3
+   Inserimento:     0.009925
+   Lookup:          0.018661
+   Falsi positivi:  0.1466
+
+   N=1400000   L=5   K=3
+   Inserimento:     0.006594
+   Lookup:          0.011053
+   Falsi positivi:  0.0920
+
+   N=1166666   L=6   K=4
+   Inserimento:     0.007317
+   Lookup:          0.010249
+   Falsi positivi:  0.0559
+
+   N=1000000   L=7   K=5
+   Inserimento:     0.007852
+   Lookup:          0.012441
+   Falsi positivi:  0.0345
+
+   N=875000    L=8   K=6
+   Inserimento:     0.008393
+   Lookup:          0.008892
+   Falsi positivi:  0.0214
+
+   N=777777    L=9   K=6
+   Inserimento:     0.016924
+   Lookup:          0.007260
+   Falsi positivi:  0.0131
+
+   N=700000    L=10  K=7
+   Inserimento:     0.007720
+   Lookup:          0.006617
+   Falsi positivi:  0.0084
+
+   N=636363    L=11  K=8
+   Inserimento:     0.007966
+   Lookup:          0.006006
+   Falsi positivi:  0.0052
+
+   N=583333    L=12  K=8
+   Inserimento:     0.007051
+   Lookup:          0.005178
+   Falsi positivi:  0.0031
+
+   N=538461    L=13  K=9
+   Inserimento:     0.007478
+   Lookup:          0.012030
+   Falsi positivi:  0.0020
+
+M=10000000
+   N=5000000   L=2   K=1
+   Inserimento:     0.008976
+   Lookup:          0.027942
+   Falsi positivi:  0.3935
+
+   N=3333333   L=3   K=2
+   Inserimento:     0.011992
+   Lookup:          0.027230
+   Falsi positivi:  0.2373
+
+   N=2500000   L=4   K=3
+   Inserimento:     0.013056
+   Lookup:          0.020835
+   Falsi positivi:  0.1469
+
+   N=2000000   L=5   K=3
+   Inserimento:     0.008248
+   Lookup:          0.014127
+   Falsi positivi:  0.0918
+
+   N=1666666   L=6   K=4
+   Inserimento:     0.009292
+   Lookup:          0.012537
+   Falsi positivi:  0.0559
+
+   N=1428571   L=7   K=5
+   Inserimento:     0.009679
+   Lookup:          0.011566
+   Falsi positivi:  0.0347
+
+   N=1250000   L=8   K=6
+   Inserimento:     0.010531
+   Lookup:          0.010633
+   Falsi positivi:  0.0217
+
+   N=1111111   L=9   K=6
+   Inserimento:     0.009060
+   Lookup:          0.008744
+   Falsi positivi:  0.0134
+
+   N=1000000   L=10  K=7
+   Inserimento:     0.009522
+   Lookup:          0.008196
+   Falsi positivi:  0.0081
+
+   N=909090    L=11  K=8
+   Inserimento:     0.009879
+   Lookup:          0.007666
+   Falsi positivi:  0.0052
+
+   N=833333    L=12  K=8
+   Inserimento:     0.009051
+   Lookup:          0.006629
+   Falsi positivi:  0.0031
+
+   N=769230    L=13  K=9
+   Inserimento:     0.009403
+   Lookup:          0.006259
+   Falsi positivi:  0.0018
+

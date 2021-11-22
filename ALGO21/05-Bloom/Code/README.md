@@ -17,7 +17,12 @@ di un filtro di Bloom.
 il numero di falsi positivi come funzione del numero k di funzioni hash.
 I valori scelti sono vicini all'ottimo teorico M/N*ln(2)
 
+
 2. La funzione ```falsiPositiviL(M)``` mostra come
 varia il numero di falsi positivi come funzione del carico L=M/N del filtro
 quando il numero di funzioni hash usate &egrave; uguale all'ottimo
 M/N*ln(2)
+
+    Questo [file](FalsePositiveAtOptimum.txt) riporta l'output di questa
+    funzione. I valori realtivi ai tempi di esecuzione non sono tutti
+    significativi.
