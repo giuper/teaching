@@ -8,6 +8,8 @@ Alice and Bob take turns in removing pebbles from a heap.
 The first player that cannot remove pebbles because none is left loses the game.
 At each move there is a maximum number of pebbles that can be removed.
 
+To play this game, three accounts are needed:
+the Dealer's account, Alice's account and Bob's account
 
 ### Step by step  ###
 

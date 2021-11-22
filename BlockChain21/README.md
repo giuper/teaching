@@ -21,6 +21,7 @@
     6. Assets [code](./Code/06-Assets)
     8. Smart Contracts [code](./Code/08-SmartContracts)
     9. NIM [code](./Code/09-NIM)
+    10. [The Algorand consensus protocol][./protocol]
     
 ## Readings ##
 1. [The Bitcoin paper](https://bitcoin.org/bitcoin.pdf)
