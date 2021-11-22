@@ -24,5 +24,5 @@ quando il numero di funzioni hash usate &egrave; uguale all'ottimo
 M/N*ln(2)
 
     Questo [file](FalsePositiveAtOptimum.txt) riporta l'output di questa
-    funzione. I valori realtivi ai tempi di esecuzione non sono tutti
+    funzione. I valori relativi ai tempi di esecuzione non sono tutti
     significativi.
