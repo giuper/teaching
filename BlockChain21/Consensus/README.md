@@ -12,7 +12,7 @@ We next show how to take part in consensus
 
 1. Generate participation keys
 
-    It is too risky to have you spending key online to take part in consensus.
+    It is too risky to have your spending key online to take part in consensus.
     Rather, you employ a participation key.
 
 
