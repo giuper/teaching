@@ -33,3 +33,8 @@
 
 
 
+## Final presentations ##
+
+    1. Rinaldi: Stellar (XLM)
+    2. Trancucci: Cardano (ADA)
+
