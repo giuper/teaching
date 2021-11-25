@@ -13,7 +13,7 @@ It constructs two transactions:
 1. Alice sends 10 Algos to Bob
 2. Bob sends 5 instances of the asset to Alice
 
-and either both are accept or neither is.
+and either both are accepted or neither is.
 
 We have the following transactions (use ```goal clerk inspect``` to see the content of the transactions)
 
