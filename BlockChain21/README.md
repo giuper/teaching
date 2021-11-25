@@ -18,6 +18,7 @@
     3. Smart Signatures through the command line [code](./Code/03-SmartSigPayTX-CLI)
     4. Smart Signatures through the Python SDK [code](./Code/04-SmartSigPayTX-PY)
     6. Assets [code](./Code/06-Assets)
+    7. Atomic swaps [code](./Code/07-AtomicSwaps)
     8. Smart Contracts [code](./Code/08-SmartContracts)
     9. NIM [code](./Code/09-NIM)
     10. [The Algorand consensus](./Consensus) 
