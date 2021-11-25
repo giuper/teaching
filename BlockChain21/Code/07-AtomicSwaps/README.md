@@ -13,7 +13,7 @@ It constructs two transactions:
 1. Alice sends 10 Algos to Bob
 2. Bob sends 5 instances of the asset to Alice
 
-We can see the following transactions
+We have the following transactions (use ```goal clerk inspect``` to see the content of the transactions)
 
 1.  [Unsigned transaction from Alice to Bob](./TX/Alice2Bob.utnx)
 2.  [Unsigned transaction from Alice to Bob with GID](./TX/Alice2BobwithGID.utnx)
