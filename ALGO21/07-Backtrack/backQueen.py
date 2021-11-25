@@ -1,41 +1,41 @@
 from back import BackTrack
 
 ##lo stato per questo problema consiste di una lista di due elementi
-##all'indice 0 abbiamo una lista che contiene le posizioni delle regine
-##gia' decise
-##all'indice 1 abbiamo l'indice della prossima regina da considerare
+##all'indice 0 abbiamo l'indice R della prossima regina da considerare
+##all'indice 1 abbiamo la lista regine che contiene le posizioni 
+##delle regine gia' piazzate
+
 ##stato iniziale 
-##0  -->  [None]*n  nessuna posizione decisa
-##1  -->   0        prossima regina da considerare
-##                  e' la regina in riga 0
+##0  -->   R=0        prossima regina da considerare
+##1  -->  regine=[None]*N  nessuna posizione decisa
 
 class Queen(BackTrack):
 
-    def __init__(self,n):
-        super().__init__()
-        self.n=n
-        self.sol=None
+    def __init__(self,N):
+        super().__init__() #chiama il costruttore della classe madre
+        self.N=N
 
     def Solve(self,verbose=False):
-        return self._Solve([[None]*self.n,0],verbose)
+        #R=0
+        #regine=[None]*N
+        return self._Solve([0,[None]*self.N],verbose)
 
     def allMoves(self,stato):
-        return list(range(self.n))
+        return range(self.N)
 
     def isAdm(self,stato,m):
-        R=stato[1]
-        return self._checkQueen(stato[0],R,m)
+        R=stato[0]
+        return self._checkQueen(stato[1],R,m)
 
     def newStato(self,stato,m):
-        newStato=[]
-        newStato.append(stato[0].copy())
-        R=stato[1]
-        newStato[0][R]=m
-        newStato.append(R+1)
+        R=stato[0]
+        newStato=[R+1]
+        newStato.append(stato[1].copy())
+        newStato[1][R]=m
         return newStato
     
     def isFinal(self,stato):
-        return stato[1]==self.n
+        return stato[0]==self.N
 
     def _checkQueen(self,q,nr,m):
         r1=nr
@@ -61,9 +61,15 @@ class Queen(BackTrack):
         return r1+c1==r2+c2
 
 
-q=Queen(8)
-soluzione=q.Solve()
-if soluzione[0]:
-    print(f'Soluzione per N={q.n}: {soluzione[1][0]}')
-else:
-    print("Nessuna soluzione")
+
+for N in range(3,11):
+    q=Queen(N)
+    soluzione=q.Solve()
+    if soluzione[0]:
+        print(f'Soluzione per N={q.N}: {soluzione[1][0]}')
+    else:
+        print(f'Nessuna soluzione per N={q.N}')
+
+print("\n\nIl caso N=4 in modalità verbose")
+q=Queen(4)
+soluzione=q.Solve(True)

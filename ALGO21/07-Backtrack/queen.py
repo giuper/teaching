@@ -34,8 +34,8 @@ def solve(R,regine,N):
                 return True
     return False
         
-            
-soluzione=[None]*8
-if solve(R=0,regine=soluzione,N=8):
-    print(soluzione)
+for N in range(4,30):
+    soluzione=[None]*N
+    if solve(R=0,regine=soluzione,N=N):
+        print(f'{N:3d} {soluzione}')
 
